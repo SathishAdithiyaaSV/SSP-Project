@@ -1,0 +1,2 @@
+service,cpu_millicores,memory_mb,replicas,observed_cpu_millicores,msc_rps
+search,200,256,1,192,96

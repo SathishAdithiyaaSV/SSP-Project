@@ -1,0 +1,58 @@
+{
+  "frontend": {
+    "protocol": "http",
+    "port": 5000,
+    "dependencies": [
+      "search",
+      "profile",
+      "recommendation",
+      "user",
+      "reservation"
+    ]
+  },
+  "geo": {
+    "protocol": "grpc",
+    "port": 8083,
+    "consul_name": "srv-geo",
+    "dependencies": []
+  },
+  "profile": {
+    "protocol": "grpc",
+    "port": 8081,
+    "consul_name": "srv-profile",
+    "dependencies": []
+  },
+  "rate": {
+    "protocol": "grpc",
+    "port": 8084,
+    "consul_name": "srv-rate",
+    "dependencies": []
+  },
+  "recommendation": {
+    "protocol": "grpc",
+    "port": 8085,
+    "consul_name": "srv-recommendation",
+    "dependencies": []
+  },
+  "reservation": {
+    "protocol": "grpc",
+    "port": 8087,
+    "consul_name": "srv-reservation",
+    "dependencies": []
+  },
+  "search": {
+    "protocol": "grpc",
+    "port": 8082,
+    "consul_name": "srv-search",
+    "dependencies": [
+      "geo",
+      "rate"
+    ]
+  },
+  "user": {
+    "protocol": "grpc",
+    "port": 8086,
+    "consul_name": "srv-user",
+    "dependencies": []
+  }
+}

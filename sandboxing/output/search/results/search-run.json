@@ -1,0 +1,131 @@
+{
+  "cpu_millicores": 200,
+  "memory_mb": 256,
+  "msc_rps": 96,
+  "observed_cpu_millicores": 192,
+  "replicas": 1,
+  "service": "search",
+  "steps": [
+    {
+      "observed_cpu_millicores": 1,
+      "p90_latency_ms": 14.517495402105851,
+      "rps": 1,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 5,
+      "p90_latency_ms": 63.26352370051609,
+      "rps": 6,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 5,
+      "p90_latency_ms": 251.37448239838704,
+      "rps": 11,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 5,
+      "p90_latency_ms": 257.6901328993699,
+      "rps": 16,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 59,
+      "p90_latency_ms": 446.1827994990017,
+      "rps": 21,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 59,
+      "p90_latency_ms": 610.456236500977,
+      "rps": 26,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 59,
+      "p90_latency_ms": 696.221801401407,
+      "rps": 31,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 131,
+      "p90_latency_ms": 789.4501646995195,
+      "rps": 36,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 131,
+      "p90_latency_ms": 951.9851204026054,
+      "rps": 41,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 183,
+      "p90_latency_ms": 1101.3430463972327,
+      "rps": 46,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 183,
+      "p90_latency_ms": 1099.981052700241,
+      "rps": 51,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 183,
+      "p90_latency_ms": 1099.124664197734,
+      "rps": 56,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 192,
+      "p90_latency_ms": 1006.4634110010957,
+      "rps": 61,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 192,
+      "p90_latency_ms": 1011.9132033003552,
+      "rps": 66,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 191,
+      "p90_latency_ms": 1200.1253847000044,
+      "rps": 71,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 192,
+      "p90_latency_ms": 1108.6405338010081,
+      "rps": 76,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 192,
+      "p90_latency_ms": 1110.8427186009067,
+      "rps": 81,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 191,
+      "p90_latency_ms": 1111.27582589761,
+      "rps": 86,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 192,
+      "p90_latency_ms": 1097.9259759998968,
+      "rps": 91,
+      "success_rate": 1.0
+    },
+    {
+      "observed_cpu_millicores": 192,
+      "p90_latency_ms": 1196.090213700154,
+      "rps": 96,
+      "success_rate": 1.0
+    }
+  ],
+  "violation_reason": "max_rps_reached"
+}

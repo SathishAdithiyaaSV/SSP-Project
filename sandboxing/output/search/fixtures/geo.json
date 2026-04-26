@@ -1,0 +1,21 @@
+{
+  "fixtures": [
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 38.0235,
+        "lon": -122.095
+      },
+      "response": {
+        "hotelIds": [
+          "40",
+          "39",
+          "41",
+          "38",
+          "42"
+        ]
+      }
+    }
+  ]
+}

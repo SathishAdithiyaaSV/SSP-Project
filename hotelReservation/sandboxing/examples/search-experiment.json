@@ -1,0 +1,24 @@
+{
+  "service": "search",
+  "namespace": "hotelres-search-sandbox",
+  "image": "deathstarbench/hotel-reservation:mvp",
+  "dummy_image": "deathstarbench/hotel-reservation-sandbox-dummy:mvp",
+  "cpu_millicores": 200,
+  "memory_mb": 256,
+  "replicas": 1,
+  "slo": {
+    "success_rate_threshold": 0.98,
+    "p90_latency_ms": 3000
+  },
+  "load": {
+    "start_rps": 1,
+    "step_rps": 5,
+    "step_duration_seconds": 20,
+    "max_rps": 100
+  },
+  "capture": {
+    "warmup_requests": 30,
+    "frontend_base_url": "http://127.0.0.1:8080"
+  },
+  "output_dir": "sandboxing/output/search"
+}
