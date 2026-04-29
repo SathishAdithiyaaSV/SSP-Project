@@ -162,11 +162,29 @@ func (s *Server) Nearby(ctx context.Context, req *pb.NearbyRequest) (*pb.SearchR
 	// * price (best discount?)
 	// * reviews
 
-	// build the response
+	return buildSearchResult(nearby.HotelIds, rates.RatePlans), nil
+}
+
+func buildSearchResult(nearbyHotelIDs []string, ratePlans []*rate.RatePlan) *pb.SearchResult {
 	res := new(pb.SearchResult)
-	for _, ratePlan := range rates.RatePlans {
+	allowedHotelIDs := make(map[string]struct{}, len(nearbyHotelIDs))
+	seenHotelIDs := make(map[string]struct{}, len(nearbyHotelIDs))
+
+	for _, hotelID := range nearbyHotelIDs {
+		allowedHotelIDs[hotelID] = struct{}{}
+	}
+
+	for _, ratePlan := range ratePlans {
 		log.Trace().Msgf("get RatePlan HotelId = %s, Code = %s", ratePlan.HotelId, ratePlan.Code)
+		if _, ok := allowedHotelIDs[ratePlan.HotelId]; !ok {
+			continue
+		}
+		if _, ok := seenHotelIDs[ratePlan.HotelId]; ok {
+			continue
+		}
+		seenHotelIDs[ratePlan.HotelId] = struct{}{}
 		res.HotelIds = append(res.HotelIds, ratePlan.HotelId)
 	}
-	return res, nil
+
+	return res
 }

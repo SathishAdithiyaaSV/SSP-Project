@@ -4,16 +4,305 @@
       "code": "OK",
       "method": "/geo.Geo/Nearby",
       "request": {
-        "lat": 38.0235,
-        "lon": -122.095
+        "lat": 37.7867,
+        "lon": -122.4112
       },
       "response": {
         "hotelIds": [
-          "40",
-          "39",
-          "41",
-          "38",
-          "42"
+          "1",
+          "3",
+          "5",
+          "6",
+          "2"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7907,
+        "lon": -122.4152
+      },
+      "response": {
+        "hotelIds": [
+          "1",
+          "5",
+          "3",
+          "6",
+          "2"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7807,
+        "lon": -122.4062
+      },
+      "response": {
+        "hotelIds": [
+          "3",
+          "2",
+          "6",
+          "1",
+          "5"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7854,
+        "lon": -122.4005
+      },
+      "response": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "4"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7894,
+        "lon": -122.4045
+      },
+      "response": {
+        "hotelIds": [
+          "6",
+          "3",
+          "2",
+          "1",
+          "4"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7794,
+        "lon": -122.3955
+      },
+      "response": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "4",
+          "1"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7834,
+        "lon": -122.4071
+      },
+      "response": {
+        "hotelIds": [
+          "3",
+          "1",
+          "6",
+          "2",
+          "5"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7874,
+        "lon": -122.4111
+      },
+      "response": {
+        "hotelIds": [
+          "1",
+          "3",
+          "5",
+          "6",
+          "2"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7774,
+        "lon": -122.4021
+      },
+      "response": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "5"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7936,
+        "lon": -122.393
+      },
+      "response": {
+        "hotelIds": [
+          "4",
+          "6",
+          "2",
+          "3",
+          "1"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7976,
+        "lon": -122.397
+      },
+      "response": {
+        "hotelIds": [
+          "4",
+          "6",
+          "2",
+          "3",
+          "1"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7876,
+        "lon": -122.388
+      },
+      "response": {
+        "hotelIds": [
+          "4",
+          "2",
+          "6",
+          "3",
+          "1"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7831,
+        "lon": -122.4181
+      },
+      "response": {
+        "hotelIds": [
+          "5",
+          "1",
+          "3",
+          "6",
+          "2"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7871,
+        "lon": -122.4221
+      },
+      "response": {
+        "hotelIds": [
+          "5",
+          "1",
+          "3",
+          "6",
+          "2"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7771,
+        "lon": -122.4131
+      },
+      "response": {
+        "hotelIds": [
+          "5",
+          "3",
+          "1",
+          "2",
+          "6"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7863,
+        "lon": -122.4015
+      },
+      "response": {
+        "hotelIds": [
+          "6",
+          "2",
+          "3",
+          "1",
+          "4"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7903,
+        "lon": -122.4055
+      },
+      "response": {
+        "hotelIds": [
+          "3",
+          "6",
+          "1",
+          "2",
+          "4"
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/geo.Geo/Nearby",
+      "request": {
+        "lat": 37.7803,
+        "lon": -122.3965
+      },
+      "response": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "4"
         ]
       }
     }

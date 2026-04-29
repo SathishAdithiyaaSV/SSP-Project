@@ -6,8 +6,9 @@ import os
 import socket
 import subprocess
 import time
+from itertools import cycle, islice
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, Iterable, List
 
 import yaml
 import requests
@@ -33,7 +34,28 @@ def apply_manifest(path: Path) -> None:
         if document is None:
             continue
         manifest_text = yaml.safe_dump(document)
-        run_command(["kubectl", "apply", "-f", "-"], input=manifest_text, capture_output=True)
+        run_command(
+            ["kubectl", "apply", "--server-side", "--force-conflicts", "-f", "-"],
+            input=manifest_text,
+            capture_output=True,
+        )
+
+
+def recreate_namespace(namespace: str) -> None:
+    # Start from a clean sandbox so stale Consul registrations from prior runs
+    # do not survive and route search traffic to outdated dummy pods.
+    run_command(
+        [
+            "kubectl",
+            "delete",
+            "namespace",
+            namespace,
+            "--ignore-not-found=true",
+            "--wait=true",
+            "--timeout=180s",
+        ],
+        capture_output=True,
+    )
 
 
 def ensure_metrics_server() -> None:
@@ -46,21 +68,37 @@ def ensure_metrics_server() -> None:
 
 
 def _get_service_pod(service: str) -> str:
-    return (
-        run_command(
-            [
-                "kubectl",
-                "get",
-                "pods",
-                "-l",
-                f"io.kompose.service={service}",
-                "-o",
-                "jsonpath={.items[0].metadata.name}",
-            ],
-            capture_output=True,
-        )
-        .stdout.strip()
-    )
+    raw = run_command(
+        [
+            "kubectl",
+            "get",
+            "pods",
+            "-l",
+            f"io.kompose.service={service}",
+            "-o",
+            "json",
+        ],
+        capture_output=True,
+    ).stdout
+    payload = json.loads(raw)
+    items = payload.get("items", [])
+    for pod in items:
+        metadata = pod.get("metadata", {})
+        if metadata.get("deletionTimestamp"):
+            continue
+        status = pod.get("status", {})
+        if status.get("phase") != "Running":
+            continue
+        container_statuses = status.get("containerStatuses", [])
+        if container_statuses and not all(item.get("ready") for item in container_statuses):
+            continue
+        name = metadata.get("name")
+        if name:
+            return name
+
+    if items:
+        return items[0]["metadata"]["name"]
+    raise RuntimeError(f"No pods found for service {service}")
 
 
 def _read_capture_file(pod: str, capture_path: str) -> str:
@@ -100,6 +138,57 @@ def _wait_for_capture_file(service: str, pod: str, capture_path: str, timeout_se
         + " The running baseline image likely does not include the sandbox capture interceptor yet. "
         + "Rebuild and reload `deathstarbench/hotel-reservation:latest`, redeploy the baseline services, then rerun the experiment."
     )
+
+
+def _load_search_capture_requests() -> List[Dict[str, str]]:
+    hotels = json.loads((REPO_ROOT / "hotelReservation" / "data" / "hotels.json").read_text())
+    date_windows = [
+        ("2015-04-09", "2015-04-10"),
+        ("2015-04-09", "2015-04-17"),
+        ("2015-04-10", "2015-04-11"),
+        ("2015-04-17", "2015-04-18"),
+        ("2015-04-17", "2015-04-24"),
+        ("2015-04-20", "2015-04-24"),
+    ]
+    offsets = [
+        (0.0, 0.0),
+        (0.004, -0.004),
+        (-0.006, 0.005),
+    ]
+
+    requests_to_capture: List[Dict[str, str]] = []
+    seen = set()
+    for hotel in hotels:
+        address = hotel.get("address", {})
+        lat = address.get("lat")
+        lon = address.get("lon")
+        if lat is None or lon is None:
+            continue
+        for in_date, out_date in date_windows:
+            for lat_offset, lon_offset in offsets:
+                request = {
+                    "inDate": in_date,
+                    "outDate": out_date,
+                    "lat": f"{lat + lat_offset:.4f}",
+                    "lon": f"{lon + lon_offset:.4f}",
+                }
+                key = tuple(request.items())
+                if key in seen:
+                    continue
+                seen.add(key)
+                requests_to_capture.append(request)
+
+    if not requests_to_capture:
+        raise RuntimeError("No capture requests could be generated from hotelReservation/data/hotels.json")
+    return requests_to_capture
+
+
+def _iter_capture_requests(requests_to_capture: Iterable[Dict[str, str]], warmup_requests: int) -> Iterable[Dict[str, str]]:
+    request_list = list(requests_to_capture)
+    total_requests = max(len(request_list), warmup_requests)
+    if total_requests <= 0:
+        return request_list
+    return list(islice(cycle(request_list), total_requests))
 
 
 def _reserve_local_port() -> int:
@@ -142,15 +231,11 @@ def capture_search_baseline(config: ExperimentConfig) -> Dict[str, Path]:
         _reset_capture_file(pod, f"/tmp/{service}.ndjson")
 
     frontend = config.capture.frontend_base_url.rstrip("/")
-    for _ in range(config.capture.warmup_requests):
+    capture_requests = _iter_capture_requests(_load_search_capture_requests(), config.capture.warmup_requests)
+    for params in capture_requests:
         response = requests.get(
             f"{frontend}/hotels",
-            params={
-                "inDate": "2015-04-17",
-                "outDate": "2015-04-18",
-                "lat": "38.0235",
-                "lon": "-122.095",
-            },
+            params=params,
             timeout=10,
         )
         response.raise_for_status()
@@ -198,8 +283,20 @@ def render_and_apply_sandbox(config: ExperimentConfig, artifacts: Dict[str, Path
     )
     manifest_path = config.output_dir / "sandbox" / "search-sandbox.yaml"
     write_manifest(manifest_path, docs)
+    recreate_namespace(config.namespace)
     apply_manifest(manifest_path)
-    run_command(["kubectl", "rollout", "status", "-n", config.namespace, "deployment/search", "--timeout=180s"])
+    for service in ("geo", "rate", "search"):
+        run_command(
+            [
+                "kubectl",
+                "rollout",
+                "status",
+                "-n",
+                config.namespace,
+                f"deployment/{service}",
+                "--timeout=180s",
+            ]
+        )
     return manifest_path
 
 
