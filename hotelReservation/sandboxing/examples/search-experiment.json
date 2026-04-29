@@ -14,7 +14,7 @@
     "start_rps": 1,
     "step_rps": 5,
     "step_duration_seconds": 20,
-    "max_rps": 100
+    "max_rps": 300
   },
   "capture": {
     "warmup_requests": 30,

@@ -15,6 +15,24 @@ def _normalize_json_value(value: Any) -> Any:
     return value
 
 
+def _dedupe_json_lists(value: Any) -> Any:
+    if isinstance(value, list):
+        items = [_dedupe_json_lists(item) for item in value]
+        deduped = []
+        seen = set()
+        for item in items:
+            if isinstance(item, (dict, list)):
+                key = json.dumps(item, separators=(",", ":"), sort_keys=True)
+                if key in seen:
+                    continue
+                seen.add(key)
+            deduped.append(item)
+        return deduped
+    if isinstance(value, dict):
+        return {key: _dedupe_json_lists(item) for key, item in value.items()}
+    return value
+
+
 def canonical_json(payload: Dict[str, Any]) -> str:
     return json.dumps(_normalize_json_value(payload), separators=(",", ":"), sort_keys=True)
 
@@ -40,6 +58,7 @@ def normalize_capture(records: Iterable[Dict[str, Any]]) -> Dict[str, Any]:
             request = json.loads(request)
         if isinstance(response, str):
             response = json.loads(response)
+        response = _dedupe_json_lists(response)
         key = (record["method"], canonical_json(request))
         if key in seen:
             continue
@@ -52,6 +71,47 @@ def normalize_capture(records: Iterable[Dict[str, Any]]) -> Dict[str, Any]:
                 "code": record["code"],
             }
         )
+    return {"fixtures": fixtures}
+
+
+def add_empty_rate_fixtures(
+    rate_fixtures: Dict[str, Any],
+    geo_fixtures: Dict[str, Any],
+    search_corpus: Dict[str, Any],
+) -> Dict[str, Any]:
+    fixtures = list(rate_fixtures["fixtures"])
+    seen = {
+        (fixture["method"], canonical_json(fixture["request"]))
+        for fixture in fixtures
+    }
+    empty_geo_requests = {
+        canonical_json(fixture["request"])
+        for fixture in geo_fixtures["fixtures"]
+        if not fixture["response"].get("hotelIds")
+    }
+
+    for request in search_corpus["requests"]:
+        geo_request = {"lat": request["lat"], "lon": request["lon"]}
+        if canonical_json(geo_request) not in empty_geo_requests:
+            continue
+        rate_request = {
+            "hotelIds": [],
+            "inDate": request["inDate"],
+            "outDate": request["outDate"],
+        }
+        key = ("/rate.Rate/GetRates", canonical_json(rate_request))
+        if key in seen:
+            continue
+        seen.add(key)
+        fixtures.append(
+            {
+                "method": "/rate.Rate/GetRates",
+                "request": rate_request,
+                "response": {"ratePlans": []},
+                "code": "OK",
+            }
+        )
+
     return {"fixtures": fixtures}
 
 

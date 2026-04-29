@@ -12,7 +12,7 @@ from typing import Dict, List
 import yaml
 import requests
 
-from .capture_utils import extract_request_corpus, load_ndjson, normalize_capture
+from .capture_utils import add_empty_rate_fixtures, extract_request_corpus, load_ndjson, normalize_capture
 from .config import ExperimentConfig, write_json
 from .loadgen import run_search_step
 from .metrics import sample_cpu
@@ -33,14 +33,7 @@ def apply_manifest(path: Path) -> None:
         if document is None:
             continue
         manifest_text = yaml.safe_dump(document)
-        try:
-            run_command(["kubectl", "create", "-f", "-"], input=manifest_text, capture_output=True)
-        except subprocess.CalledProcessError as exc:
-            output = (exc.stderr or "") + (exc.stdout or "")
-            if "already exists" in output.lower():
-                run_command(["kubectl", "replace", "-f", "-"], input=manifest_text, capture_output=True)
-            else:
-                raise
+        run_command(["kubectl", "apply", "-f", "-"], input=manifest_text, capture_output=True)
 
 
 def ensure_metrics_server() -> None:
@@ -75,6 +68,13 @@ def _read_capture_file(pod: str, capture_path: str) -> str:
         ["kubectl", "exec", pod, "--", "cat", capture_path],
         capture_output=True,
     ).stdout
+
+
+def _reset_capture_file(pod: str, capture_path: str) -> None:
+    run_command(
+        ["kubectl", "exec", pod, "--", "sh", "-c", f": > {capture_path}"],
+        capture_output=True,
+    )
 
 
 def _wait_for_capture_file(service: str, pod: str, capture_path: str, timeout_seconds: int = 30) -> str:
@@ -138,6 +138,8 @@ def capture_search_baseline(config: ExperimentConfig) -> Dict[str, Path]:
             ]
         )
         run_command(["kubectl", "rollout", "status", f"deployment/{service}", "--timeout=120s"])
+        pod = _get_service_pod(service)
+        _reset_capture_file(pod, f"/tmp/{service}.ndjson")
 
     frontend = config.capture.frontend_base_url.rstrip("/")
     for _ in range(config.capture.warmup_requests):
@@ -168,13 +170,19 @@ def capture_search_baseline(config: ExperimentConfig) -> Dict[str, Path]:
 def build_capture_artifacts(config: ExperimentConfig) -> Dict[str, Path]:
     captured = capture_search_baseline(config)
     artifacts = {}
-    for service in ("geo", "rate"):
-        normalized = normalize_capture(load_ndjson(captured[service]))
-        fixture_path = config.output_dir / "fixtures" / f"{service}.json"
-        write_json(fixture_path, normalized)
-        artifacts[f"{service}_fixture"] = fixture_path
-
+    geo = normalize_capture(load_ndjson(captured["geo"]))
     corpus = extract_request_corpus(load_ndjson(captured["search"]))
+    rate = normalize_capture(load_ndjson(captured["rate"]))
+    rate = add_empty_rate_fixtures(rate, geo, corpus)
+
+    fixture_path = config.output_dir / "fixtures" / "geo.json"
+    write_json(fixture_path, geo)
+    artifacts["geo_fixture"] = fixture_path
+
+    fixture_path = config.output_dir / "fixtures" / "rate.json"
+    write_json(fixture_path, rate)
+    artifacts["rate_fixture"] = fixture_path
+
     corpus_path = config.output_dir / "fixtures" / "search-requests.json"
     write_json(corpus_path, corpus)
     artifacts["search_requests"] = corpus_path
@@ -231,8 +239,12 @@ def measure_msc(config: ExperimentConfig, artifacts: Dict[str, Path]) -> Dict[st
                 "rps": result.rps,
                 "success_rate": result.success_rate,
                 "p90_latency_ms": result.p90_latency_ms,
+                "failures": result.failures,
+                "count": result.count,
                 "observed_cpu_millicores": observed_cpu,
             }
+            if result.error_summary:
+                row["error_summary"] = result.error_summary
             steps.append(row)
             if result.success_rate >= config.slo.success_rate_threshold and result.p90_latency_ms <= config.slo.p90_latency_ms:
                 best_rps = result.rps
