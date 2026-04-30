@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import importlib
+import itertools
 import json
 import socket
 import statistics
@@ -13,7 +14,7 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
 
 import grpc
 from grpc_tools import protoc
@@ -336,6 +337,83 @@ def wait_for_port_forward(
     raise RuntimeError(f"timed out waiting for kubectl port-forward on localhost:{local_port}")
 
 
+def get_service_pods(namespace: str, label_selector: str) -> List[str]:
+    result = run_command(
+        [
+            "kubectl",
+            "get",
+            "pods",
+            "-n",
+            namespace,
+            "-l",
+            label_selector,
+            "-o",
+            "json",
+        ],
+        capture_output=True,
+    )
+    payload = json.loads(result.stdout)
+    items = payload.get("items", [])
+    ready_pods = []
+    for pod in items:
+        metadata = pod.get("metadata", {})
+        if metadata.get("deletionTimestamp"):
+            continue
+        status = pod.get("status", {})
+        if status.get("phase") != "Running":
+            continue
+        container_statuses = status.get("containerStatuses", [])
+        if container_statuses and not all(item.get("ready") for item in container_statuses):
+            continue
+        name = metadata.get("name")
+        if name:
+            ready_pods.append(name)
+
+    if ready_pods:
+        return ready_pods
+    if items:
+        return [item["metadata"]["name"] for item in items if item.get("metadata", {}).get("name")]
+    raise RuntimeError(f"No pods found in namespace {namespace} for selector {label_selector}")
+
+
+def open_pod_port_forwards(
+    namespace: str,
+    pod_names: Sequence[str],
+    remote_port: int,
+) -> Tuple[List[str], List[subprocess.Popen]]:
+    targets: List[str] = []
+    processes: List[subprocess.Popen] = []
+    try:
+        for pod_name in pod_names:
+            local_port = reserve_local_port()
+            process = subprocess.Popen(
+                [
+                    "kubectl",
+                    "port-forward",
+                    "-n",
+                    namespace,
+                    f"pod/{pod_name}",
+                    f"{local_port}:{remote_port}",
+                ],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.PIPE,
+                text=True,
+            )
+            wait_for_port_forward(process, local_port)
+            processes.append(process)
+            targets.append(f"127.0.0.1:{local_port}")
+        return targets, processes
+    except Exception:
+        for process in processes:
+            process.terminate()
+            try:
+                process.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                process.kill()
+                process.wait(timeout=10)
+        raise
+
+
 # ---------------------------------------------------------------------------
 # Load generation
 # ---------------------------------------------------------------------------
@@ -351,36 +429,42 @@ def summarize_error(exc: Exception) -> str:
 
 def run_step(
     spec: ServiceSpec,
-    target: str,
+    targets: Sequence[str],
     rps: int,
     duration_seconds: int,
     timeout_seconds: float,
 ) -> StepResult:
     proto_module, grpc_module = load_service_modules(spec)
-    channel = grpc.insecure_channel(target)
-    stub = getattr(grpc_module, spec.stub_class)(channel)
-    method: Callable[..., Any] = getattr(stub, spec.method_name)
+    if not targets:
+        raise ValueError("run_step requires at least one target")
+
+    channels = [grpc.insecure_channel(target) for target in targets]
+    stubs = [getattr(grpc_module, spec.stub_class)(channel) for channel in channels]
+    methods = [getattr(stub, spec.method_name) for stub in stubs]
+    method_cycle = itertools.cycle(methods)
     request_cls = getattr(proto_module, spec.request_class)
     total = max(1, rps * duration_seconds)
     latencies: List[float] = []
     successes = 0
     errors: Counter[str] = Counter()
 
-    def invoke(payload: Dict[str, Any]) -> float:
+    def invoke(payload: Dict[str, Any], method: Callable[..., Any]) -> float:
         request = request_cls(**payload)
         start = time.perf_counter()
         method(request, timeout=timeout_seconds, wait_for_ready=True)
         return (time.perf_counter() - start) * 1000
 
     try:
-        grpc.channel_ready_future(channel).result(timeout=10)
-        # Warm the channel before the measured interval
-        invoke(spec.payloads[0])
+        for channel in channels:
+            grpc.channel_ready_future(channel).result(timeout=10)
+        # Warm every forwarded replica before the measured interval begins.
+        for method in methods:
+            invoke(spec.payloads[0], method)
         with ThreadPoolExecutor(max_workers=min(200, max(1, rps))) as executor:
             futures = []
             for index in range(total):
                 payload = spec.payloads[index % len(spec.payloads)]
-                futures.append(executor.submit(invoke, payload))
+                futures.append(executor.submit(invoke, payload, next(method_cycle)))
                 if (index + 1) % max(1, rps) == 0:
                     time.sleep(1)
             for future in as_completed(futures):
@@ -390,7 +474,8 @@ def run_step(
                 except Exception as exc:
                     errors[summarize_error(exc)] += 1
     finally:
-        channel.close()
+        for channel in channels:
+            channel.close()
 
     if not latencies:
         p90 = float("inf")
@@ -455,19 +540,8 @@ def run_service(
     timeout_seconds: float,
     flush_cache: bool,
 ) -> Dict[str, Any]:
-    local_port = reserve_local_port()
-    target = f"127.0.0.1:{local_port}"
-    port_forward = subprocess.Popen(
-        [
-            "kubectl", "port-forward",
-            "-n", namespace,
-            f"deployment/{spec.deployment}",
-            f"{local_port}:{spec.port}",
-        ],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.PIPE,
-        text=True,
-    )
+    pod_names = get_service_pods(namespace, spec.label_selector)
+    targets, port_forwards = open_pod_port_forwards(namespace, pod_names, spec.port)
 
     steps = []
     best_rps = 0
@@ -476,8 +550,6 @@ def run_service(
     metric_errors: List[str] = []
 
     try:
-        wait_for_port_forward(port_forward, local_port)
-
         for rps in range(start_rps, max_rps + 1, step_rps):
 
             # Flush Memcached before each step so every request hits MongoDB.
@@ -486,7 +558,7 @@ def run_service(
             if flush_cache:
                 flush_memcached(spec.name, namespace)
 
-            result = run_step(spec, target, rps, duration_seconds, timeout_seconds)
+            result = run_step(spec, targets, rps, duration_seconds, timeout_seconds)
             observed_cpu, metric_error = sample_cpu(namespace, spec.label_selector)
 
             if observed_cpu is not None:
@@ -519,12 +591,14 @@ def run_service(
             break
 
     finally:
-        port_forward.terminate()
-        try:
-            port_forward.wait(timeout=10)
-        except subprocess.TimeoutExpired:
-            port_forward.kill()
-            port_forward.wait(timeout=10)
+        for port_forward in port_forwards:
+            port_forward.terminate()
+        for port_forward in port_forwards:
+            try:
+                port_forward.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                port_forward.kill()
+                port_forward.wait(timeout=10)
 
     payload = {
         "service": spec.name,

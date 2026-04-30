@@ -1,12 +1,13 @@
 from __future__ import annotations
 
+import itertools
 from collections import Counter
 import statistics
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Sequence
 
 import grpc
 
@@ -33,7 +34,7 @@ def _summarize_error(exc: Exception) -> str:
 
 def run_search_step(
     repo_root: Path,
-    target: str,
+    targets: Sequence[str],
     requests_corpus: List[Dict[str, Any]],
     rps: int,
     duration_seconds: int,
@@ -43,11 +44,15 @@ def run_search_step(
     latencies: List[float] = []
     successes = 0
     total = max(1, rps * duration_seconds)
-    channel = grpc.insecure_channel(target)
-    stub = grpc_module.SearchStub(channel)
     error_counts: Counter[str] = Counter()
+    if not targets:
+        raise ValueError("run_search_step requires at least one target")
 
-    def invoke(payload: Dict[str, Any]) -> float:
+    channels = [grpc.insecure_channel(target) for target in targets]
+    stubs = [grpc_module.SearchStub(channel) for channel in channels]
+    stub_cycle = itertools.cycle(stubs)
+
+    def invoke(payload: Dict[str, Any], stub: Any) -> float:
         start = time.perf_counter()
         stub.Nearby(
             proto_module.NearbyRequest(**payload),
@@ -57,15 +62,17 @@ def run_search_step(
         return (time.perf_counter() - start) * 1000
 
     try:
-        grpc.channel_ready_future(channel).result(timeout=10)
-        # Warm the gRPC channel and downstream service discovery before the
-        # measured interval begins.
-        invoke(requests_corpus[0])
+        for channel in channels:
+            grpc.channel_ready_future(channel).result(timeout=10)
+        # Warm every forwarded replica before the measured interval begins so
+        # replica sweeps exercise the full search pool instead of a single pod.
+        for stub in stubs:
+            invoke(requests_corpus[0], stub)
         with ThreadPoolExecutor(max_workers=min(32, max(1, rps))) as executor:
             futures = []
             for index in range(total):
                 payload = requests_corpus[index % len(requests_corpus)]
-                futures.append(executor.submit(invoke, payload))
+                futures.append(executor.submit(invoke, payload, next(stub_cycle)))
                 if (index + 1) % max(1, rps) == 0:
                     time.sleep(1)
             for future in as_completed(futures):
@@ -75,7 +82,8 @@ def run_search_step(
                 except Exception as exc:
                     error_counts[_summarize_error(exc)] += 1
     finally:
-        channel.close()
+        for channel in channels:
+            channel.close()
 
     if not latencies:
         p90 = float("inf")

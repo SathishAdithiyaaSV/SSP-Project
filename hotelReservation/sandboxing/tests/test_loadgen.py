@@ -48,7 +48,7 @@ class LoadgenTest(unittest.TestCase):
 
         result = run_search_step(
             repo_root=Mock(),
-            target="127.0.0.1:8082",
+            targets=["127.0.0.1:8082"],
             requests_corpus=[{"lat": 1.0, "lon": 2.0, "inDate": "2015-04-09", "outDate": "2015-04-10"}],
             rps=1,
             duration_seconds=2,

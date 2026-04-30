@@ -70,21 +70,28 @@ def ensure_metrics_server() -> None:
     )
 
 
-def _get_service_pod(service: str) -> str:
-    raw = run_command(
-        [
-            "kubectl",
-            "get",
-            "pods",
-            "-l",
-            f"io.kompose.service={service}",
-            "-o",
-            "json",
-        ],
-        capture_output=True,
-    ).stdout
+def _get_service_pod(service: str, namespace: str | None = None) -> str:
+    return _get_service_pods(
+        service,
+        namespace=namespace,
+        label_selector=f"io.kompose.service={service}",
+    )[0]
+
+
+def _get_service_pods(
+    service: str,
+    namespace: str | None = None,
+    label_selector: str | None = None,
+) -> List[str]:
+    selector = label_selector or f"io.kompose.service={service}"
+    args = ["kubectl", "get", "pods"]
+    if namespace:
+        args.extend(["-n", namespace])
+    args.extend(["-l", selector, "-o", "json"])
+    raw = run_command(args, capture_output=True).stdout
     payload = json.loads(raw)
     items = payload.get("items", [])
+    ready_pods = []
     for pod in items:
         metadata = pod.get("metadata", {})
         if metadata.get("deletionTimestamp"):
@@ -97,10 +104,12 @@ def _get_service_pod(service: str) -> str:
             continue
         name = metadata.get("name")
         if name:
-            return name
+            ready_pods.append(name)
 
+    if ready_pods:
+        return ready_pods
     if items:
-        return items[0]["metadata"]["name"]
+        return [item["metadata"]["name"] for item in items if item.get("metadata", {}).get("name")]
     raise RuntimeError(f"No pods found for service {service}")
 
 
@@ -212,6 +221,44 @@ def _wait_for_port_forward(process: subprocess.Popen, local_port: int, timeout_s
         except OSError:
             time.sleep(0.5)
     raise RuntimeError(f"timed out waiting for kubectl port-forward on localhost:{local_port}")
+
+
+def _open_pod_port_forwards(
+    namespace: str,
+    pod_names: Sequence[str],
+    remote_port: int,
+) -> tuple[List[str], List[subprocess.Popen]]:
+    targets: List[str] = []
+    processes: List[subprocess.Popen] = []
+    try:
+        for pod_name in pod_names:
+            local_port = _reserve_local_port()
+            process = subprocess.Popen(
+                [
+                    "kubectl",
+                    "port-forward",
+                    "-n",
+                    namespace,
+                    f"pod/{pod_name}",
+                    f"{local_port}:{remote_port}",
+                ],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.PIPE,
+                text=True,
+            )
+            _wait_for_port_forward(process, local_port)
+            processes.append(process)
+            targets.append(f"127.0.0.1:{local_port}")
+        return targets, processes
+    except Exception:
+        for process in processes:
+            process.terminate()
+            try:
+                process.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                process.kill()
+                process.wait(timeout=10)
+        raise
 
 
 def _wait_for_consul_service(namespace: str, service_name: str, timeout_seconds: int = 30) -> None:
@@ -352,30 +399,16 @@ def render_and_apply_sandbox(config: ExperimentConfig, artifacts: Dict[str, Path
 
 def measure_msc(config: ExperimentConfig, artifacts: Dict[str, Path]) -> Dict[str, object]:
     corpus = json.loads(artifacts["search_requests"].read_text())["requests"]
-    local_port = _reserve_local_port()
-    target = f"127.0.0.1:{local_port}"
-    port_forward = subprocess.Popen(
-        [
-            "kubectl",
-            "port-forward",
-            "-n",
-            config.namespace,
-            "deployment/search",
-            f"{local_port}:8082",
-        ],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.PIPE,
-        text=True,
-    )
+    pod_names = _get_service_pods("search", namespace=config.namespace, label_selector="app=search")
+    targets, port_forwards = _open_pod_port_forwards(config.namespace, pod_names, 8082)
     try:
-        _wait_for_port_forward(port_forward, local_port)
         steps = []
         best_rps = 0
         violation_reason = ""
         for rps in range(config.load.start_rps, config.load.max_rps + 1, config.load.step_rps):
             result = run_search_step(
                 repo_root=REPO_ROOT,
-                target=target,
+                targets=targets,
                 requests_corpus=corpus,
                 rps=rps,
                 duration_seconds=config.load.step_duration_seconds,
@@ -415,8 +448,14 @@ def measure_msc(config: ExperimentConfig, artifacts: Dict[str, Path]) -> Dict[st
         write_json(config.output_dir / "results" / f"{config.service}-run-{timestamp}.json", payload)
         return payload
     finally:
-        port_forward.terminate()
-        port_forward.wait(timeout=10)
+        for port_forward in port_forwards:
+            port_forward.terminate()
+        for port_forward in port_forwards:
+            try:
+                port_forward.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                port_forward.kill()
+                port_forward.wait(timeout=10)
 
 
 def append_run_to_dataset(config: ExperimentConfig, run_result: Dict[str, object]) -> Path:
