@@ -14,4 +14,5 @@ wrk2/obj/
 .env
 hotelReservation/minikube-linux-amd64
 _pycache__
+__pycache__
 sandboxing/output/
