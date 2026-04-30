@@ -27,7 +27,7 @@ from typing import Any, Dict, List, Optional
 REPO_ROOT = Path(__file__).resolve().parent
 
 # Resource configurations to test per service
-CPU_CONFIGS_MILLICORES = [100, 200, 400, 800, 1000]
+CPU_CONFIGS_MILLICORES = [100, 200, 400, 800]
 REPLICA_CONFIGS = [1, 2, 3]
 
 # Load test parameters
@@ -48,6 +48,17 @@ LEAF_SERVICES = [
     "user",
     "reservation",
 ]
+
+# Actual container names inside each deployment (kubectl get deployment <svc>
+# -o jsonpath='{.spec.template.spec.containers[0].name}')
+CONTAINER_NAMES: Dict[str, str] = {
+    "geo": "hotel-reserv-geo",
+    "rate": "hotel-reserv-rate",
+    "profile": "hotel-reserv-profile",
+    "recommendation": "hotel-reserv-recommendation",
+    "user": "hotel-reserv-user",
+    "reservation": "hotel-reserv-reservation",
+}
 
 NAMESPACE = "default"
 OUTPUT_DIR = Path("sandboxing/output/regression")
@@ -97,6 +108,7 @@ def get_current_resources(service: str) -> Dict[str, Any]:
 def patch_deployment(service: str, cpu_millicores: int, replicas: int) -> None:
     """Patch a deployment's CPU limit and replica count."""
     cpu_str = f"{cpu_millicores}m"
+    container_name = CONTAINER_NAMES[service]
 
     # Patch CPU limits and requests
     run_silent([
@@ -107,7 +119,7 @@ def patch_deployment(service: str, cpu_millicores: int, replicas: int) -> None:
                 "template": {
                     "spec": {
                         "containers": [{
-                            "name": service,
+                            "name": container_name,
                             "resources": {
                                 "requests": {"cpu": cpu_str},
                                 "limits": {"cpu": cpu_str},
@@ -134,6 +146,7 @@ def restore_deployment(service: str, original: Dict[str, Any]) -> None:
     """Restore a deployment to its original resource config."""
     resources = original["resources"]
     replicas = original["replicas"]
+    container_name = CONTAINER_NAMES[service]
 
     run_silent([
         "kubectl", "patch", "deployment", service,
@@ -143,7 +156,7 @@ def restore_deployment(service: str, original: Dict[str, Any]) -> None:
                 "template": {
                     "spec": {
                         "containers": [{
-                            "name": service,
+                            "name": container_name,
                             "resources": resources,
                         }]
                     }
@@ -158,7 +171,7 @@ def restore_deployment(service: str, original: Dict[str, Any]) -> None:
     ])
 
 
-def run_leaf_experiment(service: str, cpu_millicores: int) -> Optional[Dict[str, Any]]:
+def run_leaf_experiment(service: str) -> Optional[Dict[str, Any]]:
     """Run leaf_experiment.py for a single service and return the result dict."""
     result_path = RESULTS_DIR / f"{service}-run.json"
 
@@ -264,7 +277,7 @@ def main() -> None:
 
                 # Run the experiment
                 log(f"    Running load test...")
-                result = run_leaf_experiment(service, cpu)
+                result = run_leaf_experiment(service)
 
                 if result is None:
                     log(f"    No result — skipping")
@@ -276,15 +289,14 @@ def main() -> None:
                             "-o", "jsonpath={.spec.template.spec.containers[0].resources.limits.memory}"
                         ])
                         memory_str = mem_result.stdout.strip()
-                        # Convert to MB (e.g. "256Mi" -> 256)
                         if memory_str.endswith("Mi"):
                             memory_mb = int(memory_str[:-2])
                         elif memory_str.endswith("Gi"):
                             memory_mb = int(float(memory_str[:-2]) * 1024)
                         else:
-                            memory_mb = 256  # fallback
+                            memory_mb = 256  # fallback if no memory limit set
                     except Exception:
-                        memory_mb = 256  # fallback if no memory limit set
+                        memory_mb = 256
 
                     row = {
                         "service": service,

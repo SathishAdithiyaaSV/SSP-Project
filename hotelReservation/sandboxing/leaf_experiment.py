@@ -13,7 +13,7 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Dict, List
+from typing import Any, Callable, Dict, List, Optional, Tuple
 
 import grpc
 from grpc_tools import protoc
@@ -22,6 +22,14 @@ from grpc_tools import protoc
 REPO_ROOT = Path(__file__).resolve().parents[2]
 HOTEL_ROOT = REPO_ROOT / "hotelReservation"
 BUILD_DIR = HOTEL_ROOT / "sandboxing" / "generated_leaf"
+
+# Maps service name to its Memcached deployment name.
+# Only services that use Memcached are listed here.
+MEMCACHED_MAP: Dict[str, str] = {
+    "rate": "memcached-rate",
+    "profile": "memcached-profile",
+    "reservation": "memcached-reserve",
+}
 
 
 @dataclass(frozen=True)
@@ -47,13 +55,80 @@ class StepResult:
     error_summary: List[Dict[str, Any]]
 
 
-def _user_payload() -> Dict[str, Any]:
-    suffix = "0"
-    password = suffix * 10
-    return {
-        "username": f"Cornell_{suffix.encode().hex()}",
-        "password": hashlib.sha256(password.encode()).hexdigest(),
-    }
+# ---------------------------------------------------------------------------
+# Payload helpers
+# ---------------------------------------------------------------------------
+
+def _load_hotel_ids() -> List[str]:
+    """Load hotel IDs from the static dataset."""
+    hotels_path = HOTEL_ROOT / "data" / "hotels.json"
+    hotels = json.loads(hotels_path.read_text())
+    return [str(h["id"]) for h in hotels if "id" in h]
+
+
+def _make_profile_payloads() -> List[Dict[str, Any]]:
+    ids = _load_hotel_ids()
+    payloads = []
+    # Single hotel queries + full batch to vary request size
+    for hotel_id in ids:
+        payloads.append({"hotelIds": [hotel_id], "locale": "en"})
+    payloads.append({"hotelIds": ids, "locale": "en"})
+    return payloads
+
+
+def _make_rate_payloads() -> List[Dict[str, Any]]:
+    ids = _load_hotel_ids()
+    date_windows = [
+        ("2015-04-09", "2015-04-10"),
+        ("2015-04-17", "2015-04-18"),
+        ("2015-04-20", "2015-04-24"),
+    ]
+    payloads = []
+    for hotel_id in ids:
+        for in_date, out_date in date_windows:
+            payloads.append({
+                "hotelIds": [hotel_id],
+                "inDate": in_date,
+                "outDate": out_date,
+            })
+    # Also add full-batch requests
+    for in_date, out_date in date_windows:
+        payloads.append({
+            "hotelIds": ids,
+            "inDate": in_date,
+            "outDate": out_date,
+        })
+    return payloads
+
+
+def _make_reservation_payloads() -> List[Dict[str, Any]]:
+    ids = _load_hotel_ids()
+    date_windows = [
+        ("2015-04-09", "2015-04-10"),
+        ("2015-04-17", "2015-04-18"),
+    ]
+    payloads = []
+    for hotel_id in ids:
+        for in_date, out_date in date_windows:
+            payloads.append({
+                "customerName": "",
+                "hotelId": [hotel_id],
+                "inDate": in_date,
+                "outDate": out_date,
+                "roomNumber": 1,
+            })
+    return payloads
+
+
+def _make_user_payloads() -> List[Dict[str, Any]]:
+    """Generate varied user check payloads using the seeded Cornell users."""
+    return [
+        {
+            "username": f"Cornell_{i}",
+            "password": hashlib.sha256(str(i).encode()).hexdigest(),
+        }
+        for i in range(500)
+    ]
 
 
 SERVICES: Dict[str, ServiceSpec] = {
@@ -69,6 +144,10 @@ SERVICES: Dict[str, ServiceSpec] = {
         payloads=[
             {"lat": 37.7749, "lon": -122.4194},
             {"lat": 38.0235, "lon": -122.095},
+            {"lat": 37.3861, "lon": -122.0839},
+            {"lat": 37.5630, "lon": -122.0530},
+            {"lat": 37.6879, "lon": -122.4702},
+            {"lat": 37.8044, "lon": -122.2712},
         ],
     ),
     "rate": ServiceSpec(
@@ -80,10 +159,7 @@ SERVICES: Dict[str, ServiceSpec] = {
         stub_class="RateStub",
         method_name="GetRates",
         request_class="Request",
-        payloads=[
-            {"hotelIds": ["1", "2", "3", "4", "5"], "inDate": "2015-04-09", "outDate": "2015-04-10"},
-            {"hotelIds": ["7", "8", "9", "10", "11"], "inDate": "2015-04-17", "outDate": "2015-04-18"},
-        ],
+        payloads=_make_rate_payloads(),
     ),
     "profile": ServiceSpec(
         name="profile",
@@ -94,10 +170,7 @@ SERVICES: Dict[str, ServiceSpec] = {
         stub_class="ProfileStub",
         method_name="GetProfiles",
         request_class="Request",
-        payloads=[
-            {"hotelIds": ["1", "2", "3", "4", "5"], "locale": "en"},
-            {"hotelIds": ["6", "7", "8", "9", "10"], "locale": "en"},
-        ],
+        payloads=_make_profile_payloads(),
     ),
     "recommendation": ServiceSpec(
         name="recommendation",
@@ -110,8 +183,11 @@ SERVICES: Dict[str, ServiceSpec] = {
         request_class="Request",
         payloads=[
             {"require": "price", "lat": 37.7749, "lon": -122.4194},
-            {"require": "rate", "lat": 37.7749, "lon": -122.4194},
-            {"require": "dis", "lat": 37.7749, "lon": -122.4194},
+            {"require": "rate",  "lat": 37.7749, "lon": -122.4194},
+            {"require": "dis",   "lat": 37.7749, "lon": -122.4194},
+            {"require": "price", "lat": 38.0235, "lon": -122.095},
+            {"require": "rate",  "lat": 38.0235, "lon": -122.095},
+            {"require": "dis",   "lat": 38.0235, "lon": -122.095},
         ],
     ),
     "user": ServiceSpec(
@@ -123,7 +199,7 @@ SERVICES: Dict[str, ServiceSpec] = {
         stub_class="UserStub",
         method_name="CheckUser",
         request_class="Request",
-        payloads=[_user_payload()],
+        payloads=_make_user_payloads(),
     ),
     "reservation": ServiceSpec(
         name="reservation",
@@ -134,25 +210,14 @@ SERVICES: Dict[str, ServiceSpec] = {
         stub_class="ReservationStub",
         method_name="CheckAvailability",
         request_class="Request",
-        payloads=[
-            {
-                "customerName": "",
-                "hotelId": ["1", "2", "3", "4", "5"],
-                "inDate": "2015-04-09",
-                "outDate": "2015-04-10",
-                "roomNumber": 1,
-            },
-            {
-                "customerName": "",
-                "hotelId": ["6", "7", "8", "9", "10"],
-                "inDate": "2015-04-17",
-                "outDate": "2015-04-18",
-                "roomNumber": 1,
-            },
-        ],
+        payloads=_make_reservation_payloads(),
     ),
 }
 
+
+# ---------------------------------------------------------------------------
+# Kubernetes helpers
+# ---------------------------------------------------------------------------
 
 def run_command(args: List[str], **kwargs: Any) -> subprocess.CompletedProcess:
     return subprocess.run(args, check=True, text=True, **kwargs)
@@ -162,6 +227,61 @@ def write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, sort_keys=True))
 
+
+def flush_memcached(service_name: str, namespace: str = "default") -> None:
+    """
+    Flush Memcached for a service to ensure each load step starts cold.
+    Uses a disposable busybox pod — no nc binary required in the target container.
+    Silently skips services that have no Memcached dependency.
+    """
+    memc_deployment = MEMCACHED_MAP.get(service_name)
+    if not memc_deployment:
+        return
+
+    # Resolve the ClusterIP of the Memcached service so busybox can reach it
+    try:
+        result = subprocess.run(
+            [
+                "kubectl", "get", "service", memc_deployment,
+                "-n", namespace,
+                "-o", "jsonpath={.spec.clusterIP}",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        cluster_ip = result.stdout.strip()
+        if not cluster_ip:
+            return
+    except subprocess.CalledProcessError:
+        return
+
+    try:
+        subprocess.run(
+            [
+                "kubectl", "run",
+                f"memc-flush-{service_name}",
+                "--rm", "--restart=Never",
+                "--image=busybox",
+                f"--namespace={namespace}",
+                "--command",
+                "--",
+                "sh", "-c",
+                f"echo flush_all | nc {cluster_ip} 11211",
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
+        # Non-fatal — experiment continues even if flush fails
+        pass
+
+
+# ---------------------------------------------------------------------------
+# Proto codegen
+# ---------------------------------------------------------------------------
 
 def ensure_generated() -> None:
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
@@ -183,12 +303,16 @@ def ensure_generated() -> None:
             raise RuntimeError(f"failed to compile proto: {proto_path}")
 
 
-def load_service_modules(spec: ServiceSpec) -> tuple[object, object]:
+def load_service_modules(spec: ServiceSpec) -> Tuple[object, object]:
     ensure_generated()
     proto_module = importlib.import_module(f"services.{spec.name}.proto.{spec.name}_pb2")
     grpc_module = importlib.import_module(f"services.{spec.name}.proto.{spec.name}_pb2_grpc")
     return proto_module, grpc_module
 
+
+# ---------------------------------------------------------------------------
+# Port-forward helpers
+# ---------------------------------------------------------------------------
 
 def reserve_local_port() -> int:
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
@@ -196,7 +320,9 @@ def reserve_local_port() -> int:
         return int(sock.getsockname()[1])
 
 
-def wait_for_port_forward(process: subprocess.Popen, local_port: int, timeout_seconds: int = 15) -> None:
+def wait_for_port_forward(
+    process: subprocess.Popen, local_port: int, timeout_seconds: int = 15
+) -> None:
     deadline = time.time() + timeout_seconds
     while time.time() < deadline:
         if process.poll() is not None:
@@ -210,6 +336,10 @@ def wait_for_port_forward(process: subprocess.Popen, local_port: int, timeout_se
     raise RuntimeError(f"timed out waiting for kubectl port-forward on localhost:{local_port}")
 
 
+# ---------------------------------------------------------------------------
+# Load generation
+# ---------------------------------------------------------------------------
+
 def summarize_error(exc: Exception) -> str:
     if isinstance(exc, grpc.RpcError):
         code = exc.code()
@@ -219,34 +349,12 @@ def summarize_error(exc: Exception) -> str:
     return f"{type(exc).__name__}: {exc}".strip()
 
 
-def sample_cpu(namespace: str, label_selector: str) -> tuple[int | None, str | None]:
-    try:
-        result = run_command(
-            ["kubectl", "top", "pod", "-n", namespace, "-l", label_selector, "--no-headers"],
-            capture_output=True,
-        )
-    except (subprocess.CalledProcessError, FileNotFoundError) as exc:
-        return None, str(exc)
-
-    total = 0
-    for line in result.stdout.splitlines():
-        parts = line.split()
-        if len(parts) < 2:
-            continue
-        cpu = parts[1]
-        if cpu.endswith("m"):
-            total += int(cpu[:-1])
-        else:
-            total += int(float(cpu) * 1000)
-    return total, None
-
-
 def run_step(
     spec: ServiceSpec,
     target: str,
     rps: int,
     duration_seconds: int,
-    timeout_seconds: int,
+    timeout_seconds: float,
 ) -> StepResult:
     proto_module, grpc_module = load_service_modules(spec)
     channel = grpc.insecure_channel(target)
@@ -266,15 +374,15 @@ def run_step(
 
     try:
         grpc.channel_ready_future(channel).result(timeout=10)
+        # Warm the channel before the measured interval
         invoke(spec.payloads[0])
-        with ThreadPoolExecutor(max_workers=min(32, max(1, rps))) as executor:
+        with ThreadPoolExecutor(max_workers=min(200, max(1, rps))) as executor:
             futures = []
             for index in range(total):
                 payload = spec.payloads[index % len(spec.payloads)]
                 futures.append(executor.submit(invoke, payload))
                 if (index + 1) % max(1, rps) == 0:
                     time.sleep(1)
-
             for future in as_completed(futures):
                 try:
                     latencies.append(future.result())
@@ -304,6 +412,36 @@ def run_step(
     )
 
 
+# ---------------------------------------------------------------------------
+# CPU sampling
+# ---------------------------------------------------------------------------
+
+def sample_cpu(namespace: str, label_selector: str) -> Tuple[Optional[int], Optional[str]]:
+    try:
+        result = run_command(
+            ["kubectl", "top", "pod", "-n", namespace, "-l", label_selector, "--no-headers"],
+            capture_output=True,
+        )
+    except (subprocess.CalledProcessError, FileNotFoundError) as exc:
+        return None, str(exc)
+
+    total = 0
+    for line in result.stdout.splitlines():
+        parts = line.split()
+        if len(parts) < 2:
+            continue
+        cpu = parts[1]
+        if cpu.endswith("m"):
+            total += int(cpu[:-1])
+        else:
+            total += int(float(cpu) * 1000)
+    return total, None
+
+
+# ---------------------------------------------------------------------------
+# Experiment runner
+# ---------------------------------------------------------------------------
+
 def run_service(
     spec: ServiceSpec,
     namespace: str,
@@ -314,16 +452,15 @@ def run_service(
     success_threshold: float,
     p90_threshold_ms: int,
     output_dir: Path,
-    timeout_seconds: int,
+    timeout_seconds: float,
+    flush_cache: bool,
 ) -> Dict[str, Any]:
     local_port = reserve_local_port()
     target = f"127.0.0.1:{local_port}"
     port_forward = subprocess.Popen(
         [
-            "kubectl",
-            "port-forward",
-            "-n",
-            namespace,
+            "kubectl", "port-forward",
+            "-n", namespace,
             f"deployment/{spec.deployment}",
             f"{local_port}:{spec.port}",
         ],
@@ -337,11 +474,21 @@ def run_service(
     violation_reason = ""
     observed_cpu_values: List[int] = []
     metric_errors: List[str] = []
+
     try:
         wait_for_port_forward(port_forward, local_port)
+
         for rps in range(start_rps, max_rps + 1, step_rps):
+
+            # Flush Memcached before each step so every request hits MongoDB.
+            # This gives us cold-cache MSC — more conservative and meaningful
+            # for capacity planning than warm-cache measurements.
+            if flush_cache:
+                flush_memcached(spec.name, namespace)
+
             result = run_step(spec, target, rps, duration_seconds, timeout_seconds)
             observed_cpu, metric_error = sample_cpu(namespace, spec.label_selector)
+
             if observed_cpu is not None:
                 observed_cpu_values.append(observed_cpu)
             elif metric_error:
@@ -355,10 +502,12 @@ def run_service(
                 "failures": result.failures,
                 "error_summary": result.error_summary,
                 "observed_cpu_millicores": observed_cpu,
+                "cache_flushed": flush_cache and spec.name in MEMCACHED_MAP,
             }
             steps.append(row)
 
-            if result.success_rate >= success_threshold and result.p90_latency_ms <= p90_threshold_ms:
+            if (result.success_rate >= success_threshold
+                    and result.p90_latency_ms <= p90_threshold_ms):
                 best_rps = result.rps
                 continue
 
@@ -368,6 +517,7 @@ def run_service(
                 else "p90_latency"
             )
             break
+
     finally:
         port_forward.terminate()
         try:
@@ -382,6 +532,7 @@ def run_service(
         "port": spec.port,
         "method": spec.method_name,
         "namespace": namespace,
+        "cache_flush_enabled": flush_cache,
         "slo": {
             "success_rate_threshold": success_threshold,
             "p90_latency_ms": p90_threshold_ms,
@@ -404,29 +555,53 @@ def run_service(
     return payload
 
 
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Measure MSC for leaf Hotel Reservation services.")
-    parser.add_argument("--service", choices=sorted(SERVICES), help="Run one service; default runs all leaf services.")
+    parser = argparse.ArgumentParser(
+        description="Measure MSC for leaf Hotel Reservation services."
+    )
+    parser.add_argument(
+        "--service",
+        choices=sorted(SERVICES),
+        help="Run one service; default runs all leaf services.",
+    )
     parser.add_argument("--namespace", default="default")
     parser.add_argument("--output-dir", default="sandboxing/output/leaf")
-    parser.add_argument("--start-rps", type=int, default=1)
-    parser.add_argument("--step-rps", type=int, default=5)
-    parser.add_argument("--duration", type=int, default=20)
-    parser.add_argument("--max-rps", type=int, default=300)
-    parser.add_argument("--success-threshold", type=float, default=0.98)
-    parser.add_argument("--p90-ms", type=int, default=3000)
-    parser.add_argument("--timeout", type=float, default=5)
+    parser.add_argument("--start-rps", type=int, default=10)
+    parser.add_argument("--step-rps", type=int, default=10)
+    parser.add_argument("--duration", type=int, default=15)
+    parser.add_argument("--max-rps", type=int, default=500)
+    parser.add_argument("--success-threshold", type=float, default=0.95)
+    parser.add_argument("--p90-ms", type=int, default=200)
+    parser.add_argument("--timeout", type=float, default=0.2)
+    parser.add_argument(
+        "--no-flush-cache",
+        action="store_true",
+        help="Disable Memcached flush between steps (warm-cache measurement).",
+    )
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
     output_dir = Path(args.output_dir)
+    flush_cache = not args.no_flush_cache
     selected = [SERVICES[args.service]] if args.service else list(SERVICES.values())
     results = []
 
+    if flush_cache:
+        print("Cache flush enabled: each step starts cold (MongoDB path).", flush=True)
+    else:
+        print("Cache flush disabled: warm-cache measurement.", flush=True)
+
     for spec in selected:
-        print(f"Running {spec.name} on deployment/{spec.deployment}:{spec.port}", flush=True)
+        print(
+            f"Running {spec.name} on deployment/{spec.deployment}:{spec.port}",
+            flush=True,
+        )
         result = run_service(
             spec=spec,
             namespace=args.namespace,
@@ -438,6 +613,7 @@ def main() -> None:
             p90_threshold_ms=args.p90_ms,
             output_dir=output_dir,
             timeout_seconds=args.timeout,
+            flush_cache=flush_cache,
         )
         results.append(result)
         print(
@@ -447,6 +623,7 @@ def main() -> None:
         )
 
     summary = {
+        "cache_flush_enabled": flush_cache,
         "services": [
             {
                 "service": item["service"],
@@ -455,7 +632,7 @@ def main() -> None:
                 "observed_cpu_millicores": item["observed_cpu_millicores"],
             }
             for item in results
-        ]
+        ],
     }
     write_json(output_dir / "results" / "leaf-summary.json", summary)
 
