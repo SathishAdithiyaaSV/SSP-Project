@@ -415,7 +415,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-rps", type=int, default=300)
     parser.add_argument("--success-threshold", type=float, default=0.98)
     parser.add_argument("--p90-ms", type=int, default=3000)
-    parser.add_argument("--timeout", type=int, default=5)
+    parser.add_argument("--timeout", type=float, default=5)
     return parser.parse_args()
 
 

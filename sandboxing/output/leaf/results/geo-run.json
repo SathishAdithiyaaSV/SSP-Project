@@ -1,0 +1,472 @@
+{
+  "deployment": "geo",
+  "load": {
+    "max_rps": 500,
+    "start_rps": 10,
+    "step_duration_seconds": 15,
+    "step_rps": 10
+  },
+  "method": "Nearby",
+  "msc_rps": 500,
+  "namespace": "default",
+  "observed_cpu_millicores": 81,
+  "port": 8083,
+  "service": "geo",
+  "slo": {
+    "p90_latency_ms": 200,
+    "success_rate_threshold": 0.95
+  },
+  "steps": [
+    {
+      "count": 150,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 1,
+      "p90_latency_ms": 3.2629562010697555,
+      "rps": 10,
+      "success_rate": 1.0
+    },
+    {
+      "count": 300,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 3,
+      "p90_latency_ms": 4.441253103868803,
+      "rps": 20,
+      "success_rate": 1.0
+    },
+    {
+      "count": 450,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 3,
+      "p90_latency_ms": 45.32171359460335,
+      "rps": 30,
+      "success_rate": 1.0
+    },
+    {
+      "count": 600,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 3,
+      "p90_latency_ms": 46.46241309674224,
+      "rps": 40,
+      "success_rate": 1.0
+    },
+    {
+      "count": 750,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 3,
+      "p90_latency_ms": 46.69905040645972,
+      "rps": 50,
+      "success_rate": 1.0
+    },
+    {
+      "count": 900,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 9,
+      "p90_latency_ms": 46.803948101296555,
+      "rps": 60,
+      "success_rate": 1.0
+    },
+    {
+      "count": 1050,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 9,
+      "p90_latency_ms": 46.666726601688424,
+      "rps": 70,
+      "success_rate": 1.0
+    },
+    {
+      "count": 1200,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 9,
+      "p90_latency_ms": 46.8289156051469,
+      "rps": 80,
+      "success_rate": 1.0
+    },
+    {
+      "count": 1350,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 9,
+      "p90_latency_ms": 47.08914539733087,
+      "rps": 90,
+      "success_rate": 1.0
+    },
+    {
+      "count": 1500,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 15,
+      "p90_latency_ms": 46.72631339781219,
+      "rps": 100,
+      "success_rate": 1.0
+    },
+    {
+      "count": 1650,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 15,
+      "p90_latency_ms": 47.34017760056304,
+      "rps": 110,
+      "success_rate": 1.0
+    },
+    {
+      "count": 1800,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 15,
+      "p90_latency_ms": 47.001854598056525,
+      "rps": 120,
+      "success_rate": 1.0
+    },
+    {
+      "count": 1950,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 15,
+      "p90_latency_ms": 46.73425199871417,
+      "rps": 130,
+      "success_rate": 1.0
+    },
+    {
+      "count": 2100,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 21,
+      "p90_latency_ms": 46.82724979429622,
+      "rps": 140,
+      "success_rate": 1.0
+    },
+    {
+      "count": 2250,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 21,
+      "p90_latency_ms": 47.20474430141621,
+      "rps": 150,
+      "success_rate": 1.0
+    },
+    {
+      "count": 2400,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 21,
+      "p90_latency_ms": 46.53385290221195,
+      "rps": 160,
+      "success_rate": 1.0
+    },
+    {
+      "count": 2550,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 21,
+      "p90_latency_ms": 46.937429405079456,
+      "rps": 170,
+      "success_rate": 1.0
+    },
+    {
+      "count": 2700,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 26,
+      "p90_latency_ms": 46.782462000555824,
+      "rps": 180,
+      "success_rate": 1.0
+    },
+    {
+      "count": 2850,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 26,
+      "p90_latency_ms": 46.58035350366845,
+      "rps": 190,
+      "success_rate": 1.0
+    },
+    {
+      "count": 3000,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 26,
+      "p90_latency_ms": 46.85866159998113,
+      "rps": 200,
+      "success_rate": 1.0
+    },
+    {
+      "count": 3150,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 26,
+      "p90_latency_ms": 47.00409939978272,
+      "rps": 210,
+      "success_rate": 1.0
+    },
+    {
+      "count": 3300,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 32,
+      "p90_latency_ms": 47.05717230390292,
+      "rps": 220,
+      "success_rate": 1.0
+    },
+    {
+      "count": 3450,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 32,
+      "p90_latency_ms": 47.537533899594564,
+      "rps": 230,
+      "success_rate": 1.0
+    },
+    {
+      "count": 3600,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 32,
+      "p90_latency_ms": 47.333667302154936,
+      "rps": 240,
+      "success_rate": 1.0
+    },
+    {
+      "count": 3750,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 32,
+      "p90_latency_ms": 47.37211759711499,
+      "rps": 250,
+      "success_rate": 1.0
+    },
+    {
+      "count": 3900,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 41,
+      "p90_latency_ms": 46.64912429652759,
+      "rps": 260,
+      "success_rate": 1.0
+    },
+    {
+      "count": 4050,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 41,
+      "p90_latency_ms": 46.791215702251066,
+      "rps": 270,
+      "success_rate": 1.0
+    },
+    {
+      "count": 4200,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 41,
+      "p90_latency_ms": 47.23865880223457,
+      "rps": 280,
+      "success_rate": 1.0
+    },
+    {
+      "count": 4350,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 41,
+      "p90_latency_ms": 47.05294650120777,
+      "rps": 290,
+      "success_rate": 1.0
+    },
+    {
+      "count": 4500,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 45,
+      "p90_latency_ms": 46.74809449643362,
+      "rps": 300,
+      "success_rate": 1.0
+    },
+    {
+      "count": 4650,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 45,
+      "p90_latency_ms": 47.94597480286029,
+      "rps": 310,
+      "success_rate": 1.0
+    },
+    {
+      "count": 4800,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 45,
+      "p90_latency_ms": 46.97519959518104,
+      "rps": 320,
+      "success_rate": 1.0
+    },
+    {
+      "count": 4950,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 45,
+      "p90_latency_ms": 46.805322697764495,
+      "rps": 330,
+      "success_rate": 1.0
+    },
+    {
+      "count": 5100,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 51,
+      "p90_latency_ms": 46.86472899993532,
+      "rps": 340,
+      "success_rate": 1.0
+    },
+    {
+      "count": 5250,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 51,
+      "p90_latency_ms": 47.03295030267327,
+      "rps": 350,
+      "success_rate": 1.0
+    },
+    {
+      "count": 5400,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 51,
+      "p90_latency_ms": 47.83928339675185,
+      "rps": 360,
+      "success_rate": 1.0
+    },
+    {
+      "count": 5550,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 51,
+      "p90_latency_ms": 47.81372229554108,
+      "rps": 370,
+      "success_rate": 1.0
+    },
+    {
+      "count": 5700,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 59,
+      "p90_latency_ms": 47.22113499956322,
+      "rps": 380,
+      "success_rate": 1.0
+    },
+    {
+      "count": 5850,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 59,
+      "p90_latency_ms": 47.31036899756873,
+      "rps": 390,
+      "success_rate": 1.0
+    },
+    {
+      "count": 6000,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 59,
+      "p90_latency_ms": 47.07670690186205,
+      "rps": 400,
+      "success_rate": 1.0
+    },
+    {
+      "count": 6150,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 59,
+      "p90_latency_ms": 47.83939139597351,
+      "rps": 410,
+      "success_rate": 1.0
+    },
+    {
+      "count": 6300,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 65,
+      "p90_latency_ms": 47.649853301845724,
+      "rps": 420,
+      "success_rate": 1.0
+    },
+    {
+      "count": 6450,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 65,
+      "p90_latency_ms": 47.74396890134085,
+      "rps": 430,
+      "success_rate": 1.0
+    },
+    {
+      "count": 6600,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 65,
+      "p90_latency_ms": 47.63555930258008,
+      "rps": 440,
+      "success_rate": 1.0
+    },
+    {
+      "count": 6750,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 65,
+      "p90_latency_ms": 47.71025639784057,
+      "rps": 450,
+      "success_rate": 1.0
+    },
+    {
+      "count": 6900,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 73,
+      "p90_latency_ms": 47.639705396431964,
+      "rps": 460,
+      "success_rate": 1.0
+    },
+    {
+      "count": 7050,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 73,
+      "p90_latency_ms": 47.51902829739265,
+      "rps": 470,
+      "success_rate": 1.0
+    },
+    {
+      "count": 7200,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 73,
+      "p90_latency_ms": 48.1464245938696,
+      "rps": 480,
+      "success_rate": 1.0
+    },
+    {
+      "count": 7350,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 73,
+      "p90_latency_ms": 47.80299280027975,
+      "rps": 490,
+      "success_rate": 1.0
+    },
+    {
+      "count": 7500,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 81,
+      "p90_latency_ms": 48.0141996013117,
+      "rps": 500,
+      "success_rate": 1.0
+    }
+  ],
+  "violation_reason": "max_rps_reached"
+}

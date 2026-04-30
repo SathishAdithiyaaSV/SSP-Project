@@ -1,0 +1,63 @@
+{
+  "deployment": "rate",
+  "load": {
+    "max_rps": 20,
+    "start_rps": 5,
+    "step_duration_seconds": 10,
+    "step_rps": 5
+  },
+  "method": "GetRates",
+  "metric_errors": [
+    "Command '['kubectl', 'top', 'pod', '-n', 'default', '-l', 'io.kompose.service=rate', '--no-headers']' returned non-zero exit status 1.",
+    "Command '['kubectl', 'top', 'pod', '-n', 'default', '-l', 'io.kompose.service=rate', '--no-headers']' returned non-zero exit status 1.",
+    "Command '['kubectl', 'top', 'pod', '-n', 'default', '-l', 'io.kompose.service=rate', '--no-headers']' returned non-zero exit status 1."
+  ],
+  "msc_rps": 20,
+  "namespace": "default",
+  "observed_cpu_millicores": null,
+  "port": 8084,
+  "service": "rate",
+  "slo": {
+    "p90_latency_ms": 9999,
+    "success_rate_threshold": 0.95
+  },
+  "steps": [
+    {
+      "count": 50,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": null,
+      "p90_latency_ms": 14.81917739997698,
+      "rps": 5,
+      "success_rate": 1.0
+    },
+    {
+      "count": 100,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": null,
+      "p90_latency_ms": 8.529860200269468,
+      "rps": 10,
+      "success_rate": 1.0
+    },
+    {
+      "count": 150,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": null,
+      "p90_latency_ms": 17.236405400035437,
+      "rps": 15,
+      "success_rate": 1.0
+    },
+    {
+      "count": 200,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": null,
+      "p90_latency_ms": 22.238336300051742,
+      "rps": 20,
+      "success_rate": 1.0
+    }
+  ],
+  "violation_reason": "max_rps_reached"
+}

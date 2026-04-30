@@ -1,0 +1,40 @@
+{
+  "services": [
+    {
+      "msc_rps": 20,
+      "observed_cpu_millicores": null,
+      "service": "geo",
+      "violation_reason": "max_rps_reached"
+    },
+    {
+      "msc_rps": 20,
+      "observed_cpu_millicores": null,
+      "service": "rate",
+      "violation_reason": "max_rps_reached"
+    },
+    {
+      "msc_rps": 20,
+      "observed_cpu_millicores": null,
+      "service": "profile",
+      "violation_reason": "max_rps_reached"
+    },
+    {
+      "msc_rps": 20,
+      "observed_cpu_millicores": null,
+      "service": "recommendation",
+      "violation_reason": "max_rps_reached"
+    },
+    {
+      "msc_rps": 20,
+      "observed_cpu_millicores": null,
+      "service": "user",
+      "violation_reason": "max_rps_reached"
+    },
+    {
+      "msc_rps": 20,
+      "observed_cpu_millicores": null,
+      "service": "reservation",
+      "violation_reason": "max_rps_reached"
+    }
+  ]
+}

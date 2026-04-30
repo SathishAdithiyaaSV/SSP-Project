@@ -1,0 +1,54 @@
+{
+  "deployment": "user",
+  "load": {
+    "max_rps": 300,
+    "start_rps": 1,
+    "step_duration_seconds": 20,
+    "step_rps": 5
+  },
+  "method": "CheckUser",
+  "msc_rps": 6,
+  "namespace": "default",
+  "observed_cpu_millicores": 1,
+  "port": 8086,
+  "service": "user",
+  "slo": {
+    "p90_latency_ms": 3000,
+    "success_rate_threshold": 0.98
+  },
+  "steps": [
+    {
+      "count": 20,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 1,
+      "p90_latency_ms": 2.7008173005015124,
+      "rps": 1,
+      "success_rate": 1.0
+    },
+    {
+      "count": 120,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 1,
+      "p90_latency_ms": 2.5453282010857947,
+      "rps": 6,
+      "success_rate": 1.0
+    },
+    {
+      "count": 220,
+      "error_summary": [
+        {
+          "count": 183,
+          "error": "DEADLINE_EXCEEDED: Deadline Exceeded"
+        }
+      ],
+      "failures": 183,
+      "observed_cpu_millicores": 1,
+      "p90_latency_ms": 43.220709001252544,
+      "rps": 11,
+      "success_rate": 0.16818181818181818
+    }
+  ],
+  "violation_reason": "success_rate"
+}

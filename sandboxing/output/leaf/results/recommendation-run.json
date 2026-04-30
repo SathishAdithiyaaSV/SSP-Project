@@ -1,0 +1,54 @@
+{
+  "deployment": "recommendation",
+  "load": {
+    "max_rps": 300,
+    "start_rps": 1,
+    "step_duration_seconds": 20,
+    "step_rps": 5
+  },
+  "method": "GetRecommendations",
+  "msc_rps": 6,
+  "namespace": "default",
+  "observed_cpu_millicores": 1,
+  "port": 8085,
+  "service": "recommendation",
+  "slo": {
+    "p90_latency_ms": 3000,
+    "success_rate_threshold": 0.98
+  },
+  "steps": [
+    {
+      "count": 20,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 1,
+      "p90_latency_ms": 2.6225280003927764,
+      "rps": 1,
+      "success_rate": 1.0
+    },
+    {
+      "count": 120,
+      "error_summary": [],
+      "failures": 0,
+      "observed_cpu_millicores": 1,
+      "p90_latency_ms": 2.546160299607436,
+      "rps": 6,
+      "success_rate": 1.0
+    },
+    {
+      "count": 220,
+      "error_summary": [
+        {
+          "count": 198,
+          "error": "DEADLINE_EXCEEDED: Deadline Exceeded"
+        }
+      ],
+      "failures": 198,
+      "observed_cpu_millicores": 1,
+      "p90_latency_ms": 30.353931800709688,
+      "rps": 11,
+      "success_rate": 0.1
+    }
+  ],
+  "violation_reason": "success_rate"
+}

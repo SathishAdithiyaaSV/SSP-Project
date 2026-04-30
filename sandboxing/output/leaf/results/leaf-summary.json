@@ -1,0 +1,10 @@
+{
+  "services": [
+    {
+      "msc_rps": 80,
+      "observed_cpu_millicores": null,
+      "service": "rate",
+      "violation_reason": "success_rate"
+    }
+  ]
+}
