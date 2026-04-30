@@ -7,14 +7,14 @@
   "memory_mb": 256,
   "replicas": 1,
   "slo": {
-    "success_rate_threshold": 0.98,
-    "p90_latency_ms": 100
+    "success_rate_threshold": 0.95,
+    "p90_latency_ms": 150
   },
   "load": {
     "start_rps": 1,
     "step_rps": 5,
-    "step_duration_seconds": 20,
-    "max_rps": 300
+    "step_duration_seconds": 15,
+    "max_rps": 500
   },
   "capture": {
     "warmup_requests": 30,

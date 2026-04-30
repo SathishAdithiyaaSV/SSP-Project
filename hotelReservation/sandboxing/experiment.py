@@ -7,10 +7,11 @@ import os
 import socket
 import subprocess
 import time
+from dataclasses import replace
 from datetime import datetime, timezone
 from itertools import cycle, islice
 from pathlib import Path
-from typing import Dict, Iterable, List
+from typing import Dict, Iterable, List, Sequence
 
 import yaml
 import requests
@@ -453,33 +454,147 @@ def fit_from_run(config: ExperimentConfig, run_result: Dict[str, object]) -> Pat
     return fit_model([row], config.output_dir / "model")
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("config")
-    parser.add_argument("--skip-capture", action="store_true")
-    parser.add_argument("--skip-apply", action="store_true")
-    args = parser.parse_args()
+def parse_int_list(raw: str) -> List[int]:
+    values = []
+    for token in raw.split(","):
+        token = token.strip()
+        if not token:
+            continue
+        values.append(int(token))
+    if not values:
+        raise argparse.ArgumentTypeError("expected at least one integer value")
+    return values
 
-    config = ExperimentConfig.from_file(args.config)
-    config.output_dir.mkdir(parents=True, exist_ok=True)
-    ensure_metrics_server()
 
-    if args.skip_capture:
-        artifacts = {
-            "geo_fixture": config.output_dir / "fixtures" / "geo.json",
-            "rate_fixture": config.output_dir / "fixtures" / "rate.json",
-            "search_requests": config.output_dir / "fixtures" / "search-requests.json",
-        }
-    else:
-        artifacts = build_capture_artifacts(config)
+def already_collected(dataset_path: Path, config: ExperimentConfig) -> bool:
+    if not dataset_path.exists() or dataset_path.stat().st_size == 0:
+        return False
 
-    if not args.skip_apply:
+    with dataset_path.open(newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            try:
+                if (
+                    row["service"] == config.service
+                    and int(row["cpu_millicores"]) == config.cpu_millicores
+                    and int(row["replicas"]) == config.replicas
+                ):
+                    return True
+            except (KeyError, ValueError):
+                continue
+    return False
+
+
+def run_single_experiment(
+    config: ExperimentConfig,
+    *,
+    skip_apply: bool,
+    artifacts: Dict[str, Path],
+) -> Dict[str, object]:
+    if not skip_apply:
         render_and_apply_sandbox(config, artifacts)
 
     run_result = measure_msc(config, artifacts)
     append_run_to_dataset(config, run_result)
     # Model training is intentionally disabled for now.
     # fit_from_run(config, run_result)
+    return run_result
+
+
+def iter_sweep_configs(
+    base_config: ExperimentConfig,
+    cpu_configs: Sequence[int],
+    replica_configs: Sequence[int],
+) -> Iterable[ExperimentConfig]:
+    for cpu_millicores in cpu_configs:
+        for replicas in replica_configs:
+            yield replace(
+                base_config,
+                cpu_millicores=cpu_millicores,
+                replicas=replicas,
+            )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("config")
+    parser.add_argument("--skip-capture", action="store_true")
+    parser.add_argument("--skip-apply", action="store_true")
+    parser.add_argument(
+        "--cpu-configs",
+        type=parse_int_list,
+        help="Comma-separated CPU millicore sweep, for example: 100,200,400,800",
+    )
+    parser.add_argument(
+        "--replica-configs",
+        type=parse_int_list,
+        help="Comma-separated replica sweep, for example: 1,2,3",
+    )
+    args = parser.parse_args()
+
+    base_config = ExperimentConfig.from_file(args.config)
+    base_config.output_dir.mkdir(parents=True, exist_ok=True)
+    ensure_metrics_server()
+
+    if args.skip_capture:
+        artifacts = {
+            "geo_fixture": base_config.output_dir / "fixtures" / "geo.json",
+            "rate_fixture": base_config.output_dir / "fixtures" / "rate.json",
+            "search_requests": base_config.output_dir / "fixtures" / "search-requests.json",
+        }
+    else:
+        artifacts = build_capture_artifacts(base_config)
+
+    if args.cpu_configs or args.replica_configs:
+        cpu_configs = args.cpu_configs or [base_config.cpu_millicores]
+        replica_configs = args.replica_configs or [base_config.replicas]
+        dataset_path = base_config.output_dir / "model" / "dataset.csv"
+        total = len(cpu_configs) * len(replica_configs)
+
+        print(
+            f"Running search sweep for {total} configuration(s): "
+            f"cpu={cpu_configs}, replicas={replica_configs}",
+            flush=True,
+        )
+        completed = 0
+        skipped = 0
+        for index, config in enumerate(iter_sweep_configs(base_config, cpu_configs, replica_configs), start=1):
+            if already_collected(dataset_path, config):
+                skipped += 1
+                print(
+                    f"[{index}/{total}] service={config.service} "
+                    f"cpu={config.cpu_millicores}m replicas={config.replicas} already collected, skipping",
+                    flush=True,
+                )
+                continue
+
+            print(
+                f"[{index}/{total}] service={config.service} "
+                f"cpu={config.cpu_millicores}m replicas={config.replicas}",
+                flush=True,
+            )
+            run_result = run_single_experiment(
+                config,
+                skip_apply=args.skip_apply,
+                artifacts=artifacts,
+            )
+            completed += 1
+            print(
+                f"  msc_rps={run_result['msc_rps']} "
+                f"violation={run_result['violation_reason']}",
+                flush=True,
+            )
+
+        print(
+            f"Sweep complete. completed={completed} skipped={skipped} dataset={dataset_path}",
+            flush=True,
+        )
+        return
+
+    run_single_experiment(
+        base_config,
+        skip_apply=args.skip_apply,
+        artifacts=artifacts,
+    )
 
 
 if __name__ == "__main__":
