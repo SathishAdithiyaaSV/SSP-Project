@@ -3,7 +3,7 @@
   "namespace": "hotelres-search-sandbox",
   "image": "deathstarbench/hotel-reservation:mvp",
   "dummy_image": "deathstarbench/hotel-reservation-sandbox-dummy:mvp",
-  "cpu_millicores": 200,
+  "cpu_millicores": 150,
   "memory_mb": 256,
   "replicas": 1,
   "slo": {

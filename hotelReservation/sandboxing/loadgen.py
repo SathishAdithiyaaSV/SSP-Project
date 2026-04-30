@@ -51,7 +51,7 @@ def run_search_step(
         start = time.perf_counter()
         stub.Nearby(
             proto_module.NearbyRequest(**payload),
-            timeout=5,
+            timeout=0.5,
             wait_for_ready=True,
         )
         return (time.perf_counter() - start) * 1000

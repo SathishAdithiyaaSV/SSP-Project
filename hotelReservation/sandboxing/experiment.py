@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import os
 import socket
 import subprocess
 import time
+from datetime import datetime, timezone
 from itertools import cycle, islice
 from pathlib import Path
 from typing import Dict, Iterable, List
@@ -211,6 +213,51 @@ def _wait_for_port_forward(process: subprocess.Popen, local_port: int, timeout_s
     raise RuntimeError(f"timed out waiting for kubectl port-forward on localhost:{local_port}")
 
 
+def _wait_for_consul_service(namespace: str, service_name: str, timeout_seconds: int = 30) -> None:
+    local_port = _reserve_local_port()
+    port_forward = subprocess.Popen(
+        [
+            "kubectl",
+            "port-forward",
+            "-n",
+            namespace,
+            "svc/consul",
+            f"{local_port}:8500",
+        ],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+    try:
+        _wait_for_port_forward(port_forward, local_port)
+        deadline = time.time() + timeout_seconds
+        last_error = ""
+        while time.time() < deadline:
+            try:
+                response = requests.get(
+                    f"http://127.0.0.1:{local_port}/v1/catalog/service/{service_name}",
+                    timeout=3,
+                )
+                response.raise_for_status()
+                payload = response.json()
+                if payload:
+                    return
+            except requests.RequestException as exc:
+                last_error = str(exc)
+            time.sleep(1)
+    finally:
+        port_forward.terminate()
+        port_forward.wait(timeout=10)
+
+    details = (
+        f"Consul did not report any instances for service {service_name} "
+        f"in namespace {namespace} after {timeout_seconds}s."
+    )
+    if last_error:
+        details = f"{details} Last Consul error: {last_error}"
+    raise RuntimeError(details)
+
+
 def capture_search_baseline(config: ExperimentConfig) -> Dict[str, Path]:
     if config.service != "search":
         raise NotImplementedError("v1 capture only supports search")
@@ -297,6 +344,8 @@ def render_and_apply_sandbox(config: ExperimentConfig, artifacts: Dict[str, Path
                 "--timeout=180s",
             ]
         )
+    for service_name in ("srv-geo", "srv-rate", "srv-search"):
+        _wait_for_consul_service(config.namespace, service_name)
     return manifest_path
 
 
@@ -361,11 +410,35 @@ def measure_msc(config: ExperimentConfig, artifacts: Dict[str, Path]) -> Dict[st
             "violation_reason": violation_reason or "max_rps_reached",
             "observed_cpu_millicores": max((step["observed_cpu_millicores"] for step in steps), default=0),
         }
-        write_json(config.output_dir / "results" / "search-run.json", payload)
+        timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        write_json(config.output_dir / "results" / f"{config.service}-run-{timestamp}.json", payload)
         return payload
     finally:
         port_forward.terminate()
         port_forward.wait(timeout=10)
+
+
+def append_run_to_dataset(config: ExperimentConfig, run_result: Dict[str, object]) -> Path:
+    dataset_path = config.output_dir / "model" / "dataset.csv"
+    dataset_path.parent.mkdir(parents=True, exist_ok=True)
+
+    fieldnames = ["service", "cpu_millicores", "memory_mb", "replicas", "observed_cpu_millicores", "msc_rps"]
+    row = {
+        "service": run_result["service"],
+        "cpu_millicores": run_result["cpu_millicores"],
+        "memory_mb": run_result["memory_mb"],
+        "replicas": run_result["replicas"],
+        "observed_cpu_millicores": run_result["observed_cpu_millicores"],
+        "msc_rps": run_result["msc_rps"],
+    }
+
+    write_header = not dataset_path.exists() or dataset_path.stat().st_size == 0
+    with dataset_path.open("a", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        if write_header:
+            writer.writeheader()
+        writer.writerow(row)
+    return dataset_path
 
 
 def fit_from_run(config: ExperimentConfig, run_result: Dict[str, object]) -> Path:
@@ -404,7 +477,9 @@ def main() -> None:
         render_and_apply_sandbox(config, artifacts)
 
     run_result = measure_msc(config, artifacts)
-    fit_from_run(config, run_result)
+    append_run_to_dataset(config, run_result)
+    # Model training is intentionally disabled for now.
+    # fit_from_run(config, run_result)
 
 
 if __name__ == "__main__":
