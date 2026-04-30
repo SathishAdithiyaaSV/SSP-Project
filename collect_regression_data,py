@@ -1,0 +1,319 @@
+#!/usr/bin/env python3
+"""
+Collect MSC measurements across multiple CPU/replica configurations
+for all leaf Hotel Reservation services.
+
+Run from the DeathStarBench repo root:
+    python3 collect_regression_data.py
+
+Results are appended to sandboxing/output/regression/dataset.csv
+Each service is restored to its original resource config after each run.
+"""
+from __future__ import annotations
+
+import csv
+import json
+import subprocess
+import sys
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+# ---------------------------------------------------------------------------
+# Configuration
+# ---------------------------------------------------------------------------
+
+REPO_ROOT = Path(__file__).resolve().parent
+
+# Resource configurations to test per service
+CPU_CONFIGS_MILLICORES = [100, 200, 400, 800, 1000]
+REPLICA_CONFIGS = [1, 2, 3]
+
+# Load test parameters
+START_RPS = 10
+STEP_RPS = 10
+DURATION_SECONDS = 15
+MAX_RPS = 500
+P90_THRESHOLD_MS = 150
+TIMEOUT_SECONDS = 0.15
+SUCCESS_THRESHOLD = 0.95
+
+# Services to test (must match SERVICES dict in leaf_experiment.py)
+LEAF_SERVICES = [
+    "geo",
+    "rate",
+    "profile",
+    "recommendation",
+    "user",
+    "reservation",
+]
+
+NAMESPACE = "default"
+OUTPUT_DIR = Path("sandboxing/output/regression")
+DATASET_PATH = OUTPUT_DIR / "dataset.csv"
+RESULTS_DIR = OUTPUT_DIR / "results"
+
+CSV_FIELDS = [
+    "service",
+    "cpu_millicores",
+    "memory_mb",
+    "replicas",
+    "observed_cpu_millicores",
+    "msc_rps",
+    "violation_reason",
+]
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+def run(args: List[str], **kwargs: Any) -> subprocess.CompletedProcess:
+    return subprocess.run(args, check=True, text=True, **kwargs)
+
+
+def run_silent(args: List[str], **kwargs: Any) -> subprocess.CompletedProcess:
+    return run(args, capture_output=True, **kwargs)
+
+
+def log(msg: str) -> None:
+    print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
+
+
+def get_current_resources(service: str) -> Dict[str, Any]:
+    """Read current CPU limit and replica count for a deployment."""
+    result = run_silent([
+        "kubectl", "get", "deployment", service,
+        "-o", "jsonpath={.spec.template.spec.containers[0].resources}|||{.spec.replicas}"
+    ])
+    resources_str, replicas_str = result.stdout.strip().split("|||")
+    resources = json.loads(resources_str)
+    return {
+        "resources": resources,
+        "replicas": int(replicas_str),
+    }
+
+
+def patch_deployment(service: str, cpu_millicores: int, replicas: int) -> None:
+    """Patch a deployment's CPU limit and replica count."""
+    cpu_str = f"{cpu_millicores}m"
+
+    # Patch CPU limits and requests
+    run_silent([
+        "kubectl", "patch", "deployment", service,
+        "--patch", json.dumps({
+            "spec": {
+                "replicas": replicas,
+                "template": {
+                    "spec": {
+                        "containers": [{
+                            "name": service,
+                            "resources": {
+                                "requests": {"cpu": cpu_str},
+                                "limits": {"cpu": cpu_str},
+                            }
+                        }]
+                    }
+                }
+            }
+        })
+    ])
+
+    # Wait for rollout
+    run([
+        "kubectl", "rollout", "status",
+        f"deployment/{service}",
+        "--timeout=120s",
+    ])
+
+    # Brief stabilization pause
+    time.sleep(5)
+
+
+def restore_deployment(service: str, original: Dict[str, Any]) -> None:
+    """Restore a deployment to its original resource config."""
+    resources = original["resources"]
+    replicas = original["replicas"]
+
+    run_silent([
+        "kubectl", "patch", "deployment", service,
+        "--patch", json.dumps({
+            "spec": {
+                "replicas": replicas,
+                "template": {
+                    "spec": {
+                        "containers": [{
+                            "name": service,
+                            "resources": resources,
+                        }]
+                    }
+                }
+            }
+        })
+    ])
+    run([
+        "kubectl", "rollout", "status",
+        f"deployment/{service}",
+        "--timeout=120s",
+    ])
+
+
+def run_leaf_experiment(service: str, cpu_millicores: int) -> Optional[Dict[str, Any]]:
+    """Run leaf_experiment.py for a single service and return the result dict."""
+    result_path = RESULTS_DIR / f"{service}-run.json"
+
+    try:
+        run([
+            sys.executable, "-m",
+            "hotelReservation.sandboxing.leaf_experiment",
+            "--service", service,
+            "--namespace", NAMESPACE,
+            "--start-rps", str(START_RPS),
+            "--step-rps", str(STEP_RPS),
+            "--duration", str(DURATION_SECONDS),
+            "--max-rps", str(MAX_RPS),
+            "--p90-ms", str(P90_THRESHOLD_MS),
+            "--timeout", str(TIMEOUT_SECONDS),
+            "--success-threshold", str(SUCCESS_THRESHOLD),
+            "--output-dir", str(OUTPUT_DIR),
+        ])
+    except subprocess.CalledProcessError as exc:
+        log(f"  ERROR running experiment: {exc}")
+        return None
+
+    if not result_path.exists():
+        log(f"  ERROR: result file not found at {result_path}")
+        return None
+
+    return json.loads(result_path.read_text())
+
+
+def append_to_dataset(row: Dict[str, Any]) -> None:
+    """Append one result row to the CSV dataset."""
+    DATASET_PATH.parent.mkdir(parents=True, exist_ok=True)
+    write_header = not DATASET_PATH.exists()
+
+    with open(DATASET_PATH, "a", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
+        if write_header:
+            writer.writeheader()
+        writer.writerow({k: row.get(k, "") for k in CSV_FIELDS})
+
+
+def already_collected(service: str, cpu_millicores: int, replicas: int) -> bool:
+    """Check if this config was already measured (allows resuming interrupted runs)."""
+    if not DATASET_PATH.exists():
+        return False
+    with open(DATASET_PATH, newline="") as f:
+        for r in csv.DictReader(f):
+            if (r["service"] == service
+                    and int(r["cpu_millicores"]) == cpu_millicores
+                    and int(r["replicas"]) == replicas):
+                return True
+    return False
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+def main() -> None:
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    total = len(LEAF_SERVICES) * len(CPU_CONFIGS_MILLICORES) * len(REPLICA_CONFIGS)
+    completed = 0
+    skipped = 0
+
+    log(f"Starting regression data collection: {total} total configurations")
+    log(f"Services: {LEAF_SERVICES}")
+    log(f"CPU configs: {CPU_CONFIGS_MILLICORES}m")
+    log(f"Replica configs: {REPLICA_CONFIGS}")
+    log(f"Dataset will be written to: {DATASET_PATH}")
+    log("-" * 60)
+
+    for service in LEAF_SERVICES:
+        log(f"=== Service: {service} ===")
+
+        # Save original config before touching anything
+        try:
+            original = get_current_resources(service)
+            log(f"  Original config: {original}")
+        except subprocess.CalledProcessError as exc:
+            log(f"  ERROR reading original config: {exc} — skipping service")
+            continue
+
+        for cpu in CPU_CONFIGS_MILLICORES:
+            for replicas in REPLICA_CONFIGS:
+                completed += 1
+
+                if already_collected(service, cpu, replicas):
+                    log(f"  [{completed}/{total}] {service} cpu={cpu}m replicas={replicas} — already collected, skipping")
+                    skipped += 1
+                    continue
+
+                log(f"  [{completed}/{total}] {service} cpu={cpu}m replicas={replicas}")
+
+                # Patch deployment to target config
+                try:
+                    log(f"    Patching deployment...")
+                    patch_deployment(service, cpu, replicas)
+                except subprocess.CalledProcessError as exc:
+                    log(f"    ERROR patching deployment: {exc} — skipping config")
+                    continue
+
+                # Run the experiment
+                log(f"    Running load test...")
+                result = run_leaf_experiment(service, cpu)
+
+                if result is None:
+                    log(f"    No result — skipping")
+                else:
+                    # Get memory from current deployment
+                    try:
+                        mem_result = run_silent([
+                            "kubectl", "get", "deployment", service,
+                            "-o", "jsonpath={.spec.template.spec.containers[0].resources.limits.memory}"
+                        ])
+                        memory_str = mem_result.stdout.strip()
+                        # Convert to MB (e.g. "256Mi" -> 256)
+                        if memory_str.endswith("Mi"):
+                            memory_mb = int(memory_str[:-2])
+                        elif memory_str.endswith("Gi"):
+                            memory_mb = int(float(memory_str[:-2]) * 1024)
+                        else:
+                            memory_mb = 256  # fallback
+                    except Exception:
+                        memory_mb = 256  # fallback if no memory limit set
+
+                    row = {
+                        "service": service,
+                        "cpu_millicores": cpu,
+                        "memory_mb": memory_mb,
+                        "replicas": replicas,
+                        "observed_cpu_millicores": result.get("observed_cpu_millicores", ""),
+                        "msc_rps": result.get("msc_rps", ""),
+                        "violation_reason": result.get("violation_reason", ""),
+                    }
+                    append_to_dataset(row)
+                    log(f"    msc_rps={result.get('msc_rps')} violation={result.get('violation_reason')}")
+
+        # Always restore original config even if experiments failed
+        log(f"  Restoring {service} to original config...")
+        try:
+            restore_deployment(service, original)
+        except subprocess.CalledProcessError as exc:
+            log(f"  WARNING: failed to restore {service}: {exc}")
+
+    log("-" * 60)
+    log(f"Done. {completed - skipped} runs completed, {skipped} skipped.")
+    log(f"Dataset: {DATASET_PATH}")
+
+    if DATASET_PATH.exists():
+        with open(DATASET_PATH, newline="") as f:
+            rows = list(csv.DictReader(f))
+        log(f"Total rows in dataset: {len(rows)}")
+
+
+if __name__ == "__main__":
+    main()
