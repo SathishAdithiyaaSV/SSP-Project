@@ -5,82 +5,17 @@
       "method": "/rate.Rate/GetRates",
       "request": {
         "hotelIds": [
-          "40",
-          "39",
-          "41",
-          "38",
-          "42"
+          "1",
+          "3",
+          "5",
+          "6",
+          "2"
         ],
-        "inDate": "2015-04-17",
-        "outDate": "2015-04-18"
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
       },
       "response": {
         "ratePlans": [
-          {
-            "code": "RACK",
-            "hotelId": "54",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 232,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 232,
-              "totalRateInclusive": 258
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "24",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 232,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 232,
-              "totalRateInclusive": 258
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "39",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 232,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 232,
-              "totalRateInclusive": 258
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "9",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 232,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 232,
-              "totalRateInclusive": 258
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "69",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 232,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 232,
-              "totalRateInclusive": 258
-            }
-          },
           {
             "code": "RACK",
             "hotelId": "2",
@@ -92,253 +27,6 @@
               "roomDescription": "Queen sized bed",
               "totalRate": 139,
               "totalRateInclusive": 153.09
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "48",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 132,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 132,
-              "totalRateInclusive": 158
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "33",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 132,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 132,
-              "totalRateInclusive": 158
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "18",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 132,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 132,
-              "totalRateInclusive": 158
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "63",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 132,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 132,
-              "totalRateInclusive": 158
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "78",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 132,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 132,
-              "totalRateInclusive": 158
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "42",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 124,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 124,
-              "totalRateInclusive": 144
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "27",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 124,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 124,
-              "totalRateInclusive": 144
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "72",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 124,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 124,
-              "totalRateInclusive": 144
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "12",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 124,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 124,
-              "totalRateInclusive": 144
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "57",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 124,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 124,
-              "totalRateInclusive": 144
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "36",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 120,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 120,
-              "totalRateInclusive": 140
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "51",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 120,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 120,
-              "totalRateInclusive": 140
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "21",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 120,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 120,
-              "totalRateInclusive": 140
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "66",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 120,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 120,
-              "totalRateInclusive": 140
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "30",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 109,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 109,
-              "totalRateInclusive": 123.17
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "60",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-17",
-            "roomType": {
-              "bookableRate": 109,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 109,
-              "totalRateInclusive": 123.17
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "45",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 109,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 109,
-              "totalRateInclusive": 123.17
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "75",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 109,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 109,
-              "totalRateInclusive": 123.17
-            }
-          },
-          {
-            "code": "RACK",
-            "hotelId": "15",
-            "inDate": "2015-04-09",
-            "outDate": "2015-04-24",
-            "roomType": {
-              "bookableRate": 109,
-              "code": "KNG",
-              "roomDescription": "King sized bed",
-              "totalRate": 109,
-              "totalRateInclusive": 123.17
             }
           },
           {
@@ -369,6 +57,1880 @@
           }
         ]
       }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "1",
+          "5",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "2",
+          "6",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "1",
+          "3",
+          "5",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "1",
+          "5",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "2",
+          "6",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "1",
+          "3",
+          "5",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "1",
+          "5",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "2",
+          "6",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "1",
+          "3",
+          "5",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "1",
+          "5",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "2",
+          "6",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "1",
+          "3",
+          "5",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "1",
+          "5",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "2",
+          "6",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "1",
+          "3",
+          "5",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "1",
+          "5",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "2",
+          "6",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "3",
+          "2",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "4",
+          "1"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "3",
+          "2",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "4",
+          "1"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "3",
+          "2",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "4",
+          "1"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "3",
+          "2",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "4",
+          "1"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "3",
+          "2",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "4",
+          "1"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "3",
+          "2",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "4",
+          "1"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "1",
+          "6",
+          "2",
+          "5"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "1",
+          "6",
+          "2",
+          "5"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "1",
+          "6",
+          "2",
+          "5"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "1",
+          "6",
+          "2",
+          "5"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "1",
+          "6",
+          "2",
+          "5"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "1",
+          "6",
+          "2",
+          "5"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "2",
+          "6",
+          "3",
+          "1",
+          "5"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "6",
+          "2",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "2",
+          "6",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "6",
+          "2",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "2",
+          "6",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "6",
+          "2",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "2",
+          "6",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "6",
+          "2",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "2",
+          "6",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "6",
+          "2",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "2",
+          "6",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "6",
+          "2",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "4",
+          "2",
+          "6",
+          "3",
+          "1"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "1",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "3",
+          "1",
+          "2",
+          "6"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "1",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "3",
+          "1",
+          "2",
+          "6"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "1",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "3",
+          "1",
+          "2",
+          "6"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "1",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "3",
+          "1",
+          "2",
+          "6"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "1",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "3",
+          "1",
+          "2",
+          "6"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "1",
+          "3",
+          "6",
+          "2"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "5",
+          "3",
+          "1",
+          "2",
+          "6"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "2",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "6",
+          "1",
+          "2",
+          "4"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-10"
+      },
+      "response": {
+        "ratePlans": [
+          {
+            "code": "RACK",
+            "hotelId": "2",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 139,
+              "code": "QN",
+              "roomDescription": "Queen sized bed",
+              "totalRate": 139,
+              "totalRateInclusive": 153.09
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "1",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          },
+          {
+            "code": "RACK",
+            "hotelId": "3",
+            "inDate": "2015-04-09",
+            "outDate": "2015-04-10",
+            "roomType": {
+              "bookableRate": 109,
+              "code": "KNG",
+              "roomDescription": "King sized bed",
+              "totalRate": 109,
+              "totalRateInclusive": 123.17
+            }
+          }
+        ]
+      }
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "2",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "6",
+          "1",
+          "2",
+          "4"
+        ],
+        "inDate": "2015-04-09",
+        "outDate": "2015-04-17"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "2",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "6",
+          "1",
+          "2",
+          "4"
+        ],
+        "inDate": "2015-04-10",
+        "outDate": "2015-04-11"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "2",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "6",
+          "1",
+          "2",
+          "4"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-18"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "2",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "6",
+          "1",
+          "2",
+          "4"
+        ],
+        "inDate": "2015-04-17",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "6",
+          "2",
+          "3",
+          "1",
+          "4"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
+    },
+    {
+      "code": "OK",
+      "method": "/rate.Rate/GetRates",
+      "request": {
+        "hotelIds": [
+          "3",
+          "6",
+          "1",
+          "2",
+          "4"
+        ],
+        "inDate": "2015-04-20",
+        "outDate": "2015-04-24"
+      },
+      "response": {}
     }
   ]
 }

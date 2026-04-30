@@ -10,10 +10,79 @@ metadata:
   namespace: hotelres-search-sandbox
 data:
   geo.json: "{\n  \"fixtures\": [\n    {\n      \"code\": \"OK\",\n      \"method\"\
-    : \"/geo.Geo/Nearby\",\n      \"request\": {\n        \"lat\": 38.0235,\n    \
-    \    \"lon\": -122.095\n      },\n      \"response\": {\n        \"hotelIds\"\
-    : [\n          \"40\",\n          \"39\",\n          \"41\",\n          \"38\"\
-    ,\n          \"42\"\n        ]\n      }\n    }\n  ]\n}"
+    : \"/geo.Geo/Nearby\",\n      \"request\": {\n        \"lat\": 37.7867,\n    \
+    \    \"lon\": -122.4112\n      },\n      \"response\": {\n        \"hotelIds\"\
+    : [\n          \"1\",\n          \"3\",\n          \"5\",\n          \"6\",\n\
+    \          \"2\"\n        ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n\
+    \      \"method\": \"/geo.Geo/Nearby\",\n      \"request\": {\n        \"lat\"\
+    : 37.7907,\n        \"lon\": -122.4152\n      },\n      \"response\": {\n    \
+    \    \"hotelIds\": [\n          \"1\",\n          \"5\",\n          \"3\",\n \
+    \         \"6\",\n          \"2\"\n        ]\n      }\n    },\n    {\n      \"\
+    code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\",\n      \"request\": {\n\
+    \        \"lat\": 37.7807,\n        \"lon\": -122.4062\n      },\n      \"response\"\
+    : {\n        \"hotelIds\": [\n          \"3\",\n          \"2\",\n          \"\
+    6\",\n          \"1\",\n          \"5\"\n        ]\n      }\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\",\n      \"request\"\
+    : {\n        \"lat\": 37.7854,\n        \"lon\": -122.4005\n      },\n      \"\
+    response\": {\n        \"hotelIds\": [\n          \"2\",\n          \"6\",\n \
+    \         \"3\",\n          \"1\",\n          \"4\"\n        ]\n      }\n    },\n\
+    \    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\",\n    \
+    \  \"request\": {\n        \"lat\": 37.7894,\n        \"lon\": -122.4045\n   \
+    \   },\n      \"response\": {\n        \"hotelIds\": [\n          \"6\",\n   \
+    \       \"3\",\n          \"2\",\n          \"1\",\n          \"4\"\n        ]\n\
+    \      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7794,\n        \"lon\": -122.3955\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"2\",\n\
+    \          \"6\",\n          \"3\",\n          \"4\",\n          \"1\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7834,\n        \"lon\": -122.4071\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"3\",\n\
+    \          \"1\",\n          \"6\",\n          \"2\",\n          \"5\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7874,\n        \"lon\": -122.4111\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"1\",\n\
+    \          \"3\",\n          \"5\",\n          \"6\",\n          \"2\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7774,\n        \"lon\": -122.4021\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"2\",\n\
+    \          \"6\",\n          \"3\",\n          \"1\",\n          \"5\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7936,\n        \"lon\": -122.393\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"4\",\n\
+    \          \"6\",\n          \"2\",\n          \"3\",\n          \"1\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7976,\n        \"lon\": -122.397\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"4\",\n\
+    \          \"6\",\n          \"2\",\n          \"3\",\n          \"1\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7876,\n        \"lon\": -122.388\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"4\",\n\
+    \          \"2\",\n          \"6\",\n          \"3\",\n          \"1\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7831,\n        \"lon\": -122.4181\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"5\",\n\
+    \          \"1\",\n          \"3\",\n          \"6\",\n          \"2\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7871,\n        \"lon\": -122.4221\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"5\",\n\
+    \          \"1\",\n          \"3\",\n          \"6\",\n          \"2\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7771,\n        \"lon\": -122.4131\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"5\",\n\
+    \          \"3\",\n          \"1\",\n          \"2\",\n          \"6\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7863,\n        \"lon\": -122.4015\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"6\",\n\
+    \          \"2\",\n          \"3\",\n          \"1\",\n          \"4\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7903,\n        \"lon\": -122.4055\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"3\",\n\
+    \          \"6\",\n          \"1\",\n          \"2\",\n          \"4\"\n     \
+    \   ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/geo.Geo/Nearby\"\
+    ,\n      \"request\": {\n        \"lat\": 37.7803,\n        \"lon\": -122.3965\n\
+    \      },\n      \"response\": {\n        \"hotelIds\": [\n          \"2\",\n\
+    \          \"6\",\n          \"3\",\n          \"1\",\n          \"4\"\n     \
+    \   ]\n      }\n    }\n  ]\n}"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -23,146 +92,14 @@ metadata:
 data:
   rate.json: "{\n  \"fixtures\": [\n    {\n      \"code\": \"OK\",\n      \"method\"\
     : \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\": [\n  \
-    \        \"40\",\n          \"39\",\n          \"41\",\n          \"38\",\n  \
-    \        \"42\"\n        ],\n        \"inDate\": \"2015-04-17\",\n        \"outDate\"\
-    : \"2015-04-18\"\n      },\n      \"response\": {\n        \"ratePlans\": [\n\
-    \          {\n            \"code\": \"RACK\",\n            \"hotelId\": \"54\"\
-    ,\n            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-17\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 232,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 232,\n              \"totalRateInclusive\": 258\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"24\",\n            \"inDate\": \"2015-04-09\",\n  \
-    \          \"outDate\": \"2015-04-17\",\n            \"roomType\": {\n       \
-    \       \"bookableRate\": 232,\n              \"code\": \"KNG\",\n           \
-    \   \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 232,\n\
-    \              \"totalRateInclusive\": 258\n            }\n          },\n    \
-    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"39\",\n\
-    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-24\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 232,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 232,\n              \"totalRateInclusive\": 258\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"9\",\n            \"inDate\": \"2015-04-09\",\n   \
-    \         \"outDate\": \"2015-04-24\",\n            \"roomType\": {\n        \
-    \      \"bookableRate\": 232,\n              \"code\": \"KNG\",\n            \
-    \  \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 232,\n\
-    \              \"totalRateInclusive\": 258\n            }\n          },\n    \
-    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"69\",\n\
-    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-24\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 232,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 232,\n              \"totalRateInclusive\": 258\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"2\",\n            \"inDate\": \"2015-04-09\",\n   \
-    \         \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n        \
-    \      \"bookableRate\": 139,\n              \"code\": \"QN\",\n             \
-    \ \"roomDescription\": \"Queen sized bed\",\n              \"totalRate\": 139,\n\
-    \              \"totalRateInclusive\": 153.09\n            }\n          },\n \
-    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"48\"\
-    ,\n            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-17\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 132,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 132,\n              \"totalRateInclusive\": 158\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"33\",\n            \"inDate\": \"2015-04-09\",\n  \
-    \          \"outDate\": \"2015-04-24\",\n            \"roomType\": {\n       \
-    \       \"bookableRate\": 132,\n              \"code\": \"KNG\",\n           \
-    \   \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 132,\n\
-    \              \"totalRateInclusive\": 158\n            }\n          },\n    \
-    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"18\",\n\
-    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-17\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 132,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 132,\n              \"totalRateInclusive\": 158\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"63\",\n            \"inDate\": \"2015-04-09\",\n  \
-    \          \"outDate\": \"2015-04-24\",\n            \"roomType\": {\n       \
-    \       \"bookableRate\": 132,\n              \"code\": \"KNG\",\n           \
-    \   \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 132,\n\
-    \              \"totalRateInclusive\": 158\n            }\n          },\n    \
-    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"78\",\n\
-    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-17\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 132,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 132,\n              \"totalRateInclusive\": 158\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"42\",\n            \"inDate\": \"2015-04-09\",\n  \
-    \          \"outDate\": \"2015-04-17\",\n            \"roomType\": {\n       \
-    \       \"bookableRate\": 124,\n              \"code\": \"KNG\",\n           \
-    \   \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 124,\n\
-    \              \"totalRateInclusive\": 144\n            }\n          },\n    \
-    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"27\",\n\
-    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-24\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 124,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 124,\n              \"totalRateInclusive\": 144\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"72\",\n            \"inDate\": \"2015-04-09\",\n  \
-    \          \"outDate\": \"2015-04-17\",\n            \"roomType\": {\n       \
-    \       \"bookableRate\": 124,\n              \"code\": \"KNG\",\n           \
-    \   \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 124,\n\
-    \              \"totalRateInclusive\": 144\n            }\n          },\n    \
-    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"12\",\n\
-    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-17\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 124,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 124,\n              \"totalRateInclusive\": 144\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"57\",\n            \"inDate\": \"2015-04-09\",\n  \
-    \          \"outDate\": \"2015-04-24\",\n            \"roomType\": {\n       \
-    \       \"bookableRate\": 124,\n              \"code\": \"KNG\",\n           \
-    \   \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 124,\n\
-    \              \"totalRateInclusive\": 144\n            }\n          },\n    \
-    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"36\",\n\
-    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-17\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 120,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 120,\n              \"totalRateInclusive\": 140\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"51\",\n            \"inDate\": \"2015-04-09\",\n  \
-    \          \"outDate\": \"2015-04-24\",\n            \"roomType\": {\n       \
-    \       \"bookableRate\": 120,\n              \"code\": \"KNG\",\n           \
-    \   \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 120,\n\
-    \              \"totalRateInclusive\": 140\n            }\n          },\n    \
-    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"21\",\n\
-    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-24\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 120,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 120,\n              \"totalRateInclusive\": 140\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"66\",\n            \"inDate\": \"2015-04-09\",\n  \
-    \          \"outDate\": \"2015-04-17\",\n            \"roomType\": {\n       \
-    \       \"bookableRate\": 120,\n              \"code\": \"KNG\",\n           \
-    \   \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 120,\n\
-    \              \"totalRateInclusive\": 140\n            }\n          },\n    \
-    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"30\",\n\
-    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-17\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"60\",\n            \"inDate\": \"2015-04-09\",\n  \
-    \          \"outDate\": \"2015-04-17\",\n            \"roomType\": {\n       \
-    \       \"bookableRate\": 109,\n              \"code\": \"KNG\",\n           \
-    \   \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
-    \              \"totalRateInclusive\": 123.17\n            }\n          },\n \
-    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"45\"\
-    ,\n            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-24\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
-    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
-    \           \"hotelId\": \"75\",\n            \"inDate\": \"2015-04-09\",\n  \
-    \          \"outDate\": \"2015-04-24\",\n            \"roomType\": {\n       \
-    \       \"bookableRate\": 109,\n              \"code\": \"KNG\",\n           \
-    \   \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
-    \              \"totalRateInclusive\": 123.17\n            }\n          },\n \
-    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"15\"\
-    ,\n            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-24\"\
-    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
-    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
-    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
+    \        \"1\",\n          \"3\",\n          \"5\",\n          \"6\",\n      \
+    \    \"2\"\n        ],\n        \"inDate\": \"2015-04-09\",\n        \"outDate\"\
+    : \"2015-04-10\"\n      },\n      \"response\": {\n        \"ratePlans\": [\n\
+    \          {\n            \"code\": \"RACK\",\n            \"hotelId\": \"2\"\
+    ,\n            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 139,\n       \
+    \       \"code\": \"QN\",\n              \"roomDescription\": \"Queen sized bed\"\
+    ,\n              \"totalRate\": 139,\n              \"totalRateInclusive\": 153.09\n\
     \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
     \           \"hotelId\": \"1\",\n            \"inDate\": \"2015-04-09\",\n   \
     \         \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n        \
@@ -174,7 +111,588 @@ data:
     ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
     \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
     ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
-    \            }\n          }\n        ]\n      }\n    }\n  ]\n}"
+    \            }\n          }\n        ]\n      }\n    },\n    {\n      \"code\"\
+    : \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n\
+    \        \"hotelIds\": [\n          \"1\",\n          \"5\",\n          \"3\"\
+    ,\n          \"6\",\n          \"2\"\n        ],\n        \"inDate\": \"2015-04-09\"\
+    ,\n        \"outDate\": \"2015-04-10\"\n      },\n      \"response\": {\n    \
+    \    \"ratePlans\": [\n          {\n            \"code\": \"RACK\",\n        \
+    \    \"hotelId\": \"2\",\n            \"inDate\": \"2015-04-09\",\n          \
+    \  \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n              \"\
+    bookableRate\": 139,\n              \"code\": \"QN\",\n              \"roomDescription\"\
+    : \"Queen sized bed\",\n              \"totalRate\": 139,\n              \"totalRateInclusive\"\
+    : 153.09\n            }\n          },\n          {\n            \"code\": \"RACK\"\
+    ,\n            \"hotelId\": \"1\",\n            \"inDate\": \"2015-04-09\",\n\
+    \            \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n     \
+    \         \"bookableRate\": 109,\n              \"code\": \"KNG\",\n         \
+    \     \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          },\n \
+    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"3\",\n\
+    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
+    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
+    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
+    \            }\n          }\n        ]\n      }\n    },\n    {\n      \"code\"\
+    : \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n\
+    \        \"hotelIds\": [\n          \"3\",\n          \"2\",\n          \"6\"\
+    ,\n          \"1\",\n          \"5\"\n        ],\n        \"inDate\": \"2015-04-09\"\
+    ,\n        \"outDate\": \"2015-04-10\"\n      },\n      \"response\": {\n    \
+    \    \"ratePlans\": [\n          {\n            \"code\": \"RACK\",\n        \
+    \    \"hotelId\": \"2\",\n            \"inDate\": \"2015-04-09\",\n          \
+    \  \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n              \"\
+    bookableRate\": 139,\n              \"code\": \"QN\",\n              \"roomDescription\"\
+    : \"Queen sized bed\",\n              \"totalRate\": 139,\n              \"totalRateInclusive\"\
+    : 153.09\n            }\n          },\n          {\n            \"code\": \"RACK\"\
+    ,\n            \"hotelId\": \"1\",\n            \"inDate\": \"2015-04-09\",\n\
+    \            \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n     \
+    \         \"bookableRate\": 109,\n              \"code\": \"KNG\",\n         \
+    \     \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          },\n \
+    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"3\",\n\
+    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
+    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
+    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
+    \            }\n          }\n        ]\n      }\n    },\n    {\n      \"code\"\
+    : \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n\
+    \        \"hotelIds\": [\n          \"1\",\n          \"3\",\n          \"5\"\
+    ,\n          \"6\",\n          \"2\"\n        ],\n        \"inDate\": \"2015-04-09\"\
+    ,\n        \"outDate\": \"2015-04-17\"\n      },\n      \"response\": {}\n   \
+    \ },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"1\",\n         \
+    \ \"5\",\n          \"3\",\n          \"6\",\n          \"2\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-09\",\n        \"outDate\": \"2015-04-17\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"3\",\n          \"2\",\n          \"6\",\n          \"1\",\n\
+    \          \"5\"\n        ],\n        \"inDate\": \"2015-04-09\",\n        \"\
+    outDate\": \"2015-04-17\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"1\",\n          \"3\",\n  \
+    \        \"5\",\n          \"6\",\n          \"2\"\n        ],\n        \"inDate\"\
+    : \"2015-04-10\",\n        \"outDate\": \"2015-04-11\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"1\",\n         \
+    \ \"5\",\n          \"3\",\n          \"6\",\n          \"2\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-10\",\n        \"outDate\": \"2015-04-11\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"3\",\n          \"2\",\n          \"6\",\n          \"1\",\n\
+    \          \"5\"\n        ],\n        \"inDate\": \"2015-04-10\",\n        \"\
+    outDate\": \"2015-04-11\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"1\",\n          \"3\",\n  \
+    \        \"5\",\n          \"6\",\n          \"2\"\n        ],\n        \"inDate\"\
+    : \"2015-04-17\",\n        \"outDate\": \"2015-04-18\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"1\",\n         \
+    \ \"5\",\n          \"3\",\n          \"6\",\n          \"2\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-18\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"3\",\n          \"2\",\n          \"6\",\n          \"1\",\n\
+    \          \"5\"\n        ],\n        \"inDate\": \"2015-04-17\",\n        \"\
+    outDate\": \"2015-04-18\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"1\",\n          \"3\",\n  \
+    \        \"5\",\n          \"6\",\n          \"2\"\n        ],\n        \"inDate\"\
+    : \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"1\",\n         \
+    \ \"5\",\n          \"3\",\n          \"6\",\n          \"2\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"3\",\n          \"2\",\n          \"6\",\n          \"1\",\n\
+    \          \"5\"\n        ],\n        \"inDate\": \"2015-04-17\",\n        \"\
+    outDate\": \"2015-04-24\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"1\",\n          \"3\",\n  \
+    \        \"5\",\n          \"6\",\n          \"2\"\n        ],\n        \"inDate\"\
+    : \"2015-04-20\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"1\",\n         \
+    \ \"5\",\n          \"3\",\n          \"6\",\n          \"2\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-20\",\n        \"outDate\": \"2015-04-24\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"3\",\n          \"2\",\n          \"6\",\n          \"1\",\n\
+    \          \"5\"\n        ],\n        \"inDate\": \"2015-04-20\",\n        \"\
+    outDate\": \"2015-04-24\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"2\",\n          \"6\",\n  \
+    \        \"3\",\n          \"1\",\n          \"4\"\n        ],\n        \"inDate\"\
+    : \"2015-04-09\",\n        \"outDate\": \"2015-04-10\"\n      },\n      \"response\"\
+    : {\n        \"ratePlans\": [\n          {\n            \"code\": \"RACK\",\n\
+    \            \"hotelId\": \"2\",\n            \"inDate\": \"2015-04-09\",\n  \
+    \          \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n       \
+    \       \"bookableRate\": 139,\n              \"code\": \"QN\",\n            \
+    \  \"roomDescription\": \"Queen sized bed\",\n              \"totalRate\": 139,\n\
+    \              \"totalRateInclusive\": 153.09\n            }\n          },\n \
+    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"3\",\n\
+    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
+    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
+    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
+    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
+    \           \"hotelId\": \"1\",\n            \"inDate\": \"2015-04-09\",\n   \
+    \         \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n        \
+    \      \"bookableRate\": 109,\n              \"code\": \"KNG\",\n            \
+    \  \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          }\n  \
+    \      ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"\
+    /rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\": [\n      \
+    \    \"6\",\n          \"3\",\n          \"2\",\n          \"1\",\n          \"\
+    4\"\n        ],\n        \"inDate\": \"2015-04-09\",\n        \"outDate\": \"\
+    2015-04-10\"\n      },\n      \"response\": {\n        \"ratePlans\": [\n    \
+    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"2\",\n \
+    \           \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 139,\n       \
+    \       \"code\": \"QN\",\n              \"roomDescription\": \"Queen sized bed\"\
+    ,\n              \"totalRate\": 139,\n              \"totalRateInclusive\": 153.09\n\
+    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
+    \           \"hotelId\": \"1\",\n            \"inDate\": \"2015-04-09\",\n   \
+    \         \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n        \
+    \      \"bookableRate\": 109,\n              \"code\": \"KNG\",\n            \
+    \  \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          },\n \
+    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"3\",\n\
+    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
+    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
+    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
+    \            }\n          }\n        ]\n      }\n    },\n    {\n      \"code\"\
+    : \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n\
+    \        \"hotelIds\": [\n          \"2\",\n          \"6\",\n          \"3\"\
+    ,\n          \"4\",\n          \"1\"\n        ],\n        \"inDate\": \"2015-04-09\"\
+    ,\n        \"outDate\": \"2015-04-10\"\n      },\n      \"response\": {\n    \
+    \    \"ratePlans\": [\n          {\n            \"code\": \"RACK\",\n        \
+    \    \"hotelId\": \"2\",\n            \"inDate\": \"2015-04-09\",\n          \
+    \  \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n              \"\
+    bookableRate\": 139,\n              \"code\": \"QN\",\n              \"roomDescription\"\
+    : \"Queen sized bed\",\n              \"totalRate\": 139,\n              \"totalRateInclusive\"\
+    : 153.09\n            }\n          },\n          {\n            \"code\": \"RACK\"\
+    ,\n            \"hotelId\": \"3\",\n            \"inDate\": \"2015-04-09\",\n\
+    \            \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n     \
+    \         \"bookableRate\": 109,\n              \"code\": \"KNG\",\n         \
+    \     \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          },\n \
+    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"1\",\n\
+    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
+    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
+    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
+    \            }\n          }\n        ]\n      }\n    },\n    {\n      \"code\"\
+    : \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n\
+    \        \"hotelIds\": [\n          \"2\",\n          \"6\",\n          \"3\"\
+    ,\n          \"1\",\n          \"4\"\n        ],\n        \"inDate\": \"2015-04-09\"\
+    ,\n        \"outDate\": \"2015-04-17\"\n      },\n      \"response\": {}\n   \
+    \ },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"6\",\n         \
+    \ \"3\",\n          \"2\",\n          \"1\",\n          \"4\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-09\",\n        \"outDate\": \"2015-04-17\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"2\",\n          \"6\",\n          \"3\",\n          \"4\",\n\
+    \          \"1\"\n        ],\n        \"inDate\": \"2015-04-09\",\n        \"\
+    outDate\": \"2015-04-17\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"2\",\n          \"6\",\n  \
+    \        \"3\",\n          \"1\",\n          \"4\"\n        ],\n        \"inDate\"\
+    : \"2015-04-10\",\n        \"outDate\": \"2015-04-11\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"6\",\n         \
+    \ \"3\",\n          \"2\",\n          \"1\",\n          \"4\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-10\",\n        \"outDate\": \"2015-04-11\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"2\",\n          \"6\",\n          \"3\",\n          \"4\",\n\
+    \          \"1\"\n        ],\n        \"inDate\": \"2015-04-10\",\n        \"\
+    outDate\": \"2015-04-11\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"2\",\n          \"6\",\n  \
+    \        \"3\",\n          \"1\",\n          \"4\"\n        ],\n        \"inDate\"\
+    : \"2015-04-17\",\n        \"outDate\": \"2015-04-18\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"6\",\n         \
+    \ \"3\",\n          \"2\",\n          \"1\",\n          \"4\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-18\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"2\",\n          \"6\",\n          \"3\",\n          \"4\",\n\
+    \          \"1\"\n        ],\n        \"inDate\": \"2015-04-17\",\n        \"\
+    outDate\": \"2015-04-18\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"2\",\n          \"6\",\n  \
+    \        \"3\",\n          \"1\",\n          \"4\"\n        ],\n        \"inDate\"\
+    : \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"6\",\n         \
+    \ \"3\",\n          \"2\",\n          \"1\",\n          \"4\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"2\",\n          \"6\",\n          \"3\",\n          \"4\",\n\
+    \          \"1\"\n        ],\n        \"inDate\": \"2015-04-17\",\n        \"\
+    outDate\": \"2015-04-24\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"2\",\n          \"6\",\n  \
+    \        \"3\",\n          \"1\",\n          \"4\"\n        ],\n        \"inDate\"\
+    : \"2015-04-20\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"6\",\n         \
+    \ \"3\",\n          \"2\",\n          \"1\",\n          \"4\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-20\",\n        \"outDate\": \"2015-04-24\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"2\",\n          \"6\",\n          \"3\",\n          \"4\",\n\
+    \          \"1\"\n        ],\n        \"inDate\": \"2015-04-20\",\n        \"\
+    outDate\": \"2015-04-24\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"3\",\n          \"1\",\n  \
+    \        \"6\",\n          \"2\",\n          \"5\"\n        ],\n        \"inDate\"\
+    : \"2015-04-09\",\n        \"outDate\": \"2015-04-10\"\n      },\n      \"response\"\
+    : {\n        \"ratePlans\": [\n          {\n            \"code\": \"RACK\",\n\
+    \            \"hotelId\": \"2\",\n            \"inDate\": \"2015-04-09\",\n  \
+    \          \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n       \
+    \       \"bookableRate\": 139,\n              \"code\": \"QN\",\n            \
+    \  \"roomDescription\": \"Queen sized bed\",\n              \"totalRate\": 139,\n\
+    \              \"totalRateInclusive\": 153.09\n            }\n          },\n \
+    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"1\",\n\
+    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
+    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
+    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
+    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
+    \           \"hotelId\": \"3\",\n            \"inDate\": \"2015-04-09\",\n   \
+    \         \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n        \
+    \      \"bookableRate\": 109,\n              \"code\": \"KNG\",\n            \
+    \  \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          }\n  \
+    \      ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"\
+    /rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\": [\n      \
+    \    \"2\",\n          \"6\",\n          \"3\",\n          \"1\",\n          \"\
+    5\"\n        ],\n        \"inDate\": \"2015-04-09\",\n        \"outDate\": \"\
+    2015-04-10\"\n      },\n      \"response\": {\n        \"ratePlans\": [\n    \
+    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"2\",\n \
+    \           \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 139,\n       \
+    \       \"code\": \"QN\",\n              \"roomDescription\": \"Queen sized bed\"\
+    ,\n              \"totalRate\": 139,\n              \"totalRateInclusive\": 153.09\n\
+    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
+    \           \"hotelId\": \"3\",\n            \"inDate\": \"2015-04-09\",\n   \
+    \         \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n        \
+    \      \"bookableRate\": 109,\n              \"code\": \"KNG\",\n            \
+    \  \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          },\n \
+    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"1\",\n\
+    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
+    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
+    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
+    \            }\n          }\n        ]\n      }\n    },\n    {\n      \"code\"\
+    : \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n\
+    \        \"hotelIds\": [\n          \"3\",\n          \"1\",\n          \"6\"\
+    ,\n          \"2\",\n          \"5\"\n        ],\n        \"inDate\": \"2015-04-09\"\
+    ,\n        \"outDate\": \"2015-04-17\"\n      },\n      \"response\": {}\n   \
+    \ },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"2\",\n         \
+    \ \"6\",\n          \"3\",\n          \"1\",\n          \"5\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-09\",\n        \"outDate\": \"2015-04-17\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"3\",\n          \"1\",\n          \"6\",\n          \"2\",\n\
+    \          \"5\"\n        ],\n        \"inDate\": \"2015-04-10\",\n        \"\
+    outDate\": \"2015-04-11\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"2\",\n          \"6\",\n  \
+    \        \"3\",\n          \"1\",\n          \"5\"\n        ],\n        \"inDate\"\
+    : \"2015-04-10\",\n        \"outDate\": \"2015-04-11\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"3\",\n         \
+    \ \"1\",\n          \"6\",\n          \"2\",\n          \"5\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-18\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"2\",\n          \"6\",\n          \"3\",\n          \"1\",\n\
+    \          \"5\"\n        ],\n        \"inDate\": \"2015-04-17\",\n        \"\
+    outDate\": \"2015-04-18\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"3\",\n          \"1\",\n  \
+    \        \"6\",\n          \"2\",\n          \"5\"\n        ],\n        \"inDate\"\
+    : \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"2\",\n         \
+    \ \"6\",\n          \"3\",\n          \"1\",\n          \"5\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"3\",\n          \"1\",\n          \"6\",\n          \"2\",\n\
+    \          \"5\"\n        ],\n        \"inDate\": \"2015-04-20\",\n        \"\
+    outDate\": \"2015-04-24\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"2\",\n          \"6\",\n  \
+    \        \"3\",\n          \"1\",\n          \"5\"\n        ],\n        \"inDate\"\
+    : \"2015-04-20\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"4\",\n         \
+    \ \"6\",\n          \"2\",\n          \"3\",\n          \"1\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-09\",\n        \"outDate\": \"2015-04-10\"\n    \
+    \  },\n      \"response\": {\n        \"ratePlans\": [\n          {\n        \
+    \    \"code\": \"RACK\",\n            \"hotelId\": \"2\",\n            \"inDate\"\
+    : \"2015-04-09\",\n            \"outDate\": \"2015-04-10\",\n            \"roomType\"\
+    : {\n              \"bookableRate\": 139,\n              \"code\": \"QN\",\n \
+    \             \"roomDescription\": \"Queen sized bed\",\n              \"totalRate\"\
+    : 139,\n              \"totalRateInclusive\": 153.09\n            }\n        \
+    \  },\n          {\n            \"code\": \"RACK\",\n            \"hotelId\":\
+    \ \"3\",\n            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"\
+    2015-04-10\",\n            \"roomType\": {\n              \"bookableRate\": 109,\n\
+    \              \"code\": \"KNG\",\n              \"roomDescription\": \"King sized\
+    \ bed\",\n              \"totalRate\": 109,\n              \"totalRateInclusive\"\
+    : 123.17\n            }\n          },\n          {\n            \"code\": \"RACK\"\
+    ,\n            \"hotelId\": \"1\",\n            \"inDate\": \"2015-04-09\",\n\
+    \            \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n     \
+    \         \"bookableRate\": 109,\n              \"code\": \"KNG\",\n         \
+    \     \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          }\n  \
+    \      ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"\
+    /rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\": [\n      \
+    \    \"4\",\n          \"2\",\n          \"6\",\n          \"3\",\n          \"\
+    1\"\n        ],\n        \"inDate\": \"2015-04-09\",\n        \"outDate\": \"\
+    2015-04-10\"\n      },\n      \"response\": {\n        \"ratePlans\": [\n    \
+    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"2\",\n \
+    \           \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 139,\n       \
+    \       \"code\": \"QN\",\n              \"roomDescription\": \"Queen sized bed\"\
+    ,\n              \"totalRate\": 139,\n              \"totalRateInclusive\": 153.09\n\
+    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
+    \           \"hotelId\": \"1\",\n            \"inDate\": \"2015-04-09\",\n   \
+    \         \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n        \
+    \      \"bookableRate\": 109,\n              \"code\": \"KNG\",\n            \
+    \  \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          },\n \
+    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"3\",\n\
+    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
+    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
+    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
+    \            }\n          }\n        ]\n      }\n    },\n    {\n      \"code\"\
+    : \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n\
+    \        \"hotelIds\": [\n          \"4\",\n          \"6\",\n          \"2\"\
+    ,\n          \"3\",\n          \"1\"\n        ],\n        \"inDate\": \"2015-04-09\"\
+    ,\n        \"outDate\": \"2015-04-17\"\n      },\n      \"response\": {}\n   \
+    \ },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"4\",\n         \
+    \ \"2\",\n          \"6\",\n          \"3\",\n          \"1\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-09\",\n        \"outDate\": \"2015-04-17\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"4\",\n          \"6\",\n          \"2\",\n          \"3\",\n\
+    \          \"1\"\n        ],\n        \"inDate\": \"2015-04-10\",\n        \"\
+    outDate\": \"2015-04-11\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"4\",\n          \"2\",\n  \
+    \        \"6\",\n          \"3\",\n          \"1\"\n        ],\n        \"inDate\"\
+    : \"2015-04-10\",\n        \"outDate\": \"2015-04-11\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"4\",\n         \
+    \ \"6\",\n          \"2\",\n          \"3\",\n          \"1\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-18\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"4\",\n          \"2\",\n          \"6\",\n          \"3\",\n\
+    \          \"1\"\n        ],\n        \"inDate\": \"2015-04-17\",\n        \"\
+    outDate\": \"2015-04-18\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"4\",\n          \"6\",\n  \
+    \        \"2\",\n          \"3\",\n          \"1\"\n        ],\n        \"inDate\"\
+    : \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"4\",\n         \
+    \ \"2\",\n          \"6\",\n          \"3\",\n          \"1\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"4\",\n          \"6\",\n          \"2\",\n          \"3\",\n\
+    \          \"1\"\n        ],\n        \"inDate\": \"2015-04-20\",\n        \"\
+    outDate\": \"2015-04-24\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"4\",\n          \"2\",\n  \
+    \        \"6\",\n          \"3\",\n          \"1\"\n        ],\n        \"inDate\"\
+    : \"2015-04-20\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"5\",\n         \
+    \ \"1\",\n          \"3\",\n          \"6\",\n          \"2\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-09\",\n        \"outDate\": \"2015-04-10\"\n    \
+    \  },\n      \"response\": {\n        \"ratePlans\": [\n          {\n        \
+    \    \"code\": \"RACK\",\n            \"hotelId\": \"2\",\n            \"inDate\"\
+    : \"2015-04-09\",\n            \"outDate\": \"2015-04-10\",\n            \"roomType\"\
+    : {\n              \"bookableRate\": 139,\n              \"code\": \"QN\",\n \
+    \             \"roomDescription\": \"Queen sized bed\",\n              \"totalRate\"\
+    : 139,\n              \"totalRateInclusive\": 153.09\n            }\n        \
+    \  },\n          {\n            \"code\": \"RACK\",\n            \"hotelId\":\
+    \ \"1\",\n            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"\
+    2015-04-10\",\n            \"roomType\": {\n              \"bookableRate\": 109,\n\
+    \              \"code\": \"KNG\",\n              \"roomDescription\": \"King sized\
+    \ bed\",\n              \"totalRate\": 109,\n              \"totalRateInclusive\"\
+    : 123.17\n            }\n          },\n          {\n            \"code\": \"RACK\"\
+    ,\n            \"hotelId\": \"3\",\n            \"inDate\": \"2015-04-09\",\n\
+    \            \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n     \
+    \         \"bookableRate\": 109,\n              \"code\": \"KNG\",\n         \
+    \     \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          }\n  \
+    \      ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"\
+    /rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\": [\n      \
+    \    \"5\",\n          \"3\",\n          \"1\",\n          \"2\",\n          \"\
+    6\"\n        ],\n        \"inDate\": \"2015-04-09\",\n        \"outDate\": \"\
+    2015-04-10\"\n      },\n      \"response\": {\n        \"ratePlans\": [\n    \
+    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"2\",\n \
+    \           \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 139,\n       \
+    \       \"code\": \"QN\",\n              \"roomDescription\": \"Queen sized bed\"\
+    ,\n              \"totalRate\": 139,\n              \"totalRateInclusive\": 153.09\n\
+    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
+    \           \"hotelId\": \"3\",\n            \"inDate\": \"2015-04-09\",\n   \
+    \         \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n        \
+    \      \"bookableRate\": 109,\n              \"code\": \"KNG\",\n            \
+    \  \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          },\n \
+    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"1\",\n\
+    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
+    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
+    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
+    \            }\n          }\n        ]\n      }\n    },\n    {\n      \"code\"\
+    : \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n\
+    \        \"hotelIds\": [\n          \"5\",\n          \"1\",\n          \"3\"\
+    ,\n          \"6\",\n          \"2\"\n        ],\n        \"inDate\": \"2015-04-09\"\
+    ,\n        \"outDate\": \"2015-04-17\"\n      },\n      \"response\": {}\n   \
+    \ },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"5\",\n         \
+    \ \"3\",\n          \"1\",\n          \"2\",\n          \"6\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-09\",\n        \"outDate\": \"2015-04-17\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"5\",\n          \"1\",\n          \"3\",\n          \"6\",\n\
+    \          \"2\"\n        ],\n        \"inDate\": \"2015-04-10\",\n        \"\
+    outDate\": \"2015-04-11\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"5\",\n          \"3\",\n  \
+    \        \"1\",\n          \"2\",\n          \"6\"\n        ],\n        \"inDate\"\
+    : \"2015-04-10\",\n        \"outDate\": \"2015-04-11\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"5\",\n         \
+    \ \"1\",\n          \"3\",\n          \"6\",\n          \"2\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-18\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"5\",\n          \"3\",\n          \"1\",\n          \"2\",\n\
+    \          \"6\"\n        ],\n        \"inDate\": \"2015-04-17\",\n        \"\
+    outDate\": \"2015-04-18\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"5\",\n          \"1\",\n  \
+    \        \"3\",\n          \"6\",\n          \"2\"\n        ],\n        \"inDate\"\
+    : \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"5\",\n         \
+    \ \"3\",\n          \"1\",\n          \"2\",\n          \"6\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"5\",\n          \"1\",\n          \"3\",\n          \"6\",\n\
+    \          \"2\"\n        ],\n        \"inDate\": \"2015-04-20\",\n        \"\
+    outDate\": \"2015-04-24\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"5\",\n          \"3\",\n  \
+    \        \"1\",\n          \"2\",\n          \"6\"\n        ],\n        \"inDate\"\
+    : \"2015-04-20\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"6\",\n         \
+    \ \"2\",\n          \"3\",\n          \"1\",\n          \"4\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-09\",\n        \"outDate\": \"2015-04-10\"\n    \
+    \  },\n      \"response\": {\n        \"ratePlans\": [\n          {\n        \
+    \    \"code\": \"RACK\",\n            \"hotelId\": \"2\",\n            \"inDate\"\
+    : \"2015-04-09\",\n            \"outDate\": \"2015-04-10\",\n            \"roomType\"\
+    : {\n              \"bookableRate\": 139,\n              \"code\": \"QN\",\n \
+    \             \"roomDescription\": \"Queen sized bed\",\n              \"totalRate\"\
+    : 139,\n              \"totalRateInclusive\": 153.09\n            }\n        \
+    \  },\n          {\n            \"code\": \"RACK\",\n            \"hotelId\":\
+    \ \"3\",\n            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"\
+    2015-04-10\",\n            \"roomType\": {\n              \"bookableRate\": 109,\n\
+    \              \"code\": \"KNG\",\n              \"roomDescription\": \"King sized\
+    \ bed\",\n              \"totalRate\": 109,\n              \"totalRateInclusive\"\
+    : 123.17\n            }\n          },\n          {\n            \"code\": \"RACK\"\
+    ,\n            \"hotelId\": \"1\",\n            \"inDate\": \"2015-04-09\",\n\
+    \            \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n     \
+    \         \"bookableRate\": 109,\n              \"code\": \"KNG\",\n         \
+    \     \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          }\n  \
+    \      ]\n      }\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"\
+    /rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\": [\n      \
+    \    \"3\",\n          \"6\",\n          \"1\",\n          \"2\",\n          \"\
+    4\"\n        ],\n        \"inDate\": \"2015-04-09\",\n        \"outDate\": \"\
+    2015-04-10\"\n      },\n      \"response\": {\n        \"ratePlans\": [\n    \
+    \      {\n            \"code\": \"RACK\",\n            \"hotelId\": \"2\",\n \
+    \           \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 139,\n       \
+    \       \"code\": \"QN\",\n              \"roomDescription\": \"Queen sized bed\"\
+    ,\n              \"totalRate\": 139,\n              \"totalRateInclusive\": 153.09\n\
+    \            }\n          },\n          {\n            \"code\": \"RACK\",\n \
+    \           \"hotelId\": \"1\",\n            \"inDate\": \"2015-04-09\",\n   \
+    \         \"outDate\": \"2015-04-10\",\n            \"roomType\": {\n        \
+    \      \"bookableRate\": 109,\n              \"code\": \"KNG\",\n            \
+    \  \"roomDescription\": \"King sized bed\",\n              \"totalRate\": 109,\n\
+    \              \"totalRateInclusive\": 123.17\n            }\n          },\n \
+    \         {\n            \"code\": \"RACK\",\n            \"hotelId\": \"3\",\n\
+    \            \"inDate\": \"2015-04-09\",\n            \"outDate\": \"2015-04-10\"\
+    ,\n            \"roomType\": {\n              \"bookableRate\": 109,\n       \
+    \       \"code\": \"KNG\",\n              \"roomDescription\": \"King sized bed\"\
+    ,\n              \"totalRate\": 109,\n              \"totalRateInclusive\": 123.17\n\
+    \            }\n          }\n        ]\n      }\n    },\n    {\n      \"code\"\
+    : \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n\
+    \        \"hotelIds\": [\n          \"6\",\n          \"2\",\n          \"3\"\
+    ,\n          \"1\",\n          \"4\"\n        ],\n        \"inDate\": \"2015-04-09\"\
+    ,\n        \"outDate\": \"2015-04-17\"\n      },\n      \"response\": {}\n   \
+    \ },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"3\",\n         \
+    \ \"6\",\n          \"1\",\n          \"2\",\n          \"4\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-09\",\n        \"outDate\": \"2015-04-17\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"6\",\n          \"2\",\n          \"3\",\n          \"1\",\n\
+    \          \"4\"\n        ],\n        \"inDate\": \"2015-04-10\",\n        \"\
+    outDate\": \"2015-04-11\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"3\",\n          \"6\",\n  \
+    \        \"1\",\n          \"2\",\n          \"4\"\n        ],\n        \"inDate\"\
+    : \"2015-04-10\",\n        \"outDate\": \"2015-04-11\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"6\",\n         \
+    \ \"2\",\n          \"3\",\n          \"1\",\n          \"4\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-18\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"3\",\n          \"6\",\n          \"1\",\n          \"2\",\n\
+    \          \"4\"\n        ],\n        \"inDate\": \"2015-04-17\",\n        \"\
+    outDate\": \"2015-04-18\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"6\",\n          \"2\",\n  \
+    \        \"3\",\n          \"1\",\n          \"4\"\n        ],\n        \"inDate\"\
+    : \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    },\n    {\n      \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\"\
+    ,\n      \"request\": {\n        \"hotelIds\": [\n          \"3\",\n         \
+    \ \"6\",\n          \"1\",\n          \"2\",\n          \"4\"\n        ],\n  \
+    \      \"inDate\": \"2015-04-17\",\n        \"outDate\": \"2015-04-24\"\n    \
+    \  },\n      \"response\": {}\n    },\n    {\n      \"code\": \"OK\",\n      \"\
+    method\": \"/rate.Rate/GetRates\",\n      \"request\": {\n        \"hotelIds\"\
+    : [\n          \"6\",\n          \"2\",\n          \"3\",\n          \"1\",\n\
+    \          \"4\"\n        ],\n        \"inDate\": \"2015-04-20\",\n        \"\
+    outDate\": \"2015-04-24\"\n      },\n      \"response\": {}\n    },\n    {\n \
+    \     \"code\": \"OK\",\n      \"method\": \"/rate.Rate/GetRates\",\n      \"\
+    request\": {\n        \"hotelIds\": [\n          \"3\",\n          \"6\",\n  \
+    \        \"1\",\n          \"2\",\n          \"4\"\n        ],\n        \"inDate\"\
+    : \"2015-04-20\",\n        \"outDate\": \"2015-04-24\"\n      },\n      \"response\"\
+    : {}\n    }\n  ]\n}"
 ---
 apiVersion: apps/v1
 kind: Deployment

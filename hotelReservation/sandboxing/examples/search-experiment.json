@@ -8,7 +8,7 @@
   "replicas": 1,
   "slo": {
     "success_rate_threshold": 0.98,
-    "p90_latency_ms": 3000
+    "p90_latency_ms": 100
   },
   "load": {
     "start_rps": 1,
