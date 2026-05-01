@@ -32,6 +32,28 @@ def _summarize_error(exc: Exception) -> str:
     return f"{type(exc).__name__}: {exc}".strip()
 
 
+def _wait_for_ready_channel(
+    channel: grpc.Channel,
+    *,
+    attempts: int = 6,
+    timeout_seconds: int = 10,
+    backoff_seconds: float = 2.0,
+) -> None:
+    last_error: Exception | None = None
+    for attempt in range(attempts):
+        try:
+            grpc.channel_ready_future(channel).result(timeout=timeout_seconds)
+            return
+        except grpc.FutureTimeoutError as exc:
+            last_error = exc
+            if attempt == attempts - 1:
+                break
+            time.sleep(backoff_seconds)
+    raise RuntimeError(
+        f"timed out waiting for gRPC channel readiness after {attempts} attempts"
+    ) from last_error
+
+
 def run_search_step(
     repo_root: Path,
     targets: Sequence[str],
@@ -56,14 +78,14 @@ def run_search_step(
         start = time.perf_counter()
         stub.Nearby(
             proto_module.NearbyRequest(**payload),
-            timeout=0.15,
+            timeout=0.3,
             wait_for_ready=True,
         )
         return (time.perf_counter() - start) * 1000
 
     try:
         for channel in channels:
-            grpc.channel_ready_future(channel).result(timeout=10)
+            _wait_for_ready_channel(channel)
         # Warm every forwarded replica before the measured interval begins so
         # replica sweeps exercise the full search pool instead of a single pod.
         for stub in stubs:

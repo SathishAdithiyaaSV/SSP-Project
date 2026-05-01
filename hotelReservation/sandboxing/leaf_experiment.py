@@ -427,6 +427,28 @@ def summarize_error(exc: Exception) -> str:
     return f"{type(exc).__name__}: {exc}".strip()
 
 
+def wait_for_ready_channel(
+    channel: grpc.Channel,
+    *,
+    attempts: int = 6,
+    timeout_seconds: int = 10,
+    backoff_seconds: float = 2.0,
+) -> None:
+    last_error: Exception | None = None
+    for attempt in range(attempts):
+        try:
+            grpc.channel_ready_future(channel).result(timeout=timeout_seconds)
+            return
+        except grpc.FutureTimeoutError as exc:
+            last_error = exc
+            if attempt == attempts - 1:
+                break
+            time.sleep(backoff_seconds)
+    raise RuntimeError(
+        f"timed out waiting for gRPC channel readiness after {attempts} attempts"
+    ) from last_error
+
+
 def run_step(
     spec: ServiceSpec,
     targets: Sequence[str],
@@ -456,10 +478,13 @@ def run_step(
 
     try:
         for channel in channels:
-            grpc.channel_ready_future(channel).result(timeout=10)
+            wait_for_ready_channel(channel)
         # Warm every forwarded replica before the measured interval begins.
         for method in methods:
-            invoke(spec.payloads[0], method)
+            try:
+                invoke(spec.payloads[0], method)
+            except Exception as exc:
+                errors[summarize_error(exc)] += 1
         with ThreadPoolExecutor(max_workers=min(200, max(1, rps))) as executor:
             futures = []
             for index in range(total):
@@ -473,6 +498,8 @@ def run_step(
                     successes += 1
                 except Exception as exc:
                     errors[summarize_error(exc)] += 1
+    except Exception as exc:
+        errors[summarize_error(exc)] += 1
     finally:
         for channel in channels:
             channel.close()
@@ -550,11 +577,13 @@ def run_service(
     metric_errors: List[str] = []
 
     try:
-        for rps in range(start_rps, max_rps + 1, step_rps):
+        lo, hi = start_rps, max_rps
 
-            # Flush Memcached before each step so every request hits MongoDB.
-            # This gives us cold-cache MSC — more conservative and meaningful
-            # for capacity planning than warm-cache measurements.
+        while lo <= hi:
+            # Snap midpoint to the nearest step_rps increment
+            rps = ((lo + hi) // 2 // step_rps) * step_rps
+            rps = max(start_rps, rps)
+
             if flush_cache:
                 flush_memcached(spec.name, namespace)
 
@@ -578,17 +607,21 @@ def run_service(
             }
             steps.append(row)
 
-            if (result.success_rate >= success_threshold
-                    and result.p90_latency_ms <= p90_threshold_ms):
-                best_rps = result.rps
-                continue
-
-            violation_reason = (
-                "success_rate"
-                if result.success_rate < success_threshold
-                else "p90_latency"
+            passed = (
+                result.success_rate >= success_threshold
+                and result.p90_latency_ms <= p90_threshold_ms
             )
-            break
+
+            if passed:
+                best_rps = rps
+                lo = rps + step_rps
+            else:
+                violation_reason = (
+                    "success_rate"
+                    if result.success_rate < success_threshold
+                    else "p90_latency"
+                )
+                hi = rps - step_rps
 
     finally:
         for port_forward in port_forwards:

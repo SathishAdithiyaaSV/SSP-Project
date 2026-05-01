@@ -27,7 +27,7 @@ from typing import Any, Dict, List, Optional
 REPO_ROOT = Path(__file__).resolve().parent
 
 # Resource configurations to test per service
-CPU_CONFIGS_MILLICORES = [100, 200, 400, 800]
+CPU_CONFIGS_MILLICORES = [100, 200, 500]
 REPLICA_CONFIGS = [1, 2, 3]
 
 # Load test parameters
@@ -35,9 +35,9 @@ START_RPS = 10
 STEP_RPS = 10
 DURATION_SECONDS = 15
 MAX_RPS = 500
-P90_THRESHOLD_MS = 150
-TIMEOUT_SECONDS = 0.15
-SUCCESS_THRESHOLD = 0.95
+P90_THRESHOLD_MS = 100
+TIMEOUT_SECONDS = 0.3
+SUCCESS_THRESHOLD = 0.99
 
 # Services to test (must match SERVICES dict in leaf_experiment.py)
 LEAF_SERVICES = [

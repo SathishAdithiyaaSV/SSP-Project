@@ -7,8 +7,8 @@
   "memory_mb": 256,
   "replicas": 1,
   "slo": {
-    "success_rate_threshold": 0.95,
-    "p90_latency_ms": 150
+    "success_rate_threshold": 0.99,
+    "p90_latency_ms": 100
   },
   "load": {
     "start_rps": 1,

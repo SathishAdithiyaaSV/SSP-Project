@@ -405,7 +405,12 @@ def measure_msc(config: ExperimentConfig, artifacts: Dict[str, Path]) -> Dict[st
         steps = []
         best_rps = 0
         violation_reason = ""
-        for rps in range(config.load.start_rps, config.load.max_rps + 1, config.load.step_rps):
+        lo, hi = config.load.start_rps, config.load.max_rps
+
+        while lo <= hi:
+            rps = ((lo + hi) // 2 // config.load.step_rps) * config.load.step_rps
+            rps = max(config.load.start_rps, rps)
+
             result = run_search_step(
                 repo_root=REPO_ROOT,
                 targets=targets,
@@ -426,14 +431,22 @@ def measure_msc(config: ExperimentConfig, artifacts: Dict[str, Path]) -> Dict[st
             if result.error_summary:
                 row["error_summary"] = result.error_summary
             steps.append(row)
-            if result.success_rate >= config.slo.success_rate_threshold and result.p90_latency_ms <= config.slo.p90_latency_ms:
-                best_rps = result.rps
+
+            passed = (
+                result.success_rate >= config.slo.success_rate_threshold
+                and result.p90_latency_ms <= config.slo.p90_latency_ms
+            )
+            if passed:
+                best_rps = rps
+                lo = rps + config.load.step_rps
             else:
-                if result.success_rate < config.slo.success_rate_threshold:
-                    violation_reason = "success_rate"
-                else:
-                    violation_reason = "p90_latency"
-                break
+                violation_reason = (
+                    "success_rate"
+                    if result.success_rate < config.slo.success_rate_threshold
+                    else "p90_latency"
+                )
+                hi = rps - config.load.step_rps
+
         payload = {
             "service": config.service,
             "cpu_millicores": config.cpu_millicores,
