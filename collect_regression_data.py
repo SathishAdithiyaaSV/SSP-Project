@@ -27,8 +27,8 @@ from typing import Any, Dict, List, Optional
 REPO_ROOT = Path(__file__).resolve().parent
 
 # Resource configurations to test per service
-CPU_CONFIGS_MILLICORES = [100, 200, 500]
-REPLICA_CONFIGS = [1, 2, 3]
+CPU_CONFIGS_MILLICORES = [150]
+REPLICA_CONFIGS = [1,2]
 
 # Load test parameters
 START_RPS = 10
@@ -61,7 +61,7 @@ CONTAINER_NAMES: Dict[str, str] = {
 }
 
 NAMESPACE = "default"
-OUTPUT_DIR = Path("sandboxing/output/regression")
+OUTPUT_DIR = Path("sandboxing/output/validation_150")
 DATASET_PATH = OUTPUT_DIR / "dataset.csv"
 RESULTS_DIR = OUTPUT_DIR / "results"
 

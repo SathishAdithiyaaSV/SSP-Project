@@ -1,0 +1,51 @@
+{
+  "geo": {
+    "model": "LinearMSCModel(MSC = -124.86 + 0.4641*cpu_millicores + 64.9948*replicas)",
+    "n_rows": 9,
+    "r_squared": 0.8631,
+    "mae_rps": 29.67,
+    "censored_rows_excluded": 0
+  },
+  "profile": {
+    "model": "LinearMSCModel(MSC = -121.52 + 0.4808*cpu_millicores + 51.6618*replicas)",
+    "n_rows": 9,
+    "r_squared": 0.8136,
+    "mae_rps": 29.06,
+    "censored_rows_excluded": 0
+  },
+  "rate": {
+    "model": "LinearMSCModel(MSC = -104.98 + 0.3566*cpu_millicores + 47.0424*replicas)",
+    "n_rows": 8,
+    "r_squared": 0.7969,
+    "mae_rps": 28.59,
+    "censored_rows_excluded": 0
+  },
+  "recommendation": {
+    "model": "LinearMSCModel(MSC = -45.63 + 0.3128*cpu_millicores + 73.3306*replicas)",
+    "n_rows": 9,
+    "r_squared": 0.6868,
+    "mae_rps": 40.11,
+    "censored_rows_excluded": 0
+  },
+  "reservation": {
+    "model": "LinearMSCModel(MSC = -174.34 + 0.5872*cpu_millicores + 66.6597*replicas)",
+    "n_rows": 9,
+    "r_squared": 0.838,
+    "mae_rps": 41.17,
+    "censored_rows_excluded": 0
+  },
+  "search": {
+    "model": "LinearMSCModel(MSC = -65.93 + 0.2558*cpu_millicores + 35.6475*replicas)",
+    "n_rows": 7,
+    "r_squared": 0.6255,
+    "mae_rps": 21.23,
+    "censored_rows_excluded": 2
+  },
+  "user": {
+    "model": "LinearMSCModel(MSC = 6.16 + 0.2936*cpu_millicores + 54.9993*replicas)",
+    "n_rows": 9,
+    "r_squared": 0.7266,
+    "mae_rps": 34.99,
+    "censored_rows_excluded": 0
+  }
+}

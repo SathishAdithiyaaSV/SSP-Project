@@ -1,0 +1,37 @@
+{
+  "geo": {
+    "n_rows": 9,
+    "cv_mae_rps": 59.06,
+    "cv_folds": 3
+  },
+  "profile": {
+    "n_rows": 9,
+    "cv_mae_rps": 40.83,
+    "cv_folds": 3
+  },
+  "rate": {
+    "n_rows": 8,
+    "cv_mae_rps": 91.99,
+    "cv_folds": 3
+  },
+  "recommendation": {
+    "n_rows": 9,
+    "cv_mae_rps": 193.5,
+    "cv_folds": 3
+  },
+  "reservation": {
+    "n_rows": 9,
+    "cv_mae_rps": 91.07,
+    "cv_folds": 3
+  },
+  "search": {
+    "n_rows": 7,
+    "cv_mae_rps": 37.39,
+    "cv_folds": 3
+  },
+  "user": {
+    "n_rows": 9,
+    "cv_mae_rps": 131.93,
+    "cv_folds": 3
+  }
+}
