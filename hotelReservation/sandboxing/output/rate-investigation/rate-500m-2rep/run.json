@@ -1,0 +1,4729 @@
+{
+  "config": "500m x 2",
+  "cpu_millicores": 500,
+  "latency_curve": [
+    {
+      "count": 150,
+      "effective_rps": 10.0,
+      "error_summary": [],
+      "failures": 0,
+      "p50_latency_ms": 3.608685001381673,
+      "p90_latency_ms": 26.094501008628868,
+      "p99_latency_ms": 44.75626199564431,
+      "rps": 10,
+      "success_rate": 1.0
+    },
+    {
+      "count": 300,
+      "effective_rps": 20.0,
+      "error_summary": [],
+      "failures": 0,
+      "p50_latency_ms": 7.97987800615374,
+      "p90_latency_ms": 46.24473399599083,
+      "p99_latency_ms": 48.655100996256806,
+      "rps": 20,
+      "success_rate": 1.0
+    }
+  ],
+  "msc": {
+    "msc_rps": 10,
+    "search_steps": [
+      {
+        "count": 2250,
+        "effective_rps": 39.86666666666667,
+        "error_summary": [
+          {
+            "count": 1652,
+            "error": "DEADLINE_EXCEEDED: Deadline Exceeded"
+          }
+        ],
+        "failures": 1652,
+        "p50_latency_ms": 63.26311999873724,
+        "p90_latency_ms": 109.9596630083397,
+        "p99_latency_ms": 147.51051999337506,
+        "rps": 150,
+        "success_rate": 0.2657777777777778
+      },
+      {
+        "count": 1050,
+        "effective_rps": 34.8,
+        "error_summary": [
+          {
+            "count": 528,
+            "error": "DEADLINE_EXCEEDED: Deadline Exceeded"
+          }
+        ],
+        "failures": 528,
+        "p50_latency_ms": 46.15938999631908,
+        "p90_latency_ms": 58.98553099541459,
+        "p99_latency_ms": 155.6693960010307,
+        "rps": 70,
+        "success_rate": 0.49714285714285716
+      },
+      {
+        "count": 450,
+        "effective_rps": 25.533333333333335,
+        "error_summary": [
+          {
+            "count": 67,
+            "error": "DEADLINE_EXCEEDED: Deadline Exceeded"
+          }
+        ],
+        "failures": 67,
+        "p50_latency_ms": 41.90950799966231,
+        "p90_latency_ms": 47.64395600068383,
+        "p99_latency_ms": 52.5548540026648,
+        "rps": 30,
+        "success_rate": 0.8511111111111112
+      },
+      {
+        "count": 150,
+        "effective_rps": 10.0,
+        "error_summary": [],
+        "failures": 0,
+        "p50_latency_ms": 3.9208600064739585,
+        "p90_latency_ms": 43.98850801226217,
+        "p99_latency_ms": 46.88992101000622,
+        "rps": 10,
+        "success_rate": 1.0
+      },
+      {
+        "count": 300,
+        "effective_rps": 19.666666666666668,
+        "error_summary": [
+          {
+            "count": 5,
+            "error": "DEADLINE_EXCEEDED: Deadline Exceeded"
+          }
+        ],
+        "failures": 5,
+        "p50_latency_ms": 7.145739000407048,
+        "p90_latency_ms": 46.386754998820834,
+        "p99_latency_ms": 49.172031998750754,
+        "rps": 20,
+        "success_rate": 0.9833333333333333
+      }
+    ],
+    "violation_reason": "success_rate"
+  },
+  "profile": {
+    "k8s_snapshot": {
+      "kubectl_top": [
+        {
+          "cpu_millicores": 10,
+          "memory": "9Mi",
+          "memory_mib": 9,
+          "pod": "rate-776fd867f5-g7xjd"
+        },
+        {
+          "cpu_millicores": 10,
+          "memory": "10Mi",
+          "memory_mib": 10,
+          "pod": "rate-776fd867f5-wmpxr"
+        }
+      ],
+      "load_result": {
+        "count": 300,
+        "effective_rps": 20.0,
+        "error_summary": [],
+        "failures": 0,
+        "p50_latency_ms": 7.572876987978816,
+        "p90_latency_ms": 45.7538220071001,
+        "p99_latency_ms": 48.73958900861908,
+        "rps": 20,
+        "success_rate": 1.0
+      }
+    },
+    "per_pod": {
+      "rate-776fd867f5-g7xjd": {
+        "cpu_stat_after": {
+          "burst_usec": 0,
+          "core_sched.force_idle_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 517,
+          "nr_throttled": 5,
+          "system_usec": 576288,
+          "throttled_usec": 855208,
+          "usage_usec": 1818838,
+          "user_usec": 1242549
+        },
+        "cpu_stat_before": {
+          "burst_usec": 0,
+          "core_sched.force_idle_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 435,
+          "nr_throttled": 5,
+          "system_usec": 486231,
+          "throttled_usec": 855208,
+          "usage_usec": 1602848,
+          "user_usec": 1116617
+        },
+        "cpu_stat_delta": {
+          "burst_usec": 0,
+          "core_sched.force_idle_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 82,
+          "nr_throttled": 0,
+          "system_usec": 90057,
+          "throttled_usec": 0,
+          "usage_usec": 215990,
+          "user_usec": 125932
+        },
+        "describe": "Name:             rate-776fd867f5-g7xjd\nNamespace:        default\nPriority:         0\nService Account:  default\nNode:             minikube/192.168.49.2\nStart Time:       Fri, 01 May 2026 15:38:25 +0530\nLabels:           io.kompose.service=rate\n                  pod-template-hash=776fd867f5\nAnnotations:      kompose.cmd: kompose convert\n                  kompose.version: 1.22.0 (955b78124)\n                  sidecar.istio.io/statsInclusionPrefixes:\n                    cluster.outbound,cluster_manager,listener_manager,http_mixer_filter,tcp_mixer_filter,server,cluster.xds-grp,listener,connection_manager\n                  sidecar.istio.io/statsInclusionRegexps: http.*\nStatus:           Running\nIP:               10.244.3.214\nIPs:\n  IP:           10.244.3.214\nControlled By:  ReplicaSet/rate-776fd867f5\nContainers:\n  hotel-reserv-rate:\n    Container ID:  docker://8aa0ab3075098fc00632d0dea56dbf07efd379507c2a507f5f25122e26988f7d\n    Image:         deathstarbench/hotel-reservation:mvp\n    Image ID:      docker://sha256:6939012ba311bb03b5ebfa70ac94b0c5a6b4d70f4c3d53569204ad5505a66a78\n    Port:          8084/TCP\n    Host Port:     0/TCP\n    Command:\n      /go/bin/rate\n    State:          Running\n      Started:      Fri, 01 May 2026 15:38:26 +0530\n    Ready:          True\n    Restart Count:  0\n    Limits:\n      cpu:  500m\n    Requests:\n      cpu:        500m\n    Environment:  <none>\n    Mounts:\n      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-k74cp (ro)\nConditions:\n  Type                        Status\n  PodReadyToStartContainers   True \n  Initialized                 True \n  Ready                       True \n  ContainersReady             True \n  PodScheduled                True \nVolumes:\n  kube-api-access-k74cp:\n    Type:                    Projected (a volume that contains injected data from multiple sources)\n    TokenExpirationSeconds:  3607\n    ConfigMapName:           kube-root-ca.crt\n    Optional:                false\n    DownwardAPI:             true\nQoS Class:                   Burstable\nNode-Selectors:              <none>\nTolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s\n                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s\nEvents:\n  Type    Reason     Age    From               Message\n  ----    ------     ----   ----               -------\n  Normal  Scheduled  2m21s  default-scheduler  Successfully assigned default/rate-776fd867f5-g7xjd to minikube\n  Normal  Pulled     2m21s  kubelet            spec.containers{hotel-reserv-rate}: Container image \"deathstarbench/hotel-reservation:mvp\" already present on machine and can be accessed by the pod\n  Normal  Created    2m21s  kubelet            spec.containers{hotel-reserv-rate}: Container created\n  Normal  Started    2m21s  kubelet            spec.containers{hotel-reserv-rate}: Container started\n",
+        "log_errors": [],
+        "logs_tail": "{\"level\":\"info\",\"time\":\"2026-05-01T10:08:26Z\",\"message\":\"TLS disabled.\"}\n{\"level\":\"info\",\"time\":\"2026-05-01T10:08:26Z\",\"message\":\"Set global log level: info\"}\n{\"level\":\"info\",\"time\":\"2026-05-01T10:08:26Z\",\"message\":\"Tune: setGCPercent to 100\"}\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:24\u001b[0m\u001b[36m >\u001b[0m Reading config...\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:37\u001b[0m\u001b[36m >\u001b[0m Initializing DB connection...\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/db.go:30\u001b[0m\u001b[36m >\u001b[0m Generating test data...\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/db.go:123\u001b[0m\u001b[36m >\u001b[0m Attempting connection to mongodb://mongodb-rate:27017\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/db.go:130\u001b[0m\u001b[36m >\u001b[0m Successfully connected to MongoDB\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/db.go:137\u001b[0m\u001b[36m >\u001b[0m Successfully inserted test data into rate DB\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:41\u001b[0m\u001b[36m >\u001b[0m Read profile memcashed address: memcached-rate:11211\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:42\u001b[0m\u001b[36m >\u001b[0m Initializing Memcashed client...\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/tune/setting.go:60\u001b[0m\u001b[36m >\u001b[0m Tune: GetMemCTimeout 2\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:44\u001b[0m\u001b[36m >\u001b[0m Success\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:55\u001b[0m\u001b[36m >\u001b[0m Initializing jaeger agent [service name: rate | host: jaeger:6831]...\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/tracing/tracer.go:27\u001b[0m\u001b[36m >\u001b[0m Jaeger client: adjusted sample ratio 0.010000\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/tracing/tracer.go:41\u001b[0m\u001b[36m >\u001b[0m Overriding Jaeger config with env variables\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:60\u001b[0m\u001b[36m >\u001b[0m Jaeger agent initialized\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:62\u001b[0m\u001b[36m >\u001b[0m Initializing consul agent [host: consul:8500]...\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:67\u001b[0m\u001b[36m >\u001b[0m Consul agent initialized\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:78\u001b[0m\u001b[36m >\u001b[0m Starting server...\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/registry/registry.go:91\u001b[0m\u001b[36m >\u001b[0m Trying to register service [ name: srv-rate, id: 3f94e3ff-f6ca-46cd-aca4-540c8ecd9500, address: 10.244.3.214:8084 ]\n\u001b[90m2026-05-01T10:08:26Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/services/rate/server.go:85\u001b[0m\u001b[36m >\u001b[0m Successfully registered in consul\n",
+        "mem_stat_after": {
+          "memory.current": 12750848,
+          "memory.peak": 14864384
+        },
+        "mem_stat_before": {
+          "memory.current": 12988416,
+          "memory.peak": 14864384
+        },
+        "node_pid": 584863,
+        "perf_raw": "154869370,,cpu_core/cycles/,68434379,50.00,,\n150450509,,cpu_atom/cycles/,66075535,49.00,,\n133280808,,cpu_core/instructions/,68434379,50.00,,\n105825110,,cpu_atom/instructions/,66075535,49.00,,\n1957,,context-switches,134509914,100.00,,\n957302,,cpu_core/cache-misses/,68434379,50.00,,\n773413,,cpu_atom/cache-misses/,66075535,49.00,,\n745,,cpu-migrations,134509914,100.00,,",
+        "perf_summary": {
+          "cache-misses": 1730715,
+          "context-switches": 1957,
+          "cpu-migrations": 745,
+          "cycles": 305319879,
+          "instructions": 239105918
+        },
+        "pidstat_raw": "Linux 6.17.0-20-generic (minikube) \t05/01/26 \t_x86_64_\t(20 CPU)\n\n10:10:31      UID      TGID       TID   cswch/s nvcswch/s  Command\n10:10:32        0    584863         -      1.00      0.00  rate\n10:10:32        0         -    584863      1.00      0.00  |__rate\n10:10:32        0         -    584875     78.00      1.00  |__rate\n10:10:32        0         -    584876      1.00      0.00  |__rate\n10:10:32        0         -    584877      3.00      0.00  |__rate\n10:10:32        0         -    584878      8.00      1.00  |__rate\n10:10:32        0         -    584879      1.00      0.00  |__rate\n10:10:32        0         -    585045      1.00      0.00  |__rate\n10:10:32        0         -    585046     11.00      1.00  |__rate\n10:10:32        0         -    585047      7.00      1.00  |__rate\n10:10:32        0         -    585048      0.00      0.00  |__rate\n10:10:32        0         -    585051      4.00      1.00  |__rate\n10:10:32        0         -    585052      1.00      0.00  |__rate\n10:10:32        0         -    585053      2.00      5.00  |__rate\n10:10:32        0         -    585059      0.00      0.00  |__rate\n10:10:32        0         -    585060      1.00      0.00  |__rate\n10:10:32        0         -    585061     13.00      0.00  |__rate\n10:10:32        0         -    585062      6.00      0.00  |__rate\n10:10:32        0         -    585063      0.00      0.00  |__rate\n10:10:32        0         -    585064      0.00      0.00  |__rate\n10:10:32        0         -    585065      1.00      0.00  |__rate\n10:10:32        0         -    585066      0.00      0.00  |__rate\n10:10:32        0         -    585070      4.00      2.00  |__rate\n10:10:33        0    584863         -      0.00      0.00  rate\n10:10:33        0         -    584863      0.00      0.00  |__rate\n10:10:33        0         -    584875     88.00      0.00  |__rate\n10:10:33        0         -    584876      0.00      0.00  |__rate\n10:10:33        0         -    584877     13.00      0.00  |__rate\n10:10:33        0         -    584878      0.00      0.00  |__rate\n10:10:33        0         -    584879      0.00      0.00  |__rate\n10:10:33        0         -    585045      0.00      0.00  |__rate\n10:10:33        0         -    585046     15.00      2.00  |__rate\n10:10:33        0         -    585047      3.00      0.00  |__rate\n10:10:33        0         -    585048      0.00      0.00  |__rate\n10:10:33        0         -    585051      0.00      0.00  |__rate\n10:10:33        0         -    585052     21.00      0.00  |__rate\n10:10:33        0         -    585053      0.00      0.00  |__rate\n10:10:33        0         -    585059      0.00      0.00  |__rate\n10:10:33        0         -    585060      0.00      0.00  |__rate\n10:10:33        0         -    585061     18.00      2.00  |__rate\n10:10:33        0         -    585062      0.00      0.00  |__rate\n10:10:33        0         -    585063      0.00      0.00  |__rate\n10:10:33        0         -    585064      0.00      0.00  |__rate\n10:10:33        0         -    585065      0.00      0.00  |__rate\n10:10:33        0         -    585066      0.00      0.00  |__rate\n10:10:33        0         -    585070      0.00      0.00  |__rate\n10:10:34        0    584863         -      0.00      0.00  rate\n10:10:34        0         -    584863      0.00      0.00  |__rate\n10:10:34        0         -    584875     84.00      0.00  |__rate\n10:10:34        0         -    584876      0.00      0.00  |__rate\n10:10:34        0         -    584877      8.00      0.00  |__rate\n10:10:34        0         -    584878      0.00      0.00  |__rate\n10:10:34        0         -    584879      0.00      0.00  |__rate\n10:10:34        0         -    585045      0.00      0.00  |__rate\n10:10:34        0         -    585046     13.00      0.00  |__rate\n10:10:34        0         -    585047      7.00      0.00  |__rate\n10:10:34        0         -    585048      0.00      0.00  |__rate\n10:10:34        0         -    585051      0.00      0.00  |__rate\n10:10:34        0         -    585052      9.00      3.00  |__rate\n10:10:34        0         -    585053      2.00      0.00  |__rate\n10:10:34        0         -    585059      0.00      0.00  |__rate\n10:10:34        0         -    585060      0.00      0.00  |__rate\n10:10:34        0         -    585061     23.00      1.00  |__rate\n10:10:34        0         -    585062      0.00      0.00  |__rate\n10:10:34        0         -    585063      0.00      0.00  |__rate\n10:10:34        0         -    585064      0.00      0.00  |__rate\n10:10:34        0         -    585065      0.00      0.00  |__rate\n10:10:34        0         -    585066      0.00      0.00  |__rate\n10:10:34        0         -    585070      0.00      0.00  |__rate\n10:10:35        0    584863         -      0.00      0.00  rate\n10:10:35        0         -    584863      0.00      0.00  |__rate\n10:10:35        0         -    584875     92.00      4.00  |__rate\n10:10:35        0         -    584876      0.00      0.00  |__rate\n10:10:35        0         -    584877     16.00      0.00  |__rate\n10:10:35        0         -    584878      0.00      0.00  |__rate\n10:10:35        0         -    584879      0.00      0.00  |__rate\n10:10:35        0         -    585045      0.00      0.00  |__rate\n10:10:35        0         -    585046      0.00      0.00  |__rate\n10:10:35        0         -    585047      9.00      3.00  |__rate\n10:10:35        0         -    585048      0.00      0.00  |__rate\n10:10:35        0         -    585051      0.00      0.00  |__rate\n10:10:35        0         -    585052     27.00      1.00  |__rate\n10:10:35        0         -    585053      3.00      0.00  |__rate\n10:10:35        0         -    585059      0.00      0.00  |__rate\n10:10:35        0         -    585060      0.00      0.00  |__rate\n10:10:35        0         -    585061     18.00      0.00  |__rate\n10:10:35        0         -    585062      0.00      0.00  |__rate\n10:10:35        0         -    585063      0.00      0.00  |__rate\n10:10:35        0         -    585064      0.00      0.00  |__rate\n10:10:35        0         -    585065      0.00      0.00  |__rate\n10:10:35        0         -    585066      0.00      0.00  |__rate\n10:10:35        0         -    585070      0.00      0.00  |__rate\n10:10:36        0    584863         -      0.00      0.00  rate\n10:10:36        0         -    584863      0.00      0.00  |__rate\n10:10:36        0         -    584875    111.00      1.00  |__rate\n10:10:36        0         -    584876      0.00      0.00  |__rate\n10:10:36        0         -    584877     26.00      2.00  |__rate\n10:10:36        0         -    584878      0.00      0.00  |__rate\n10:10:36        0         -    584879      0.00      0.00  |__rate\n10:10:36        0         -    585045      0.00      0.00  |__rate\n10:10:36        0         -    585046      0.00      0.00  |__rate\n10:10:36        0         -    585047     32.00      3.00  |__rate\n10:10:36        0         -    585048      0.00      0.00  |__rate\n10:10:36        0         -    585051      0.00      0.00  |__rate\n10:10:36        0         -    585052     13.00      0.00  |__rate\n10:10:36        0         -    585053      8.00      0.00  |__rate\n10:10:36        0         -    585059      0.00      0.00  |__rate\n10:10:36        0         -    585060      0.00      0.00  |__rate\n10:10:36        0         -    585061     16.00      1.00  |__rate\n10:10:36        0         -    585062      0.00      0.00  |__rate\n10:10:36        0         -    585063      0.00      0.00  |__rate\n10:10:36        0         -    585064      0.00      0.00  |__rate\n10:10:36        0         -    585065      0.00      0.00  |__rate\n10:10:36        0         -    585066      0.00      0.00  |__rate\n10:10:36        0         -    585070      0.00      0.00  |__rate\n10:10:37        0    584863         -      0.00      0.00  rate\n10:10:37        0         -    584863      0.00      0.00  |__rate\n10:10:37        0         -    584875     98.00      1.00  |__rate\n10:10:37        0         -    584876      0.00      0.00  |__rate\n10:10:37        0         -    584877      6.00      0.00  |__rate\n10:10:37        0         -    584878      0.00      0.00  |__rate\n10:10:37        0         -    584879      2.00      0.00  |__rate\n10:10:37        0         -    585045      0.00      0.00  |__rate\n10:10:37        0         -    585046      1.00      0.00  |__rate\n10:10:37        0         -    585047      5.00      1.00  |__rate\n10:10:37        0         -    585048      0.00      0.00  |__rate\n10:10:37        0         -    585051      4.00      1.00  |__rate\n10:10:37        0         -    585052      2.00      1.00  |__rate\n10:10:37        0         -    585053     13.00      0.00  |__rate\n10:10:37        0         -    585059      0.00      0.00  |__rate\n10:10:37        0         -    585060      3.00      0.00  |__rate\n10:10:37        0         -    585061     30.00      1.00  |__rate\n10:10:37        0         -    585062      2.00      0.00  |__rate\n10:10:37        0         -    585063      0.00      0.00  |__rate\n10:10:37        0         -    585064      0.00      0.00  |__rate\n10:10:37        0         -    585065      0.00      0.00  |__rate\n10:10:37        0         -    585066      0.00      0.00  |__rate\n10:10:37        0         -    585070      8.00      0.00  |__rate\n10:10:38        0    584863         -      0.00      0.00  rate\n10:10:38        0         -    584863      0.00      0.00  |__rate\n10:10:38        0         -    584875     79.00      2.00  |__rate\n10:10:38        0         -    584876      0.00      0.00  |__rate\n10:10:38        0         -    584877      0.00      0.00  |__rate\n10:10:38        0         -    584878      0.00      0.00  |__rate\n10:10:38        0         -    584879      1.00      0.00  |__rate\n10:10:38        0         -    585045      0.00      0.00  |__rate\n10:10:38        0         -    585046      0.00      0.00  |__rate\n10:10:38        0         -    585047     10.00      1.00  |__rate\n10:10:38        0         -    585048      0.00      0.00  |__rate\n10:10:38        0         -    585051      4.00      1.00  |__rate\n10:10:38        0         -    585052      0.00      0.00  |__rate\n10:10:38        0         -    585053     22.00      2.00  |__rate\n10:10:38        0         -    585059      0.00      0.00  |__rate\n10:10:38        0         -    585060      1.00      0.00  |__rate\n10:10:38        0         -    585061     10.00      1.00  |__rate\n10:10:38        0         -    585062      0.00      0.00  |__rate\n10:10:38        0         -    585063      0.00      0.00  |__rate\n10:10:38        0         -    585064      0.00      0.00  |__rate\n10:10:38        0         -    585065      0.00      0.00  |__rate\n10:10:38        0         -    585066      0.00      0.00  |__rate\n10:10:38        0         -    585070      7.00      0.00  |__rate\n10:10:39        0    584863         -      0.00      0.00  rate\n10:10:39        0         -    584863      0.00      0.00  |__rate\n10:10:39        0         -    584875    105.00      2.00  |__rate\n10:10:39        0         -    584876      0.00      0.00  |__rate\n10:10:39        0         -    584877      0.00      0.00  |__rate\n10:10:39        0         -    584878      0.00      0.00  |__rate\n10:10:39        0         -    584879      0.00      0.00  |__rate\n10:10:39        0         -    585045      0.00      0.00  |__rate\n10:10:39        0         -    585046      0.00      0.00  |__rate\n10:10:39        0         -    585047     24.00      0.00  |__rate\n10:10:39        0         -    585048      0.00      0.00  |__rate\n10:10:39        0         -    585051     15.00      4.00  |__rate\n10:10:39        0         -    585052      0.00      0.00  |__rate\n10:10:39        0         -    585053     27.00      0.00  |__rate\n10:10:39        0         -    585059      0.00      0.00  |__rate\n10:10:39        0         -    585060      0.00      0.00  |__rate\n10:10:39        0         -    585061     14.00      0.00  |__rate\n10:10:39        0         -    585062      0.00      0.00  |__rate\n10:10:39        0         -    585063      0.00      0.00  |__rate\n10:10:39        0         -    585064      0.00      0.00  |__rate\n10:10:39        0         -    585065      0.00      0.00  |__rate\n10:10:39        0         -    585066      0.00      0.00  |__rate\n10:10:39        0         -    585070      0.00      0.00  |__rate\n10:10:40        0    584863         -      0.00      0.00  rate\n10:10:40        0         -    584863      0.00      0.00  |__rate\n10:10:40        0         -    584875     76.00      1.00  |__rate\n10:10:40        0         -    584876      0.00      0.00  |__rate\n10:10:40        0         -    584877      1.00      0.00  |__rate\n10:10:40        0         -    584878      0.00      0.00  |__rate\n10:10:40        0         -    584879      3.00      0.00  |__rate\n10:10:40        0         -    585045      0.00      0.00  |__rate\n10:10:40        0         -    585046      0.00      0.00  |__rate\n10:10:40        0         -    585047     21.00      1.00  |__rate\n10:10:40        0         -    585048      0.00      0.00  |__rate\n10:10:40        0         -    585051     11.00      1.00  |__rate\n10:10:40        0         -    585052      0.00      0.00  |__rate\n10:10:40        0         -    585053      9.00      0.00  |__rate\n10:10:40        0         -    585059      0.00      0.00  |__rate\n10:10:40        0         -    585060      2.00      0.00  |__rate\n10:10:40        0         -    585061      8.00      0.00  |__rate\n10:10:40        0         -    585062      0.00      0.00  |__rate\n10:10:40        0         -    585063      0.00      0.00  |__rate\n10:10:40        0         -    585064      0.00      0.00  |__rate\n10:10:40        0         -    585065      0.00      0.00  |__rate\n10:10:40        0         -    585066      0.00      0.00  |__rate\n10:10:40        0         -    585070      4.00      0.00  |__rate\n10:10:41        0    584863         -      3.00      1.00  rate\n10:10:41        0         -    584863      3.00      1.00  |__rate\n10:10:41        0         -    584875     88.00      0.00  |__rate\n10:10:41        0         -    584876      8.00      0.00  |__rate\n10:10:41        0         -    584877      1.00      0.00  |__rate\n10:10:41        0         -    584878      0.00      0.00  |__rate\n10:10:41        0         -    584879     13.00      1.00  |__rate\n10:10:41        0         -    585045      0.00      0.00  |__rate\n10:10:41        0         -    585046      1.00      0.00  |__rate\n10:10:41        0         -    585047      4.00      1.00  |__rate\n10:10:41        0         -    585048      0.00      0.00  |__rate\n10:10:41        0         -    585051     17.00      3.00  |__rate\n10:10:41        0         -    585052      2.00      0.00  |__rate\n10:10:41        0         -    585053      9.00      0.00  |__rate\n10:10:41        0         -    585059      0.00      0.00  |__rate\n10:10:41        0         -    585060      2.00      0.00  |__rate\n10:10:41        0         -    585061      4.00      0.00  |__rate\n10:10:41        0         -    585062      2.00      0.00  |__rate\n10:10:41        0         -    585063      0.00      0.00  |__rate\n10:10:41        0         -    585064      0.00      0.00  |__rate\n10:10:41        0         -    585065      2.00      0.00  |__rate\n10:10:41        0         -    585066      0.00      0.00  |__rate\n10:10:41        0         -    585070      6.00      0.00  |__rate\n10:10:42        0    584863         -      0.00      0.00  rate\n10:10:42        0         -    584863      0.00      0.00  |__rate\n10:10:42        0         -    584875     88.00      1.00  |__rate\n10:10:42        0         -    584876     17.00      0.00  |__rate\n10:10:42        0         -    584877      0.00      0.00  |__rate\n10:10:42        0         -    584878      0.00      0.00  |__rate\n10:10:42        0         -    584879     13.00      0.00  |__rate\n10:10:42        0         -    585045      0.00      0.00  |__rate\n10:10:42        0         -    585046      0.00      0.00  |__rate\n10:10:42        0         -    585047     22.00      2.00  |__rate\n10:10:42        0         -    585048      0.00      0.00  |__rate\n10:10:42        0         -    585051     16.00      0.00  |__rate\n10:10:42        0         -    585052      0.00      0.00  |__rate\n10:10:42        0         -    585053      0.00      0.00  |__rate\n10:10:42        0         -    585059      0.00      0.00  |__rate\n10:10:42        0         -    585060      0.00      0.00  |__rate\n10:10:42        0         -    585061      0.00      0.00  |__rate\n10:10:42        0         -    585062      0.00      0.00  |__rate\n10:10:42        0         -    585063      0.00      0.00  |__rate\n10:10:42        0         -    585064      0.00      0.00  |__rate\n10:10:42        0         -    585065      0.00      0.00  |__rate\n10:10:42        0         -    585066      0.00      0.00  |__rate\n10:10:42        0         -    585070      0.00      0.00  |__rate\n10:10:43        0    584863         -      0.00      0.00  rate\n10:10:43        0         -    584863      0.00      0.00  |__rate\n10:10:43        0         -    584875     94.00      1.00  |__rate\n10:10:43        0         -    584876     32.00      1.00  |__rate\n10:10:43        0         -    584877      0.00      0.00  |__rate\n10:10:43        0         -    584878      0.00      0.00  |__rate\n10:10:43        0         -    584879      4.00      1.00  |__rate\n10:10:43        0         -    585045      0.00      0.00  |__rate\n10:10:43        0         -    585046      0.00      0.00  |__rate\n10:10:43        0         -    585047     19.00      1.00  |__rate\n10:10:43        0         -    585048      0.00      0.00  |__rate\n10:10:43        0         -    585051      7.00      0.00  |__rate\n10:10:43        0         -    585052      0.00      0.00  |__rate\n10:10:43        0         -    585053     21.00      3.00  |__rate\n10:10:43        0         -    585059      0.00      0.00  |__rate\n10:10:43        0         -    585060      0.00      0.00  |__rate\n10:10:43        0         -    585061      0.00      0.00  |__rate\n10:10:43        0         -    585062      0.00      0.00  |__rate\n10:10:43        0         -    585063      0.00      0.00  |__rate\n10:10:43        0         -    585064      0.00      0.00  |__rate\n10:10:43        0         -    585065      0.00      0.00  |__rate\n10:10:43        0         -    585066      0.00      0.00  |__rate\n10:10:43        0         -    585070      0.00      0.00  |__rate\nAverage:        0    584863         -      0.33      0.08  rate\nAverage:        0         -    584863      0.33      0.08  |__rate\nAverage:        0         -    584875     90.08      1.17  |__rate\nAverage:        0         -    584876      4.83      0.08  |__rate\nAverage:        0         -    584877      6.17      0.17  |__rate\nAverage:        0         -    584878      0.67      0.08  |__rate\nAverage:        0         -    584879      3.08      0.17  |__rate\nAverage:        0         -    585045      0.08      0.00  |__rate\nAverage:        0         -    585046      3.42      0.25  |__rate\nAverage:        0         -    585047     13.58      1.17  |__rate\nAverage:        0         -    585048      0.00      0.00  |__rate\nAverage:        0         -    585051      6.50      0.92  |__rate\nAverage:        0         -    585052      6.25      0.42  |__rate\nAverage:        0         -    585053      9.67      0.83  |__rate\nAverage:        0         -    585059      0.00      0.00  |__rate\nAverage:        0         -    585060      0.75      0.00  |__rate\nAverage:        0         -    585061     12.83      0.50  |__rate\nAverage:        0         -    585062      0.83      0.00  |__rate\nAverage:        0         -    585063      0.00      0.00  |__rate\nAverage:        0         -    585064      0.00      0.00  |__rate\nAverage:        0         -    585065      0.25      0.00  |__rate\nAverage:        0         -    585066      0.00      0.00  |__rate\nAverage:        0         -    585070      2.42      0.17  |__rate\n",
+        "pidstat_summary": {
+          "avg_cswch_per_s": 7.047101449275362,
+          "avg_nvcswch_per_s": 0.2644927536231884,
+          "max_nvcswch_per_s": 5.0,
+          "samples": [
+            {
+              "command": "rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 78.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 8.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 11.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 7.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 5.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 13.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 6.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:32"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 88.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 13.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 15.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 21.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 18.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:33"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 84.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 8.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 13.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 7.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 9.0,
+              "nvcswch_per_s": 3.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 23.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:34"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 92.0,
+              "nvcswch_per_s": 4.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 16.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 9.0,
+              "nvcswch_per_s": 3.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 27.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 18.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:35"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 111.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 26.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 32.0,
+              "nvcswch_per_s": 3.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 13.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 8.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 16.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:36"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 98.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 6.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 5.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 13.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 30.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 8.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:37"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 79.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 10.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 22.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 10.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 7.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:38"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 105.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 24.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 15.0,
+              "nvcswch_per_s": 4.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 27.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 14.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:39"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 76.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 21.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 11.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 9.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 8.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:40"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 88.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 8.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 13.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 17.0,
+              "nvcswch_per_s": 3.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 9.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 6.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:41"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 88.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 17.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 13.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 22.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 16.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:42"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584863",
+              "tid": "-",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584863",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 94.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584875",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 32.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584876",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584877",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584878",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584879",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585045",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585046",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 19.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585047",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585048",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 7.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585051",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585052",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 21.0,
+              "nvcswch_per_s": 3.0,
+              "tgid": "-",
+              "tid": "585053",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585059",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585060",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585061",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585062",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585063",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585064",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585065",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585066",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585070",
+              "time": "10:10:43"
+            }
+          ]
+        },
+        "restart_count_after": 0,
+        "restart_count_before": 0,
+        "schedstat_after": {
+          "runqueue_wait_ns": 167255922,
+          "runtime_ns": 97164877,
+          "timeslices": 589
+        },
+        "schedstat_before": {
+          "runqueue_wait_ns": 167061293,
+          "runtime_ns": 89121640,
+          "timeslices": 524
+        },
+        "schedstat_delta": {
+          "runqueue_wait_ms": 0.194629,
+          "runqueue_wait_ns": 194629,
+          "runqueue_wait_pct_of_runtime": 0.02419784472346146,
+          "runtime_ns": 8043237,
+          "timeslices": 65
+        }
+      },
+      "rate-776fd867f5-wmpxr": {
+        "cpu_stat_after": {
+          "burst_usec": 0,
+          "core_sched.force_idle_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 494,
+          "nr_throttled": 6,
+          "system_usec": 583758,
+          "throttled_usec": 477082,
+          "usage_usec": 1778113,
+          "user_usec": 1194355
+        },
+        "cpu_stat_before": {
+          "burst_usec": 0,
+          "core_sched.force_idle_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 420,
+          "nr_throttled": 6,
+          "system_usec": 484910,
+          "throttled_usec": 477082,
+          "usage_usec": 1554200,
+          "user_usec": 1069290
+        },
+        "cpu_stat_delta": {
+          "burst_usec": 0,
+          "core_sched.force_idle_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 74,
+          "nr_throttled": 0,
+          "system_usec": 98848,
+          "throttled_usec": 0,
+          "usage_usec": 223913,
+          "user_usec": 125065
+        },
+        "describe": "Name:             rate-776fd867f5-wmpxr\nNamespace:        default\nPriority:         0\nService Account:  default\nNode:             minikube/192.168.49.2\nStart Time:       Fri, 01 May 2026 15:38:23 +0530\nLabels:           io.kompose.service=rate\n                  pod-template-hash=776fd867f5\nAnnotations:      kompose.cmd: kompose convert\n                  kompose.version: 1.22.0 (955b78124)\n                  sidecar.istio.io/statsInclusionPrefixes:\n                    cluster.outbound,cluster_manager,listener_manager,http_mixer_filter,tcp_mixer_filter,server,cluster.xds-grp,listener,connection_manager\n                  sidecar.istio.io/statsInclusionRegexps: http.*\nStatus:           Running\nIP:               10.244.3.213\nIPs:\n  IP:           10.244.3.213\nControlled By:  ReplicaSet/rate-776fd867f5\nContainers:\n  hotel-reserv-rate:\n    Container ID:  docker://4a13b749a8e669b261025f254067d897183a524010aa32ee835fc50fd073118e\n    Image:         deathstarbench/hotel-reservation:mvp\n    Image ID:      docker://sha256:6939012ba311bb03b5ebfa70ac94b0c5a6b4d70f4c3d53569204ad5505a66a78\n    Port:          8084/TCP\n    Host Port:     0/TCP\n    Command:\n      /go/bin/rate\n    State:          Running\n      Started:      Fri, 01 May 2026 15:38:24 +0530\n    Ready:          True\n    Restart Count:  0\n    Limits:\n      cpu:  500m\n    Requests:\n      cpu:        500m\n    Environment:  <none>\n    Mounts:\n      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-t6mbh (ro)\nConditions:\n  Type                        Status\n  PodReadyToStartContainers   True \n  Initialized                 True \n  Ready                       True \n  ContainersReady             True \n  PodScheduled                True \nVolumes:\n  kube-api-access-t6mbh:\n    Type:                    Projected (a volume that contains injected data from multiple sources)\n    TokenExpirationSeconds:  3607\n    ConfigMapName:           kube-root-ca.crt\n    Optional:                false\n    DownwardAPI:             true\nQoS Class:                   Burstable\nNode-Selectors:              <none>\nTolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s\n                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s\nEvents:\n  Type    Reason     Age    From               Message\n  ----    ------     ----   ----               -------\n  Normal  Scheduled  2m24s  default-scheduler  Successfully assigned default/rate-776fd867f5-wmpxr to minikube\n  Normal  Pulled     2m24s  kubelet            spec.containers{hotel-reserv-rate}: Container image \"deathstarbench/hotel-reservation:mvp\" already present on machine and can be accessed by the pod\n  Normal  Created    2m24s  kubelet            spec.containers{hotel-reserv-rate}: Container created\n  Normal  Started    2m24s  kubelet            spec.containers{hotel-reserv-rate}: Container started\n",
+        "log_errors": [],
+        "logs_tail": "{\"level\":\"info\",\"time\":\"2026-05-01T10:08:24Z\",\"message\":\"TLS disabled.\"}\n{\"level\":\"info\",\"time\":\"2026-05-01T10:08:24Z\",\"message\":\"Set global log level: info\"}\n{\"level\":\"info\",\"time\":\"2026-05-01T10:08:24Z\",\"message\":\"Tune: setGCPercent to 100\"}\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:24\u001b[0m\u001b[36m >\u001b[0m Reading config...\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:37\u001b[0m\u001b[36m >\u001b[0m Initializing DB connection...\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/db.go:30\u001b[0m\u001b[36m >\u001b[0m Generating test data...\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/db.go:123\u001b[0m\u001b[36m >\u001b[0m Attempting connection to mongodb://mongodb-rate:27017\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/db.go:130\u001b[0m\u001b[36m >\u001b[0m Successfully connected to MongoDB\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/db.go:137\u001b[0m\u001b[36m >\u001b[0m Successfully inserted test data into rate DB\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:41\u001b[0m\u001b[36m >\u001b[0m Read profile memcashed address: memcached-rate:11211\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:42\u001b[0m\u001b[36m >\u001b[0m Initializing Memcashed client...\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/tune/setting.go:60\u001b[0m\u001b[36m >\u001b[0m Tune: GetMemCTimeout 2\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:44\u001b[0m\u001b[36m >\u001b[0m Success\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:55\u001b[0m\u001b[36m >\u001b[0m Initializing jaeger agent [service name: rate | host: jaeger:6831]...\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/tracing/tracer.go:27\u001b[0m\u001b[36m >\u001b[0m Jaeger client: adjusted sample ratio 0.010000\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/tracing/tracer.go:41\u001b[0m\u001b[36m >\u001b[0m Overriding Jaeger config with env variables\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:60\u001b[0m\u001b[36m >\u001b[0m Jaeger agent initialized\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:62\u001b[0m\u001b[36m >\u001b[0m Initializing consul agent [host: consul:8500]...\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:67\u001b[0m\u001b[36m >\u001b[0m Consul agent initialized\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/cmd/rate/main.go:78\u001b[0m\u001b[36m >\u001b[0m Starting server...\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/registry/registry.go:91\u001b[0m\u001b[36m >\u001b[0m Trying to register service [ name: srv-rate, id: ecc0949d-205e-4b35-a9fb-35353d610f91, address: 10.244.3.213:8084 ]\n\u001b[90m2026-05-01T10:08:24Z\u001b[0m \u001b[32mINF\u001b[0m \u001b[1m../../workspace/services/rate/server.go:85\u001b[0m\u001b[36m >\u001b[0m Successfully registered in consul\n",
+        "mem_stat_after": {
+          "memory.current": 12431360,
+          "memory.peak": 14934016
+        },
+        "mem_stat_before": {
+          "memory.current": 12533760,
+          "memory.peak": 14934016
+        },
+        "node_pid": 584599,
+        "perf_raw": "172687065,,cpu_core/cycles/,69304110,44.00,,\n165942725,,cpu_atom/cycles/,84886132,55.00,,\n142447366,,cpu_core/instructions/,69304110,44.00,,\n127566498,,cpu_atom/instructions/,84886132,55.00,,\n2144,,context-switches,154190242,100.00,,\n1115149,,cpu_core/cache-misses/,69304110,44.00,,\n807436,,cpu_atom/cache-misses/,84886132,55.00,,\n817,,cpu-migrations,154190242,100.00,,",
+        "perf_summary": {
+          "cache-misses": 1922585,
+          "context-switches": 2144,
+          "cpu-migrations": 817,
+          "cycles": 338629790,
+          "instructions": 270013864
+        },
+        "pidstat_raw": "Linux 6.17.0-20-generic (minikube) \t05/01/26 \t_x86_64_\t(20 CPU)\n\n10:10:31      UID      TGID       TID   cswch/s nvcswch/s  Command\n10:10:32        0    584599         -      2.00      1.00  rate\n10:10:32        0         -    584599      2.00      1.00  |__rate\n10:10:32        0         -    584611     62.00      0.00  |__rate\n10:10:32        0         -    584612      0.00      0.00  |__rate\n10:10:32        0         -    584613      2.00      0.00  |__rate\n10:10:32        0         -    584614      0.00      0.00  |__rate\n10:10:32        0         -    584615      0.00      0.00  |__rate\n10:10:32        0         -    585040      0.00      0.00  |__rate\n10:10:32        0         -    585041      0.00      0.00  |__rate\n10:10:32        0         -    585042      4.00      0.00  |__rate\n10:10:32        0         -    585043      0.00      0.00  |__rate\n10:10:32        0         -    585044      7.00      0.00  |__rate\n10:10:32        0         -    585049      0.00      0.00  |__rate\n10:10:32        0         -    585050      0.00      0.00  |__rate\n10:10:32        0         -    585054      0.00      0.00  |__rate\n10:10:32        0         -    585055      0.00      0.00  |__rate\n10:10:32        0         -    585056      0.00      0.00  |__rate\n10:10:32        0         -    585057      0.00      0.00  |__rate\n10:10:32        0         -    585058      2.00      0.00  |__rate\n10:10:32        0         -    585067      0.00      0.00  |__rate\n10:10:32        0         -    585068      4.00      0.00  |__rate\n10:10:32        0         -    585069      0.00      0.00  |__rate\n10:10:32        0         -    585127     15.00      0.00  |__rate\n10:10:33        0    584599         -     19.00      0.00  rate\n10:10:33        0         -    584599     19.00      0.00  |__rate\n10:10:33        0         -    584611     83.00      1.00  |__rate\n10:10:33        0         -    584612      0.00      0.00  |__rate\n10:10:33        0         -    584613      1.00      0.00  |__rate\n10:10:33        0         -    584614      0.00      0.00  |__rate\n10:10:33        0         -    584615      0.00      0.00  |__rate\n10:10:33        0         -    585040      0.00      0.00  |__rate\n10:10:33        0         -    585041      0.00      0.00  |__rate\n10:10:33        0         -    585042      3.00      0.00  |__rate\n10:10:33        0         -    585043      0.00      0.00  |__rate\n10:10:33        0         -    585044      5.00      0.00  |__rate\n10:10:33        0         -    585049      0.00      0.00  |__rate\n10:10:33        0         -    585050      0.00      0.00  |__rate\n10:10:33        0         -    585054      0.00      0.00  |__rate\n10:10:33        0         -    585055      0.00      0.00  |__rate\n10:10:33        0         -    585056      6.00      0.00  |__rate\n10:10:33        0         -    585057      0.00      0.00  |__rate\n10:10:33        0         -    585058     11.00      1.00  |__rate\n10:10:33        0         -    585067      0.00      0.00  |__rate\n10:10:33        0         -    585068      4.00      0.00  |__rate\n10:10:33        0         -    585069      0.00      0.00  |__rate\n10:10:33        0         -    585127      8.00      0.00  |__rate\n10:10:34        0    584599         -     20.00      3.00  rate\n10:10:34        0         -    584599     20.00      3.00  |__rate\n10:10:34        0         -    584611    103.00      1.00  |__rate\n10:10:34        0         -    584612      0.00      0.00  |__rate\n10:10:34        0         -    584613      0.00      0.00  |__rate\n10:10:34        0         -    584614      0.00      0.00  |__rate\n10:10:34        0         -    584615      0.00      0.00  |__rate\n10:10:34        0         -    585040      0.00      0.00  |__rate\n10:10:34        0         -    585041      0.00      0.00  |__rate\n10:10:34        0         -    585042     18.00      0.00  |__rate\n10:10:34        0         -    585043      0.00      0.00  |__rate\n10:10:34        0         -    585044      0.00      0.00  |__rate\n10:10:34        0         -    585049      0.00      0.00  |__rate\n10:10:34        0         -    585050      0.00      0.00  |__rate\n10:10:34        0         -    585054      0.00      0.00  |__rate\n10:10:34        0         -    585055      0.00      0.00  |__rate\n10:10:34        0         -    585056      9.00      1.00  |__rate\n10:10:34        0         -    585057      0.00      0.00  |__rate\n10:10:34        0         -    585058     18.00      2.00  |__rate\n10:10:34        0         -    585067      0.00      0.00  |__rate\n10:10:34        0         -    585068     14.00      0.00  |__rate\n10:10:34        0         -    585069      0.00      0.00  |__rate\n10:10:34        0         -    585127      0.00      0.00  |__rate\n10:10:35        0    584599         -     29.00      2.00  rate\n10:10:35        0         -    584599     29.00      2.00  |__rate\n10:10:35        0         -    584611    127.00      0.00  |__rate\n10:10:35        0         -    584612      0.00      0.00  |__rate\n10:10:35        0         -    584613      1.00      0.00  |__rate\n10:10:35        0         -    584614      0.00      0.00  |__rate\n10:10:35        0         -    584615      1.00      0.00  |__rate\n10:10:35        0         -    585040      0.00      0.00  |__rate\n10:10:35        0         -    585041      0.00      0.00  |__rate\n10:10:35        0         -    585042     18.00      6.00  |__rate\n10:10:35        0         -    585043      0.00      0.00  |__rate\n10:10:35        0         -    585044      2.00      1.00  |__rate\n10:10:35        0         -    585049      0.00      0.00  |__rate\n10:10:35        0         -    585050      0.00      0.00  |__rate\n10:10:35        0         -    585054      9.00      3.00  |__rate\n10:10:35        0         -    585055      0.00      0.00  |__rate\n10:10:35        0         -    585056      1.00      0.00  |__rate\n10:10:35        0         -    585057      0.00      0.00  |__rate\n10:10:35        0         -    585058     11.00      0.00  |__rate\n10:10:35        0         -    585067      0.00      0.00  |__rate\n10:10:35        0         -    585068      5.00      0.00  |__rate\n10:10:35        0         -    585069      1.00      0.00  |__rate\n10:10:35        0         -    585127     18.00      2.00  |__rate\n10:10:36        0    584599         -     13.00      0.00  rate\n10:10:36        0         -    584599     13.00      0.00  |__rate\n10:10:36        0         -    584611     73.00      1.00  |__rate\n10:10:36        0         -    584612      0.00      0.00  |__rate\n10:10:36        0         -    584613      0.00      0.00  |__rate\n10:10:36        0         -    584614      0.00      0.00  |__rate\n10:10:36        0         -    584615      0.00      0.00  |__rate\n10:10:36        0         -    585040      0.00      0.00  |__rate\n10:10:36        0         -    585041      0.00      0.00  |__rate\n10:10:36        0         -    585042     27.00      1.00  |__rate\n10:10:36        0         -    585043      0.00      0.00  |__rate\n10:10:36        0         -    585044      0.00      0.00  |__rate\n10:10:36        0         -    585049      0.00      0.00  |__rate\n10:10:36        0         -    585050      0.00      0.00  |__rate\n10:10:36        0         -    585054      9.00      2.00  |__rate\n10:10:36        0         -    585055      0.00      0.00  |__rate\n10:10:36        0         -    585056      0.00      0.00  |__rate\n10:10:36        0         -    585057      0.00      0.00  |__rate\n10:10:36        0         -    585058     10.00      0.00  |__rate\n10:10:36        0         -    585067      0.00      0.00  |__rate\n10:10:36        0         -    585068      0.00      0.00  |__rate\n10:10:36        0         -    585069      0.00      0.00  |__rate\n10:10:36        0         -    585127     10.00      2.00  |__rate\n10:10:37        0    584599         -     23.00      0.00  rate\n10:10:37        0         -    584599     23.00      0.00  |__rate\n10:10:37        0         -    584611     89.00      1.00  |__rate\n10:10:37        0         -    584612      0.00      0.00  |__rate\n10:10:37        0         -    584613      0.00      0.00  |__rate\n10:10:37        0         -    584614      0.00      0.00  |__rate\n10:10:37        0         -    584615      0.00      0.00  |__rate\n10:10:37        0         -    585040      0.00      0.00  |__rate\n10:10:37        0         -    585041      0.00      0.00  |__rate\n10:10:37        0         -    585042     15.00      0.00  |__rate\n10:10:37        0         -    585043      0.00      0.00  |__rate\n10:10:37        0         -    585044      0.00      0.00  |__rate\n10:10:37        0         -    585049      0.00      0.00  |__rate\n10:10:37        0         -    585050      0.00      0.00  |__rate\n10:10:37        0         -    585054     14.00      0.00  |__rate\n10:10:37        0         -    585055      0.00      0.00  |__rate\n10:10:37        0         -    585056      0.00      0.00  |__rate\n10:10:37        0         -    585057      0.00      0.00  |__rate\n10:10:37        0         -    585058      2.00      0.00  |__rate\n10:10:37        0         -    585067      0.00      0.00  |__rate\n10:10:37        0         -    585068      3.00      0.00  |__rate\n10:10:37        0         -    585069      2.00      0.00  |__rate\n10:10:37        0         -    585127      3.00      0.00  |__rate\n10:10:38        0    584599         -     11.00      2.00  rate\n10:10:38        0         -    584599     11.00      2.00  |__rate\n10:10:38        0         -    584611     96.00      0.00  |__rate\n10:10:38        0         -    584612      0.00      0.00  |__rate\n10:10:38        0         -    584613      0.00      0.00  |__rate\n10:10:38        0         -    584614      0.00      0.00  |__rate\n10:10:38        0         -    584615      0.00      0.00  |__rate\n10:10:38        0         -    585040      0.00      0.00  |__rate\n10:10:38        0         -    585041      0.00      0.00  |__rate\n10:10:38        0         -    585042     21.00      1.00  |__rate\n10:10:38        0         -    585043      0.00      0.00  |__rate\n10:10:38        0         -    585044      0.00      0.00  |__rate\n10:10:38        0         -    585049      0.00      0.00  |__rate\n10:10:38        0         -    585050      0.00      0.00  |__rate\n10:10:38        0         -    585054      0.00      0.00  |__rate\n10:10:38        0         -    585055      0.00      0.00  |__rate\n10:10:38        0         -    585056      0.00      0.00  |__rate\n10:10:38        0         -    585057      0.00      0.00  |__rate\n10:10:38        0         -    585058      9.00      1.00  |__rate\n10:10:38        0         -    585067      0.00      0.00  |__rate\n10:10:38        0         -    585068     12.00      2.00  |__rate\n10:10:38        0         -    585069     10.00      0.00  |__rate\n10:10:38        0         -    585127      1.00      0.00  |__rate\n10:10:39        0    584599         -     10.00      0.00  rate\n10:10:39        0         -    584599     10.00      0.00  |__rate\n10:10:39        0         -    584611     84.00      0.00  |__rate\n10:10:39        0         -    584612      0.00      0.00  |__rate\n10:10:39        0         -    584613     12.00      0.00  |__rate\n10:10:39        0         -    584614      0.00      0.00  |__rate\n10:10:39        0         -    584615      6.00      1.00  |__rate\n10:10:39        0         -    585040      2.00      0.00  |__rate\n10:10:39        0         -    585041      0.00      0.00  |__rate\n10:10:39        0         -    585042      9.00      1.00  |__rate\n10:10:39        0         -    585043      0.00      0.00  |__rate\n10:10:39        0         -    585044      3.00      0.00  |__rate\n10:10:39        0         -    585049      0.00      0.00  |__rate\n10:10:39        0         -    585050      0.00      0.00  |__rate\n10:10:39        0         -    585054      1.00      2.00  |__rate\n10:10:39        0         -    585055      0.00      0.00  |__rate\n10:10:39        0         -    585056      3.00      2.00  |__rate\n10:10:39        0         -    585057      2.00      1.00  |__rate\n10:10:39        0         -    585058     10.00      0.00  |__rate\n10:10:39        0         -    585067      0.00      0.00  |__rate\n10:10:39        0         -    585068     12.00      3.00  |__rate\n10:10:39        0         -    585069      4.00      0.00  |__rate\n10:10:39        0         -    585127      3.00      0.00  |__rate\n10:10:40        0    584599         -     18.00      4.00  rate\n10:10:40        0         -    584599     18.00      4.00  |__rate\n10:10:40        0         -    584611    121.00      1.00  |__rate\n10:10:40        0         -    584612      0.00      0.00  |__rate\n10:10:40        0         -    584613     26.00      2.00  |__rate\n10:10:40        0         -    584614      0.00      0.00  |__rate\n10:10:40        0         -    584615     13.00      2.00  |__rate\n10:10:40        0         -    585040      0.00      0.00  |__rate\n10:10:40        0         -    585041      0.00      0.00  |__rate\n10:10:40        0         -    585042      8.00      0.00  |__rate\n10:10:40        0         -    585043      0.00      0.00  |__rate\n10:10:40        0         -    585044      0.00      0.00  |__rate\n10:10:40        0         -    585049      0.00      0.00  |__rate\n10:10:40        0         -    585050      0.00      0.00  |__rate\n10:10:40        0         -    585054      0.00      0.00  |__rate\n10:10:40        0         -    585055      0.00      0.00  |__rate\n10:10:40        0         -    585056      0.00      0.00  |__rate\n10:10:40        0         -    585057      0.00      0.00  |__rate\n10:10:40        0         -    585058      0.00      0.00  |__rate\n10:10:40        0         -    585067      0.00      0.00  |__rate\n10:10:40        0         -    585068     10.00      1.00  |__rate\n10:10:40        0         -    585069      0.00      0.00  |__rate\n10:10:40        0         -    585127      0.00      0.00  |__rate\n10:10:41        0    584599         -     34.00      0.00  rate\n10:10:41        0         -    584599     34.00      0.00  |__rate\n10:10:41        0         -    584611    109.00      0.00  |__rate\n10:10:41        0         -    584612      0.00      0.00  |__rate\n10:10:41        0         -    584613     15.00      2.00  |__rate\n10:10:41        0         -    584614      0.00      0.00  |__rate\n10:10:41        0         -    584615      3.00      0.00  |__rate\n10:10:41        0         -    585040      0.00      0.00  |__rate\n10:10:41        0         -    585041      0.00      0.00  |__rate\n10:10:41        0         -    585042      5.00      0.00  |__rate\n10:10:41        0         -    585043      0.00      0.00  |__rate\n10:10:41        0         -    585044      0.00      0.00  |__rate\n10:10:41        0         -    585049      0.00      0.00  |__rate\n10:10:41        0         -    585050      0.00      0.00  |__rate\n10:10:41        0         -    585054      0.00      0.00  |__rate\n10:10:41        0         -    585055      0.00      0.00  |__rate\n10:10:41        0         -    585056      0.00      0.00  |__rate\n10:10:41        0         -    585057      0.00      0.00  |__rate\n10:10:41        0         -    585058      0.00      0.00  |__rate\n10:10:41        0         -    585067      0.00      0.00  |__rate\n10:10:41        0         -    585068     22.00      2.00  |__rate\n10:10:41        0         -    585069      0.00      0.00  |__rate\n10:10:41        0         -    585127      0.00      0.00  |__rate\n10:10:42        0    584599         -     19.00      1.00  rate\n10:10:42        0         -    584599     19.00      1.00  |__rate\n10:10:42        0         -    584611    102.00      0.00  |__rate\n10:10:42        0         -    584612      0.00      0.00  |__rate\n10:10:42        0         -    584613     31.00      1.00  |__rate\n10:10:42        0         -    584614      0.00      0.00  |__rate\n10:10:42        0         -    584615     23.00      0.00  |__rate\n10:10:42        0         -    585040      0.00      0.00  |__rate\n10:10:42        0         -    585041      0.00      0.00  |__rate\n10:10:42        0         -    585042      0.00      0.00  |__rate\n10:10:42        0         -    585043      0.00      0.00  |__rate\n10:10:42        0         -    585044      0.00      0.00  |__rate\n10:10:42        0         -    585049      0.00      0.00  |__rate\n10:10:42        0         -    585050      0.00      0.00  |__rate\n10:10:42        0         -    585054      0.00      0.00  |__rate\n10:10:42        0         -    585055      0.00      0.00  |__rate\n10:10:42        0         -    585056      0.00      0.00  |__rate\n10:10:42        0         -    585057      0.00      0.00  |__rate\n10:10:42        0         -    585058      0.00      0.00  |__rate\n10:10:42        0         -    585067      0.00      0.00  |__rate\n10:10:42        0         -    585068      9.00      2.00  |__rate\n10:10:42        0         -    585069      0.00      0.00  |__rate\n10:10:42        0         -    585127      0.00      0.00  |__rate\n10:10:43        0    584599         -     12.00      3.00  rate\n10:10:43        0         -    584599     12.00      3.00  |__rate\n10:10:43        0         -    584611     94.00      1.00  |__rate\n10:10:43        0         -    584612      0.00      0.00  |__rate\n10:10:43        0         -    584613     28.00      1.00  |__rate\n10:10:43        0         -    584614      0.00      0.00  |__rate\n10:10:43        0         -    584615     13.00      2.00  |__rate\n10:10:43        0         -    585040      1.00      0.00  |__rate\n10:10:43        0         -    585041      0.00      0.00  |__rate\n10:10:43        0         -    585042      5.00      0.00  |__rate\n10:10:43        0         -    585043      0.00      0.00  |__rate\n10:10:43        0         -    585044      0.00      0.00  |__rate\n10:10:43        0         -    585049      0.00      0.00  |__rate\n10:10:43        0         -    585050      0.00      0.00  |__rate\n10:10:43        0         -    585054      0.00      0.00  |__rate\n10:10:43        0         -    585055      0.00      0.00  |__rate\n10:10:43        0         -    585056      0.00      0.00  |__rate\n10:10:43        0         -    585057      0.00      0.00  |__rate\n10:10:43        0         -    585058      0.00      0.00  |__rate\n10:10:43        0         -    585067      0.00      0.00  |__rate\n10:10:43        0         -    585068     10.00      1.00  |__rate\n10:10:43        0         -    585069      0.00      0.00  |__rate\n10:10:43        0         -    585127      0.00      0.00  |__rate\nAverage:        0    584599         -     17.50      1.33  rate\nAverage:        0         -    584599     17.50      1.33  |__rate\nAverage:        0         -    584611     95.25      0.50  |__rate\nAverage:        0         -    584612      0.00      0.00  |__rate\nAverage:        0         -    584613      9.67      0.50  |__rate\nAverage:        0         -    584614      0.00      0.00  |__rate\nAverage:        0         -    584615      4.92      0.42  |__rate\nAverage:        0         -    585040      0.25      0.00  |__rate\nAverage:        0         -    585041      0.00      0.00  |__rate\nAverage:        0         -    585042     11.08      0.75  |__rate\nAverage:        0         -    585043      0.00      0.00  |__rate\nAverage:        0         -    585044      1.42      0.08  |__rate\nAverage:        0         -    585049      0.00      0.00  |__rate\nAverage:        0         -    585050      0.00      0.00  |__rate\nAverage:        0         -    585054      2.75      0.58  |__rate\nAverage:        0         -    585055      0.00      0.00  |__rate\nAverage:        0         -    585056      1.58      0.25  |__rate\nAverage:        0         -    585057      0.17      0.08  |__rate\nAverage:        0         -    585058      6.08      0.33  |__rate\nAverage:        0         -    585067      0.00      0.00  |__rate\nAverage:        0         -    585068      8.75      0.92  |__rate\nAverage:        0         -    585069      1.42      0.00  |__rate\nAverage:        0         -    585127      4.83      0.33  |__rate\n",
+        "pidstat_summary": {
+          "avg_cswch_per_s": 7.963768115942029,
+          "avg_nvcswch_per_s": 0.322463768115942,
+          "max_nvcswch_per_s": 6.0,
+          "samples": [
+            {
+              "command": "rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 62.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 7.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:32"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 15.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:32"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 19.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 19.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 83.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 5.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 6.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 11.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:33"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 8.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:33"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 20.0,
+              "nvcswch_per_s": 3.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 20.0,
+              "nvcswch_per_s": 3.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 103.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 18.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 9.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 18.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 14.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:34"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:34"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 29.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 29.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 127.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 18.0,
+              "nvcswch_per_s": 6.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 9.0,
+              "nvcswch_per_s": 3.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 11.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 5.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:35"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 18.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:35"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 13.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 13.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 73.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 27.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 9.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 10.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:36"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 10.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:36"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 23.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 23.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 89.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 15.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 14.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:37"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:37"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 11.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 11.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 96.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 21.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 9.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 12.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 10.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:38"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:38"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 10.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 10.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 84.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 12.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 6.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 9.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 2.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 10.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 12.0,
+              "nvcswch_per_s": 3.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 4.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:39"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:39"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 18.0,
+              "nvcswch_per_s": 4.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 18.0,
+              "nvcswch_per_s": 4.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 121.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 26.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 13.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 8.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 10.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:40"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:40"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 34.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 34.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 109.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 15.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 3.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 5.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 22.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:41"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:41"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 19.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 19.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 102.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 31.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 23.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 9.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:42"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:42"
+            },
+            {
+              "command": "rate",
+              "cswch_per_s": 12.0,
+              "nvcswch_per_s": 3.0,
+              "tgid": "584599",
+              "tid": "-",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 12.0,
+              "nvcswch_per_s": 3.0,
+              "tgid": "-",
+              "tid": "584599",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 94.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584611",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584612",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 28.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "584613",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "584614",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 13.0,
+              "nvcswch_per_s": 2.0,
+              "tgid": "-",
+              "tid": "584615",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 1.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585040",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585041",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 5.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585042",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585043",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585044",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585049",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585050",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585054",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585055",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585056",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585057",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585058",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585067",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 10.0,
+              "nvcswch_per_s": 1.0,
+              "tgid": "-",
+              "tid": "585068",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585069",
+              "time": "10:10:43"
+            },
+            {
+              "command": "|__rate",
+              "cswch_per_s": 0.0,
+              "nvcswch_per_s": 0.0,
+              "tgid": "-",
+              "tid": "585127",
+              "time": "10:10:43"
+            }
+          ]
+        },
+        "restart_count_after": 0,
+        "restart_count_before": 0,
+        "schedstat_after": {
+          "runqueue_wait_ns": 150648157,
+          "runtime_ns": 169905747,
+          "timeslices": 1110
+        },
+        "schedstat_before": {
+          "runqueue_wait_ns": 148688381,
+          "runtime_ns": 134599991,
+          "timeslices": 865
+        },
+        "schedstat_delta": {
+          "runqueue_wait_ms": 1.959776,
+          "runqueue_wait_ns": 1959776,
+          "runqueue_wait_pct_of_runtime": 0.05550868249358547,
+          "runtime_ns": 35305756,
+          "timeslices": 245
+        }
+      }
+    },
+    "profile_seconds": 12,
+    "rps": 20
+  },
+  "replicas": 2
+}

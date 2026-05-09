@@ -8,6 +8,7 @@ geo,200,256,3,96,180,p90_latency
 geo,500,256,1,85,100,p90_latency
 geo,500,256,2,150,280,p90_latency
 geo,500,256,3,198,320,p90_latency
+rate,100,256,1,2,0,success_rate
 rate,100,256,2,97,20,p90_latency
 rate,100,256,3,104,40,p90_latency
 rate,200,256,1,108,40,p90_latency
@@ -43,6 +44,7 @@ user,200,256,3,90,270,p90_latency
 user,500,256,1,80,250,p90_latency
 user,500,256,2,80,230,p90_latency
 user,500,256,3,93,280,p90_latency
+reservation,100,256,1,61,10,p90_latency
 reservation,100,256,2,118,30,p90_latency
 reservation,100,256,3,89,50,p90_latency
 reservation,200,256,1,69,30,p90_latency

@@ -16,3 +16,5 @@ hotelReservation/minikube-linux-amd64
 _pycache__
 __pycache__
 sandboxing/output/
+
+.venv-rate-investigation
