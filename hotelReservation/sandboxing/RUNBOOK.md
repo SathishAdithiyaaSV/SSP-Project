@@ -18,7 +18,7 @@ The experiment:
 3. turns that traffic into replay fixtures
 4. creates a sandbox namespace where real `search` talks to dummy `geo` and `rate`
 5. load-tests sandboxed `search`
-6. writes result and model artifacts under `sandboxing/output/search`
+6. writes result and model artifacts under `artifacts/experiments/search`
 
 ## Prerequisites
 
@@ -115,12 +115,12 @@ python -m hotelReservation.sandboxing.experiment \
 
 After a successful run, look here:
 
-- `sandboxing/output/search/capture/`
-- `sandboxing/output/search/fixtures/`
-- `sandboxing/output/search/results/search-run.json`
-- `sandboxing/output/search/model/dataset.csv`
-- `sandboxing/output/search/model/msc-model.pkl`
-- `sandboxing/output/search/sandbox/search-sandbox.yaml`
+- `artifacts/experiments/search/capture/`
+- `artifacts/experiments/search/fixtures/`
+- `artifacts/experiments/search/results/search-run.json`
+- `artifacts/experiments/search/model/dataset.csv`
+- `artifacts/experiments/search/model/msc-model.pkl`
+- `artifacts/experiments/search/sandbox/search-sandbox.yaml`
 
 ## Fast reruns
 

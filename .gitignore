@@ -18,3 +18,10 @@ __pycache__
 sandboxing/output/
 
 .venv-rate-investigation
+
+# Generated experiment, analysis, and report artifacts.
+artifacts/
+sandboxing/output/
+hotelReservation/sandboxing/output/
+graphAnalysis/
+report_figures/

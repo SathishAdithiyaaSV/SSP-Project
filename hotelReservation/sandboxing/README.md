@@ -34,4 +34,6 @@ python3 -m hotelReservation.sandboxing.experiment \
   hotelReservation/sandboxing/examples/search-experiment.json
 ```
 
-Artifacts are written under the configured `output_dir`.
+Artifacts are written under the configured `output_dir`; the supplied search
+configuration uses `artifacts/experiments/search`, which is intentionally not
+tracked by Git.

@@ -33,8 +33,8 @@ from .leaf_experiment import (
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_OUTPUT_DIR = REPO_ROOT / "hotelReservation" / "sandboxing" / "output" / "rate-investigation"
-DATASET_OTHERS = REPO_ROOT / "graphAnalysis" / "dataset_others.csv"
+DEFAULT_OUTPUT_DIR = REPO_ROOT / "artifacts" / "experiments" / "rate-investigation"
+DATASET_OTHERS = REPO_ROOT / "data" / "measurements" / "dataset_others.csv"
 RATE_LABEL = "io.kompose.service=rate"
 RATE_DEPLOYMENT = "rate"
 RATE_CONTAINER = "hotel-reserv-rate"

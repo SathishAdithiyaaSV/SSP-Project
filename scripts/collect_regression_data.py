@@ -3,16 +3,17 @@
 Collect MSC measurements across multiple CPU/replica configurations
 for all leaf Hotel Reservation services.
 
-Run from the DeathStarBench repo root:
-    python3 collect_regression_data.py
+Run from the repository root:
+    python3 scripts/collect_regression_data.py
 
-Results are appended to sandboxing/output/regression/dataset.csv
+Results are appended to artifacts/experiments/leaf-regression/dataset.csv.
 Each service is restored to its original resource config after each run.
 """
 from __future__ import annotations
 
 import csv
 import json
+import os
 import subprocess
 import sys
 import time
@@ -24,11 +25,15 @@ from typing import Any, Dict, List, Optional
 # Configuration
 # ---------------------------------------------------------------------------
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 # Resource configurations to test per service
-CPU_CONFIGS_MILLICORES = [150]
-REPLICA_CONFIGS = [1,2]
+CPU_CONFIGS_MILLICORES = [
+    int(value) for value in os.environ.get("LEAF_CPU_CONFIGS", "100,200,500").split(",")
+]
+REPLICA_CONFIGS = [
+    int(value) for value in os.environ.get("LEAF_REPLICA_CONFIGS", "1,2,3").split(",")
+]
 
 # Load test parameters
 START_RPS = 10
@@ -61,7 +66,7 @@ CONTAINER_NAMES: Dict[str, str] = {
 }
 
 NAMESPACE = "default"
-OUTPUT_DIR = Path("sandboxing/output/validation_150")
+OUTPUT_DIR = REPO_ROOT / "artifacts" / "experiments" / "leaf-regression"
 DATASET_PATH = OUTPUT_DIR / "dataset.csv"
 RESULTS_DIR = OUTPUT_DIR / "results"
 

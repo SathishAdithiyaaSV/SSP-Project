@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 PYTHON_BIN="${PYTHON_BIN:-python3}"
@@ -11,7 +11,7 @@ SEARCH_REPLICA_CONFIGS="${SEARCH_REPLICA_CONFIGS:-1,2,3}"
 SEARCH_SKIP_CAPTURE="${SEARCH_SKIP_CAPTURE:-1}"
 
 echo "Running leaf regression collection..."
-"$PYTHON_BIN" collect_regression_data.py
+"$PYTHON_BIN" scripts/collect_regression_data.py
 
 echo "Running search regression sweep..."
 search_cmd=(

@@ -8,7 +8,7 @@
   "replicas": 1,
   "slo": {
     "success_rate_threshold": 0.99,
-    "p90_latency_ms": 100
+    "p90_latency_ms": 10
   },
   "load": {
     "start_rps": 1,
@@ -20,5 +20,5 @@
     "warmup_requests": 30,
     "frontend_base_url": "http://127.0.0.1:8080"
   },
-  "output_dir": "sandboxing/output/search"
+  "output_dir": "artifacts/experiments/search"
 }
